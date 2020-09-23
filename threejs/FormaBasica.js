@@ -59,7 +59,7 @@ function loadScene() {
 	// Objeto contenedor
 	esferacubo = new THREE.Object3D();
 	esferacubo.position.y = 0.5;
-	esferacubo.rotacion.y = angulo;
+	esferacubo.rotation.y = angulo;
 
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
