@@ -15,20 +15,19 @@ function main()
     }
 
     // Get shader elements
-    var VSHADER_SOURCE = document.getElementById("VertexShader");
-    var FSHADER_SOURCE = document.getElementById("FragmentShader");
-    if (VSHADER_SOURCE != null || FSHADER_SOURCE != null)
+    var vShaderElement = document.getElementById("VertexShader");
+    var fShaderElement = document.getElementById("FragmentShader");
+    if (vShaderElement != null || fShaderElement != null)
     {
         console.log("Failed to get the shader element");
     }
 
     // Get shader source
-    loadShaderFile(gl, "shaders/vsPuntos.glsl", gl.VERTEX_SHADER);
-    loadShaderFile(gl, "shaders/fsColor.glsl", gl.FRAGMENT_SHADER);
-
+    var vShaderSource = vShaderElement.firstChild.textContent;
+    var fShaderSource = fShaderElement.firstChild.textContent;
 
     // Initialize shaders
-    if (!initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE))
+    if (!initShaders(gl, vShaderSource, fShaderSource))
     {
         console.log('Failed to intialize shaders.');
         return;
@@ -77,3 +76,4 @@ function click(ev, gl, canvas, a_Position)
         gl.drawArrays(gl.POINTS, 0, 1);
     }
 }
+
