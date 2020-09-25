@@ -66,10 +66,6 @@ function loadMesh() {
 	paraguas.rotation.x = Math.PI/6;
 
 	scene.add(paraguas); 
-
-
-
-
 }
 
 function loadScene() {
@@ -113,11 +109,18 @@ function loadScene() {
 	scene.add( new THREE.AxisHelper(3));*/
 }
 
+var antes = Date.now();
+
 function update() {
 
 	// Variacion de la escena entre frames
-	/*angulo += Math.PI/100;
-	esferacubo.rotation.y = angulo;*/
+	var ahora = Date.now();
+	angulo += Math.PI/30 * (ahora - antes/1000);
+	antes = ahora;
+	paraguas.rotation.y = angulo;
+
+	/*angulo += Math.PI/100;*/
+	/*esferacubo.rotation.y = angulo;*/
 }
 
 function render() {
