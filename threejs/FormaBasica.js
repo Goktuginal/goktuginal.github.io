@@ -39,7 +39,7 @@ function init() {
 function loadScene() {
 	
 	var geometria = new THREE.TetrahedronGeometry();
-	var metarial = new THREE.MeshBasicMaterial({color: yellow, wireframe: true});
+	var metarial = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 	var tetraedro = new THREE.Mesh(geometria, metarial);
 	scene.add(tetraedro);
 
