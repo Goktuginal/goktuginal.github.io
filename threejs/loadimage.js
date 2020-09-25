@@ -76,6 +76,7 @@ function loadMesh() {
 				bevelSegments: 0
 			});
 	});
+	scene.add(geometry);
 }
 
 function update() {
