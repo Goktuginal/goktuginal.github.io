@@ -75,9 +75,13 @@ function loadMesh() {
 		bevelSize: 8,
 		bevelOffset: 0,
 		bevelSegments: 5
-
-	scene.add(font);
 	} );
+	var textMaterial = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
+
+    var mesh = new THREE.Mesh( geometry, textMaterial );
+    mesh.position.set( x, y, z );
+
+    scene.add( mesh );
 } );
 }
 
