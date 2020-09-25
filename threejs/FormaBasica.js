@@ -66,6 +66,29 @@ function loadMesh() {
 	paraguas.rotation.x = Math.PI/6;
 
 	scene.add(paraguas); 
+
+	var pointLight = new THREE.pointLight(0xFFFFFF, 0.9);
+	pointLight.position.set(1, 3, 1);
+	scene.add(pointLight, 2);
+	var loader = new THREE.ObjectLoader();
+	loader.load('models/soldado.json', 
+				function(obj) 
+				{ 
+					var tx = new THREE.ImageUtils.loadTexture('models/soldado.png');
+					tx.minFilter = tx.magFilter = THREE.LinearFilter;
+					obj.traverse(function(child)
+								{
+									if (child instanceof THREE.Mesh) {
+										child.material.setValues({color: 'white', emissive: 0x444444, map: tx});
+									}
+								}
+							);
+					obj.name = 'soldado';
+					obj.position.set(0, -1, 0);
+					scene.add(obj);
+				}
+				);
+	scene.add(new THREE.AxisHelper(1));
 }
 
 function loadScene() {
