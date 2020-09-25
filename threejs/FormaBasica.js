@@ -71,10 +71,10 @@ function loadMesh() {
 	pointLight.position.set(1, 3, 1);
 	scene.add(pointLight, 2);
 	var loader = new THREE.ObjectLoader();
-	loader.load('models/soldado.json', 
+	loader.load('models/soldado/soldado.json', 
 				function(obj) 
 				{ 
-					var tx = new THREE.ImageUtils.loadTexture('models/soldado.png');
+					var tx = new THREE.ImageUtils.loadTexture('models/soldado/soldado.png');
 					tx.minFilter = tx.magFilter = THREE.LinearFilter;
 					obj.traverse(function(child)
 								{
