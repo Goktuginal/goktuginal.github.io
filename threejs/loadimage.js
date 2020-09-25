@@ -77,7 +77,6 @@ function loadMesh() {
 			});
 			scene.add(font);
 	});
-	scene.add(geometry);
 }
 
 function update() {
