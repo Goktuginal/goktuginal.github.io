@@ -62,21 +62,21 @@ function loadMesh() {
 	scene.add(new THREE.AxisHelper(1));*/
 
 	var loader = new THREE.FontLoader();
-	loader.load('fonts/helvetiker_regular.typeface.json', function(font) {
 
-			var geometry = new THREE.TextGeometry('Hello three.js!', {
-				font: font,
-				size: 80,
-				height: 5,
-				curveSegments: 12,
-				bevelEnable: true,
-				bevelThickness: 10,
-				bevelSize: 8,
-				bevelOffset: 0,
-				bevelSegments: 0
-			});
-			scene.add(font);
-	});
+	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+	var geometry = new THREE.TextGeometry( 'Hello three.js!', {
+		font: font,
+		size: 80,
+		height: 5,
+		curveSegments: 12,
+		bevelEnabled: true,
+		bevelThickness: 10,
+		bevelSize: 8,
+		bevelOffset: 0,
+		bevelSegments: 5
+	} );
+} );
 }
 
 function update() {
