@@ -14,7 +14,6 @@ var esferaCubo, angulo = 0;
 
 // Acciones
 init();
-loadScene();
 loadMesh();
 render();
 
