@@ -67,7 +67,7 @@ function loadMesh() {
 
 	scene.add(paraguas); 
 
-	var pointLight = new THREE.pointLight(0xFFFFFF, 0.9);
+	var pointLight = new THREE.PointLight(0xFFFFFF, 0.9);
 	pointLight.position.set(1, 3, 1);
 	scene.add(pointLight, 2);
 	var loader = new THREE.ObjectLoader();
