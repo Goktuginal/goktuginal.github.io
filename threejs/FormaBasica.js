@@ -63,7 +63,7 @@ function loadMesh() {
 	paraguas.add(baston);
 	paraguas.add(mango);
 	paraguas.position.set(1.6, 0, 0);
-	paraguas.rotation.x = Math.PI/6;
+	paraguas.rotation.x = Math.PI/3;
 
 	scene.add(paraguas); 
 
