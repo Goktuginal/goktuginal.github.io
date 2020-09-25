@@ -38,7 +38,7 @@ function init() {
 
 function loadMesh() {
 
-	/*var pointLight = new THREE.PointLight(0xFFFFFF, 0.9);
+	var pointLight = new THREE.PointLight(0xFFFFFF, 0.9);
 	pointLight.position.set(1, 3, 1);
 	scene.add(pointLight, 2);
 	var loader = new THREE.ObjectLoader();
@@ -59,30 +59,7 @@ function loadMesh() {
 					scene.add(obj);
 				}
 				);
-	scene.add(new THREE.AxisHelper(1));*/
-
-	var loader = new THREE.FontLoader();
-
-	loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
-
-	var geometry = new THREE.TextGeometry( 'Hello three.js!', {
-		font: font,
-		size: 80,
-		height: 5,
-		curveSegments: 12,
-		bevelEnabled: true,
-		bevelThickness: 10,
-		bevelSize: 8,
-		bevelOffset: 0,
-		bevelSegments: 5
-	} );
-	var textMaterial = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
-
-    var mesh = new THREE.Mesh( geometry, textMaterial );
-    mesh.position.set( 0, 1, 0 );
-
-    scene.add( mesh );
-} );
+	scene.add(new THREE.AxisHelper(1));
 }
 
 function update() {
