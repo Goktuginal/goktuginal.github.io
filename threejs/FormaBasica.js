@@ -56,7 +56,7 @@ function loadMesh() {
 
 	var mango = new THREE.Mesh(new 	THREE.CubeGeometry(1, 1, 1), metarial);
 	mango.scale.set(0.2, 0.4, 0.2);
-	mango.positon.set(0, -1, 0);
+	mango.position.set(0, -1, 0);
 
 	paraguas = new THREE.Object3D();
 	paraguas.add(tela);
