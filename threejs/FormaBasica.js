@@ -55,15 +55,15 @@ function loadMesh() {
 	baston.scale.set(0.05, 3, 0.05);
 
 	var mango = new THREE.Mesh(new 	THREE.CubeGeometry(1, 1, 1), metarial);
-	mango.scale.set(0.2, 0.4, 0.2);
-	mango.position.set(0, -1, 0);
+	mango.scale.set(0.2, 0.8, 0.2);
+	mango.position.set(0, -2, 0);
 
 	paraguas = new THREE.Object3D();
 	paraguas.add(tela);
 	paraguas.add(baston);
 	paraguas.add(mango);
 	paraguas.position.set(1.6, 0, 0);
-	paraguas.rotation.x = Math.PI/3;
+	paraguas.rotation.x = Math.PI/6;
 
 	scene.add(paraguas); 
 
