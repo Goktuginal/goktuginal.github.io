@@ -75,6 +75,8 @@ function loadMesh() {
 		bevelSize: 8,
 		bevelOffset: 0,
 		bevelSegments: 5
+
+	scene.add(font);
 	} );
 } );
 }
