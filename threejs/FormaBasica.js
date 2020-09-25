@@ -109,21 +109,20 @@ function loadScene() {
 	scene.add( new THREE.AxisHelper(3));*/
 }
 
-/*var antes = Date.now();
-*/
+var antes = Date.now();
+
 function update() {
 
 	// Variacion de la escena entre frames
-	/*var ahora = Date.now();
+	var ahora = Date.now();
 	angulo += Math.PI/30 * (ahora - antes/1000);
 	antes = ahora;
-	paraguas.rotation.y = angulo;*/
-
-	angulo += Math.PI/100;
 	paraguas.rotation.y = angulo;
 
-/*	esferacubo.rotation.y = angulo;
-*/}
+/*	angulo += Math.PI/100;
+*//*	esferacubo.rotation.y = angulo;
+*/
+}
 
 function render() {
 	
