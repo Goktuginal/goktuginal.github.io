@@ -79,7 +79,7 @@ function loadMesh() {
 					obj.traverse(function(child)
 								{
 									if (child instanceof THREE.Mesh) {
-										child.material.setValues({color: 'white', emissive: 0x444444, map: tx});
+										child.material.setValues({color: 'black', emissive: 0x444444, map: tx});
 									}
 								}
 							);
