@@ -79,7 +79,7 @@ function loadMesh() {
 	var textMaterial = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
 
     var mesh = new THREE.Mesh( geometry, textMaterial );
-    mesh.position.set( x, y, z );
+    mesh.position.set( 0, 1, 0 );
 
     scene.add( mesh );
 } );
