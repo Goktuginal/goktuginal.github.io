@@ -63,7 +63,7 @@ function loadScene() {
 
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
-	loader.load('models/soldado/soldado.json', 
+	loader.load('models/draco/bunny.drc', 
 				function(obj){
 					obj.position.set(0, 1, 0);
 					cubo.add(obj);
