@@ -78,7 +78,7 @@ function loadScene() {
     var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
     cubo = new THREE.Mesh(malla, material);
 
-    secene.add(cubo);
+    scene.add(cubo);
 
 	// Construir el grafo de escena
 
