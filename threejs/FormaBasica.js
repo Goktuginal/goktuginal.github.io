@@ -44,8 +44,8 @@ function loadScene() {
 	var cubo = new THREE.Mesh(gc, material);
 	var esfera = new THREE.Mesh(ge, material);
 	var ec = new THREE.Object3D();
-	ec.add(cubo);
 	ec.add(esfera);
+	ec.add(cubo);
 	scene.add(ec);
 
 	// Construir el grafo de escena
