@@ -38,12 +38,15 @@ function init() {
 
 function loadScene() {
 	
-	var geometria = new THREE.TetrahedronGeometry();
-	var metarial = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
-	var tetraedro = new THREE.Mesh(geometria, metarial);
-	scene.add(tetraedro);
-
-
+	var gc = new THREE.CubeGeometry(2,2,2);
+	var ge = new THREE.SphereGeometry(1);
+	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
+	var cubo = new THREE.Mesh(gc, material);
+	var esfera = new THREE.Mesh(ge, material);
+	var ec = new THREE.Object3D();
+	ec.add(esfera);
+	ec.add(cubo);
+	scene.add(ec);
 
 	// Construir el grafo de escena
 
