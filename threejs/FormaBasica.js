@@ -15,6 +15,7 @@ var esferaCubo, angulo = 0;
 // Acciones
 init();
 loadScene();
+loadMesh();
 render();
 
 function init() {
@@ -36,49 +37,42 @@ function init() {
 	camera.lookAt(new THREE.Vector3(0, 2, 0));
 }
 
+function loadMesh() {
+
+	var metarial = new THREE.MeshBasicMaterial({color: 'red', wireframe: true});
+	var ms = new THREE.Matrix4();
+	var mt = new THREE.Matrix4();
+
+	var tela = new THREE.Mesh(new THREE.CylinderGeometry(0.0, 1.0, 1.0), metarial);
+	tela.matrixAutoUpdate = false;
+	mt.makeTranslation(0, 1.5, 0);
+	ms.makeScale(2, 0.5, 2);
+
+	tela.matrix = mt.multiply(ms);
+
+	var baston = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 1), metarial);
+	baston.position.y = 0.5;
+	baston.scale.set(0.05, 3, 0.05);
+
+	var mango = new THREE.Mesh(new 	THREE.CubeGeometry(1, 1, 1), metarial);
+	mango.scale.set(0.2, 0.4, 0.2);
+	mango.positon.set(0, -1, 0);
+
+	paraguas = new THREE.Object3D();
+	paraguas.add(tela);
+	paraguas.add(baston);
+	paraguas.add(mango);
+	paraguas.position.set(1.6, 0, 0);
+	paraguas.rotation.x = Math.PI/6;
+
+	scene.add(paraguas); 
+
+
+
+
+}
+
 function loadScene() {
-	
-	var malla = new THREE.Geometry();
-	var semilado = 16.0/2.0;
-	var coordenadas = [
-					semilado,  -semilado,  semilado,
-					semilado,  -semilado, -semilado,
-					semilado,   semilado, -semilado,
-					semilado,   semilado,  semilado,
-					-semilado,  semilado,  semilado,
-					-semilado,  semilado, -semilado,
-					-semilado, -semilado, -semilado,
-					-semilado, -semilado,  semilado		];
-
-	var colores = [
-				0xFF0000,
-				0xFF00FF,
-				0xFFFFFF,
-				0xFFFF00,
-				0x00FF00,
-				0x00FFFF,
-				0x0000FF,
-				0x000000	];
-
-	var indices = [
-				0,3,7, 7,3,4, 0,1,2,
-				0,2,3, 4,3,2, 4,2,5,
-				6,7,4, 6,4,5, 1,5,2,
-				1,6,5, 7,6,1, ,7,1,0	];
-
-    for (var i = 0; i < indices.length; i+=3) {
-    	var triangulo = new THREE.Face3(indices[i], indices[i+1], indices[i+2]);
-    	for (var j = 0; j < 3; j++) {
-    		var color = new THREE.Color(colores[indices[i+j]]);
-    		triangulo.vertexColors.push(color);
-    	}
-    	malla.faces.push(triangulo);
-    }
-
-    var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
-    cubo = new THREE.Mesh(malla, material);
-
-    scene.add(cubo);
 
 	// Construir el grafo de escena
 
