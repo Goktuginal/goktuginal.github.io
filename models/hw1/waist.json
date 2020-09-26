@@ -1,0 +1,48 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "ED15BD94-AAB2-4254-852F-A002B1CEC00E",
+			"type": "CylinderBufferGeometry",
+			"radiusTop": 0.22,
+			"radiusBottom": 0.22,
+			"height": 0.06,
+			"radialSegments": 8,
+			"heightSegments": 1,
+			"openEnded": false
+		}],
+	"materials": [
+		{
+			"uuid": "FA70AEE5-1F9D-4BA0-A673-B5F64E23FAF1",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 1,
+			"metalness": 0,
+			"emissive": 16774912,
+			"opacity": 0.5,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		}],
+	"object": {
+		"uuid": "2921B193-321A-4E7B-9447-B8425DC5A996",
+		"type": "Mesh",
+		"name": "Cylinder",
+		"layers": 1,
+		"matrix": [0.707107,0,-0.707107,0,0,1,0,0,0.707107,0,0.707107,0,0,1.168678,0,1],
+		"geometry": "ED15BD94-AAB2-4254-852F-A002B1CEC00E",
+		"material": "FA70AEE5-1F9D-4BA0-A673-B5F64E23FAF1"
+	}
+}

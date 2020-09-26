@@ -1,0 +1,48 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "BD5C863D-2267-4441-B2B0-DC0565D916F6",
+			"type": "BoxBufferGeometry",
+			"width": 0.25,
+			"height": 0.1,
+			"depth": 0.1,
+			"widthSegments": 1,
+			"heightSegments": 1,
+			"depthSegments": 1
+		}],
+	"materials": [
+		{
+			"uuid": "B1DFB9C2-240F-48E0-9AAE-1D6F7A9895B2",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 1,
+			"metalness": 0,
+			"emissive": 0,
+			"opacity": 0.5,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		}],
+	"object": {
+		"uuid": "0A783AD8-26C0-4479-9BEC-08CFA1CA0AE7",
+		"type": "Mesh",
+		"name": "Box",
+		"layers": 1,
+		"matrix": [0.707107,0,-0.707107,0,0,1,0,0,0.707107,0,0.707107,0,0,1.165622,0,1],
+		"geometry": "BD5C863D-2267-4441-B2B0-DC0565D916F6",
+		"material": "B1DFB9C2-240F-48E0-9AAE-1D6F7A9895B2"
+	}
+}
