@@ -53,7 +53,7 @@ function loadScene() {
 	robot = new THREE.Object3D();
 	robot.position.y = 0;
 	brazo = new THREE.Object3D();
-	brazo.position.y = 0;
+	brazo.position.y = 0.5;
 
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
@@ -71,7 +71,7 @@ function loadScene() {
 	var loader = new THREE.ObjectLoader();
 	loader.load('models/hw1/cylinder.json', 
 				function(esparrago){
-					esparrago.position.set(0, 0, 0);
+					esparrago.position.set(0, 1, 0);
 					brazo.add(base);
 	});
 	var loader = new THREE.ObjectLoader();
