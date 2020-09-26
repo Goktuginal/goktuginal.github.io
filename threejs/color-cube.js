@@ -1,4 +1,3 @@
-import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/build/three.module.js';
 
 // Variables de consenso
 // Motor, escena y la camara
