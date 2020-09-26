@@ -63,7 +63,7 @@ function loadScene() {
 
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
-	loader.load('models/hw1/transformedcylinder.json', 
+	loader.load('models/hw1/scene.json', 
 				function(obj){
 					obj.position.set(0, 1, 0);
 					cubo.add(obj);
@@ -72,7 +72,7 @@ function loadScene() {
 	//Organizacion de la escena
 	esferacubo.add(cubo);
 	cubo.add(new THREE.AxisHelper(1));
-	esferacubo.add(esfera);
+	//esferacubo.add(esfera);
 	scene.add(esferacubo);
 	scene.add( new THREE.AxisHelper(3));
 }

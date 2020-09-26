@@ -1,0 +1,85 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "0546B954-DDD2-4CED-BF15-A96658476427",
+			"type": "DodecahedronBufferGeometry",
+			"radius": 1,
+			"detail": 0
+		},
+		{
+			"uuid": "9BEEB597-6695-421A-9260-C3C4A9A7030A",
+			"type": "OctahedronBufferGeometry",
+			"radius": 1,
+			"detail": 0
+		}],
+	"materials": [
+		{
+			"uuid": "A2609110-2746-4723-A4B3-C9A1F97A43FF",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 1,
+			"metalness": 0,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		},
+		{
+			"uuid": "79628DF3-5FE0-42C9-8519-06F9C45167D2",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 1,
+			"metalness": 0,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		}],
+	"object": {
+		"uuid": "2D4FF0AB-F840-46EA-9C1A-FA6FC070DFE5",
+		"type": "Scene",
+		"name": "Scene",
+		"layers": 1,
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+		"children": [
+			{
+				"uuid": "6E220369-2304-4D81-88AB-42E7AFCACF3E",
+				"type": "Mesh",
+				"name": "Dodecahedron",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+				"geometry": "0546B954-DDD2-4CED-BF15-A96658476427",
+				"material": "A2609110-2746-4723-A4B3-C9A1F97A43FF"
+			},
+			{
+				"uuid": "F1B09653-A75C-46D5-B8A9-4B5A7E406AB0",
+				"type": "Mesh",
+				"name": "Octahedron",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,2.177281,0.198108,0.149474,1],
+				"geometry": "9BEEB597-6695-421A-9260-C3C4A9A7030A",
+				"material": "79628DF3-5FE0-42C9-8519-06F9C45167D2"
+			}]
+	}
+}
