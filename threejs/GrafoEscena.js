@@ -102,21 +102,10 @@ function loadScene() {
 					head.position.set(0, 1.9, 0);
 					antebrazo.add(head);
 	});
-	var loader_7 = new THREE.ObjectLoader();
-	loader_7.load('models/hw1/.json', 
-				function(head){
-					head.position.set(0, 1.9, 0);
-					antebrazo.add(head);
-	});
-	var loader_8 = new THREE.ObjectLoader();
-	loader_8.load('models/hw1/.json', 
-				function(head){
-					head.position.set(0, 1.9, 0);
-					antebrazo.add(head);
-	});
+	
 
 	//Organizacion de la escena
-	antebrazo.add(mano);
+	
 	brazo.add(antebrazo);
 	robot.add(brazo);
 	scene.add(robot);
