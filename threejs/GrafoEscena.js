@@ -82,44 +82,45 @@ function loadScene() {
 					rotula.position.set(0, 0, 0);
 					brazo.add(rotula);
 	});
-	var loader_3 = new THREE.ObjectLoader();
-	loader_3.load('models/hw1/waist.json', 
+	var loader_4 = new THREE.ObjectLoader();
+	loader_4.load('models/hw1/waist.json', 
 				function(disco){
 					disco.position.set(0, 1.3, 0);
 					antebrazo.add(disco);
 	});
-	var loader_3 = new THREE.ObjectLoader();
-	loader_3.load('models/hw1/bone1.json', 
+	var loader_5 = new THREE.ObjectLoader();
+	loader_5.load('models/hw1/bone1.json', 
 				function(bone1){
 					bone1.position.set(0, 1.3, 0);
 					antebrazo.add(bone1);
 	});
-	var loader_3 = new THREE.ObjectLoader();
-	loader_3.load('models/hw1/bone2.json', 
+	var loader_6 = new THREE.ObjectLoader();
+	loader_6.load('models/hw1/bone2.json', 
 				function(bone2){
 					bone2.position.set(0, 1.3, 0);
 					antebrazo.add(bone2);
 	});
-	var loader_3 = new THREE.ObjectLoader();
-	loader_3.load('models/hw1/bone3.json', 
+	var loader_7 = new THREE.ObjectLoader();
+	loader_7.load('models/hw1/bone3.json', 
 				function(bone3){
 					bone3.position.set(0, 1.3, 0);
 					antebrazo.add(bone3);
 	});
-	var loader_3 = new THREE.ObjectLoader();
-	loader_3.load('models/hw1/bone4.json', 
+	var loader_8 = new THREE.ObjectLoader();
+	loader_8.load('models/hw1/bone4.json', 
 				function(bone4){
 					bone4.position.set(0, 1.3, 0);
 					antebrazo.add(bone4);
 	});
-	var loader_3 = new THREE.ObjectLoader();
-	loader_3.load('models/hw1/head.json', 
+	var loader_9 = new THREE.ObjectLoader();
+	loader_9.load('models/hw1/head.json', 
 				function(head){
 					head.position.set(0, 2.3, 0);
 					antebrazo.add(head);
 	});
 
 	//Organizacion de la escena
+	brazo.add(antebrazo);
 	robot.add(brazo);
 	scene.add(robot);
 	scene.add( new THREE.AxesHelper(3));
