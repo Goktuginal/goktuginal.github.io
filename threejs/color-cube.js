@@ -7,7 +7,7 @@ var renderer, scene, camera;
 
 // Acciones
 init();
-loadScene();
+loadMesh();
 render();
 
 function init() {
@@ -29,54 +29,22 @@ function init() {
 	camera.lookAt(new THREE.Vector3(0, 2, 0));
 }
 
-function loadScene() {
+function loadMesh() {
 	
-	var malla = new THREE.Geometry();
-	var semilado = 16.0/2.0;
-	var coordenadas = [
-					semilado,  -semilado,  semilado,
-					semilado,  -semilado, -semilado,
-					semilado,   semilado, -semilado,
-					semilado,   semilado,  semilado,
-					-semilado,  semilado,  semilado,
-					-semilado,  semilado, -semilado,
-					-semilado, -semilado, -semilado,
-					-semilado, -semilado,  semilado		];
+	var geometry = new THREE.Geometry();
+	geometry.vertices.push(
+		new THREE.Vector3(-10,  10, 0),
+		new THREE.Vector3(-10, -10, 0),
+		new THREE.Vector3( 10, -10, 0)
+		);
+	geometry.faces.push(new THREE.Face3(0, 1, 2));
 
-	var colores = [
-				0xFF0000,
-				0xFF00FF,
-				0xFFFFFF,
-				0xFFFF00,
-				0x00FF00,
-				0x00FFFF,
-				0x0000FF,
-				0x000000	];
 
-	var indices = [
-				0,3,7, 7,3,4, 0,1,2,
-				0,2,3, 4,3,2, 4,2,5,
-				6,7,4, 6,4,5, 1,5,2,
-				1,6,5, 7,6,1, ,7,1,0	];
+	var material = new THREE.MeshLambertMaterial({color: 'yellow'});
+    var mesh =new THREE.Mesh(geometry, material);
+    mesh.position.z = -1000;
 
-    for(var i = 0; i < coordenadas.length; i +=3) {
-    	var vertice = new THREE.Vector3(coordenadas[i], coordenadas[i+1], coordenadas[i+2]);
-    	malla.vertices.push(vertice);
-    }
-
-    for (var i = 0; i < indices.length; i+=3) {
-    	var triangulo = new THREE.Face3(indices[i], indices[i+1], indices[i+2]);
-    	for (var j = 0; j < 3; j++) {
-    		var color = new THREE.Color(colores[indices[i+j]]);
-    		triangulo.vertexColors.push(color);
-    	}
-    	malla.faces.push(triangulo);
-    }
-
-    var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
-    cubo = new THREE.Mesh(malla, material);
-
-    scene.add(cubo);
+    scene.add(mesh);
 }
 
 function update() {
