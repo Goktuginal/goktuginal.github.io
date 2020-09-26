@@ -14,7 +14,7 @@ var esferaCubo, angulo = 0;
 
 // Acciones
 init();
-//loadScene();
+loadScene();
 loadPinzas();
 render();
 
