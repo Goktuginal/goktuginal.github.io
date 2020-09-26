@@ -73,8 +73,6 @@ function loadScene() {
 
     scene.add(cubo);
 
-
-
 }
 
 function update() {
