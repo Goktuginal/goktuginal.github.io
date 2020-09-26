@@ -75,7 +75,7 @@ function loadScene() {
 	var loader_2 = new THREE.ObjectLoader();
 	loader_2.load('models/hw1/cylinder.json', 
 				function(esparrago){
-					esparrago.position.set(0, 0.6, 0);
+					esparrago.position.set(0, 0.5, 0);
 					brazo.add(esparrago);
 	});
 	var loader_3 = new THREE.ObjectLoader();
