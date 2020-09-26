@@ -66,19 +66,19 @@ function loadScene() {
 	loader.load('models/hw1/sphere.json', 
 				function(eje){
 					eje.position.set(0, 0, 0);
-					brazo.add(base);
+					brazo.add(eje);
 	});
 	var loader = new THREE.ObjectLoader();
 	loader.load('models/hw1/cylinder.json', 
 				function(esparrago){
 					esparrago.position.set(0, 1, 0);
-					brazo.add(base);
+					brazo.add(esparrago);
 	});
 	var loader = new THREE.ObjectLoader();
 	loader.load('models/hw1/wheel.json', 
 				function(rotula){
 					rotula.position.set(0, 0, 0);
-					brazo.add(base);
+					brazo.add(rotula);
 	});
 
 	//Organizacion de la escena
