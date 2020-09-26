@@ -89,33 +89,15 @@ function loadScene() {
 					antebrazo.add(disco);
 	});
 	var loader_5 = new THREE.ObjectLoader();
-	loader_5.load('models/hw1/bone1.json', 
-				function(bone1){
-					bone1.position.set(-0.1, 1.3, -0.1);
-					antebrazo.add(bone1);
+	loader_5.load('models/hw1/bone.json', 
+				function(bone){
+					bone.position.set(-0.1, 1.4, -0.1);
+					antebrazo.add(bone);
 	});
 	var loader_6 = new THREE.ObjectLoader();
-	loader_6.load('models/hw1/bone2.json', 
-				function(bone2){
-					bone2.position.set(0.1, 1.3, -0.1);
-					antebrazo.add(bone2);
-	});
-	var loader_7 = new THREE.ObjectLoader();
-	loader_7.load('models/hw1/bone3.json', 
-				function(bone3){
-					bone3.position.set(0.1, 1.3, 0.1);
-					antebrazo.add(bone3);
-	});
-	var loader_8 = new THREE.ObjectLoader();
-	loader_8.load('models/hw1/bone4.json', 
-				function(bone4){
-					bone4.position.set(0.1, 1.3, -0.1);
-					antebrazo.add(bone4);
-	});
-	var loader_9 = new THREE.ObjectLoader();
-	loader_9.load('models/hw1/head.json', 
+	loader_6.load('models/hw1/head.json', 
 				function(head){
-					head.position.set(0, 1.7, 0);
+					head.position.set(0, 1.9, 0);
 					antebrazo.add(head);
 	});
 
