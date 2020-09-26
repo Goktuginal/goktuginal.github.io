@@ -67,7 +67,7 @@ function loadScene() {
 	var loader_1 = new THREE.ObjectLoader();
 	loader_1.load('models/hw1/sphere.json', 
 				function(eje){
-					eje.position.set(0, 1.3, 0);
+					eje.position.set(0, 1.1, 0);
 					brazo.add(eje);
 	});
 	var loader_2 = new THREE.ObjectLoader();
@@ -85,7 +85,7 @@ function loadScene() {
 	var loader_4 = new THREE.ObjectLoader();
 	loader_4.load('models/hw1/waist.json', 
 				function(disco){
-					disco.position.set(0, 1.3, 0);
+					disco.position.set(0, 1.1, 0);
 					antebrazo.add(disco);
 	});
 	var loader_5 = new THREE.ObjectLoader();
