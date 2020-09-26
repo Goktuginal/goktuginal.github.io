@@ -93,7 +93,7 @@ function loadScene() {
 	var loader_5 = new THREE.ObjectLoader();
 	loader_5.load('models/hw1/bone.json', 
 				function(bone){
-					bone.position.set(-0.1, 1.6, -0.1);
+					bone.position.set(-0.1, 1.5, -0.1);
 					antebrazo.add(bone);
 	});
 	var loader_6 = new THREE.ObjectLoader();
