@@ -52,6 +52,8 @@ function loadScene() {
 	// Objeto contenedor
 	robot = new THREE.Object3D();
 	robot.position.y = 0;
+	brazo = new THREE.Object3D();
+	brazo.position.y = 0;
 
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
@@ -60,8 +62,27 @@ function loadScene() {
 					base.position.set(0, 0, 0);
 					robot.add(base);
 	});
+	var loader = new THREE.ObjectLoader();
+	loader.load('models/hw1/sphere.json', 
+				function(eje){
+					eje.position.set(0, 0, 0);
+					brazo.add(base);
+	});
+	var loader = new THREE.ObjectLoader();
+	loader.load('models/hw1/cylinder.json', 
+				function(esparrago){
+					esparrago.position.set(0, 0, 0);
+					brazo.add(base);
+	});
+	var loader = new THREE.ObjectLoader();
+	loader.load('models/hw1/wheel.json', 
+				function(rotula){
+					rotula.position.set(0, 0, 0);
+					brazo.add(base);
+	});
 
 	//Organizacion de la escena
+	robot.add(brazo);
 	scene.add(robot);
 	scene.add( new THREE.AxisHelper(3));
 }
