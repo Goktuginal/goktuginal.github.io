@@ -41,48 +41,35 @@ function loadScene() {
 	// Construir el grafo de escena
 
 	// Materiales
-	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
+
 
 	// Geometrias
-	var geocubo = new THREE.BoxGeometry(2, 2, 2);
-	var geoesfera = new THREE.SphereGeometry(1, 30, 30);
 
 	// Objetos
-	var cubo = new THREE.Mesh(geocubo, material);
 
 	// Orden de las transformaciones TRS
-	cubo.rotation.y = Math.PI/4;
-	cubo.position.x = -1;
-	var esfera = new THREE.Mesh(geoesfera, material);
-	esfera.position.x = 1;
 
 	// Objeto contenedor
-	esferacubo = new THREE.Object3D();
-	esferacubo.position.y = 0.5;
-	esferacubo.rotation.y = angulo;
+	robot = new THREE.Object3D();
+	robot.position.y = 0.5;
 
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
-	loader.load('models/soldado/soldado.json', 
+	loader.load('models/hw1/ground.json', 
 				function(obj){
 					obj.position.set(0, 1, 0);
-					cubo.add(obj);
+					robot.add(obj);
 	});
 
 	//Organizacion de la escena
-	esferacubo.add(cubo);
-	cubo.add(new THREE.AxisHelper(1));
-	esferacubo.add(esfera);
-	scene.add(esferacubo);
+	scene.add(robot);
 	scene.add( new THREE.AxisHelper(3));
 }
 
 function update() {
 
 	// Variacion de la escena entre frames
-	angulo += Math.PI/100;
-	esferacubo.rotation.y = angulo;
-
+	
 }
 
 function render() {
