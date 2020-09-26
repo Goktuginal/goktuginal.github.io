@@ -57,7 +57,7 @@ function loadScene() {
 	var loader = new THREE.ObjectLoader();
 	loader.load('models/hw1/ground.json', 
 				function(obj){
-					obj.position.set(0, 1, 0);
+					obj.position.set(0, 0, 0);
 					robot.add(obj);
 	});
 
