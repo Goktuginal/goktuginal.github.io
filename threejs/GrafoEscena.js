@@ -51,7 +51,7 @@ function loadScene() {
 
 	// Objeto contenedor
 	robot = new THREE.Object3D();
-	robot.position.y = 0.5;
+	robot.position.y = 0;
 
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
