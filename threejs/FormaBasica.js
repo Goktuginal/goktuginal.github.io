@@ -63,7 +63,7 @@ function loadScene() {
 
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
-	loader.load('models/hw1/bone1.json', 
+	loader.load('models/hw1/ground.json', 
 				function(obj){
 					obj.position.set(0, 1, 0);
 					cubo.add(obj);
@@ -80,8 +80,8 @@ function loadScene() {
 function update() {
 
 	// Variacion de la escena entre frames
-	/*angulo += Math.PI/100;
-	esferacubo.rotation.y = angulo;*/
+	angulo += Math.PI/100;
+	esferacubo.rotation.y = angulo;
 
 }
 
