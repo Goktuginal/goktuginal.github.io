@@ -56,9 +56,9 @@ function loadScene() {
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
 	loader.load('models/hw1/ground.json', 
-				function(obj){
-					obj.position.set(0, 0, 0);
-					robot.add(obj);
+				function(base){
+					base.position.set(0, 0, 0);
+					robot.add(base);
 	});
 
 	//Organizacion de la escena
