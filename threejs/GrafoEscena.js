@@ -62,20 +62,20 @@ function loadScene() {
 					base.position.set(0, 0, 0);
 					robot.add(base);
 	});
-	var loader = new THREE.ObjectLoader();
-	loader.load('models/hw1/sphere.json', 
+	var loader_1 = new THREE.ObjectLoader();
+	loader_1.load('models/hw1/sphere.json', 
 				function(eje){
 					eje.position.set(0, 0, 0);
 					brazo.add(eje);
 	});
-	var loader = new THREE.ObjectLoader();
-	loader.load('models/hw1/cylinder.json', 
+	var loader_2 = new THREE.ObjectLoader();
+	loader_2.load('models/hw1/cylinder.json', 
 				function(esparrago){
-					esparrago.position.set(0, 0, 0);
+					esparrago.position.set(0, 0.5, 0);
 					brazo.add(esparrago);
 	});
-	var loader = new THREE.ObjectLoader();
-	loader.load('models/hw1/wheel.json', 
+	var loader_3 = new THREE.ObjectLoader();
+	loader_3.load('models/hw1/wheel.json', 
 				function(rotula){
 					rotula.position.set(0, 0, 0);
 					brazo.add(rotula);
