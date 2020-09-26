@@ -15,6 +15,7 @@ var esferaCubo, angulo = 0;
 // Acciones
 init();
 loadScene();
+loadPinzas();
 render();
 
 function init() {
@@ -34,6 +35,51 @@ function init() {
 	scene.add(camera);
 	camera.position.set(0.5, 3, 9);
 	camera.lookAt(new THREE.Vector3(0, 2, 0));
+}
+
+function loadPinzas() {
+
+	var malla = new THREE.Geometry();
+	var semilado = 2;
+	var coordenadas = [
+					semilado,  -semilado,  semilado,
+					semilado,  -semilado, -semilado,
+					semilado,   semilado, -semilado,
+					semilado,   semilado,  semilado,
+					-semilado,  semilado,  semilado,
+					-semilado,  semilado, -semilado,
+					-semilado, -semilado, -semilado,
+					-semilado, -semilado,  semilado		];
+
+	var colores = [
+				0xFF0000,
+				0xFF00FF,
+				0xFFFFFF,
+				0xFFFF00,
+				0x00FF00,
+				0x00FFFF,
+				0x0000FF,
+				0x000000	];
+
+	var indices = [
+				0,3,7, 7,3,4, 0,1,2,
+				0,2,3, 4,3,2, 4,2,5,
+				6,7,4, 6,4,5, 1,5,2,
+				1,6,5, 7,6,1, ,7,1,0	];
+
+    for (var i = 0; i < indices.length; i+=3) {
+    	var triangulo = new THREE.Face3(indices[i], indices[i+1], indices[i+2]);
+    	for (var j = 0; j < 3; j++) {
+    		var color = new THREE.Color(colores[indices[i+j]]);
+    		triangulo.vertexColors.push(color);
+    	}
+    	malla.faces.push(triangulo);
+    }
+
+    var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
+    cubo = new THREE.Mesh(malla, material);
+
+    scene.add(cubo);
 }
 
 function loadScene() {
