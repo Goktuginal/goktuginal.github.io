@@ -1,3 +1,5 @@
+import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/build/three.module.js';
+
 // Variables de consenso
 // Motor, escena y la camara
 var renderer, scene, camera;
@@ -32,48 +34,50 @@ function init() {
 function loadScene() {
 	
 	var malla = new THREE.Geometry();
-	var semilado = 16.0/2.0;
-	var coordenadas = [
-					semilado,  -semilado,  semilado,
-					semilado,  -semilado, -semilado,
-					semilado,   semilado, -semilado,
-					semilado,   semilado,  semilado,
-					-semilado,  semilado,  semilado,
-					-semilado,  semilado, -semilado,
-					-semilado, -semilado, -semilado,
-					-semilado, -semilado,  semilado		];
+	malla.vertices.push(
+		new THREE.Vector3(-1, -1,  1), //0
+		new THREE.Vector3( 1, -1,  1), //1
+		new THREE.Vector3(-1,  1,  1), //2
+		new THREE.Vector3( 1,  1,  1), //3
+		new THREE.Vector3(-1, -1, -1), //4
+		new THREE.Vector3( 1, -1, -1), //5
+		new THREE.Vector3(-1,  1, -1), //6
+		new THREE.Vector3(-1,  1, -1), //7
+		);
 
-	var colores = [
-				0xFF0000,
-				0xFF00FF,
-				0xFFFFFF,
-				0xFFFF00,
-				0x00FF00,
-				0x00FFFF,
-				0x0000FF,
-				0x000000	];
-
-	var indices = [
-				0,3,7, 7,3,4, 0,1,2,
-				0,2,3, 4,3,2, 4,2,5,
-				6,7,4, 6,4,5, 1,5,2,
-				1,6,5, 7,6,1, ,7,1,0	];
-
-    for (var i = 0; i < indices.length; i+=3) {
-    	var triangulo = new THREE.Face3(indices[i], indices[i+1], indices[i+2]);
-    	for (var j = 0; j < 3; j++) {
-    		var color = new THREE.Color(colores[indices[i+j]]);
-    		triangulo.vertexColors.push(color);
-    	}
-    	malla.faces.push(triangulo);
-    }
-
-    var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
-    cubo = new THREE.Mesh(malla, material);
-
-    scene.add(cubo);
-
+	malla.faces.push(
+		// front
+		new THREE.Face3(0, 3, 2),
+		new THREE.Face3(0, 1, 3),
+		// right
+		new THREE.Face3(1, 7, 3),
+		new THREE.Face3(1, 5, 7),
+		// back
+		new THREE.Face3(5, 6, 7),
+		new THREE.Face3(5, 4, 6),
+		// left
+		new THREE.Face3(4, 2, 6),
+		new THREE.Face3(4, 0, 2),
+		// top
+		new THREE.Face3(2, 7, 6),
+		new THREE.Face3(2, 3, 7),
+		// bottom
+		new THREE.Face3(4, 1, 0),
+		new THREE.Face3(4, 5, 1),
+		);
 }
+
+function makeInstance(geometry, color, x) {
+    const material = new THREE.MeshBasicMaterial({color});
+
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    cube.position.x = x;
+    return cube;
+  }
+
+ var cubes = makeInstance(geometry, 0x44FF44,  0);
 
 function update() {
 
