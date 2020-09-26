@@ -56,7 +56,9 @@ function loadScene() {
 	brazo.position.y = 0;
 	antebrazo = new THREE.Object3D();
 	antebrazo.position.y = 0;
-	
+	mano = new THREE.Object3D();
+	mano.position.y = 0;
+
 	// Modelo externo
 	var loader = new THREE.ObjectLoader();
 	loader.load('models/hw1/ground.json', 
@@ -73,7 +75,7 @@ function loadScene() {
 	var loader_2 = new THREE.ObjectLoader();
 	loader_2.load('models/hw1/cylinder.json', 
 				function(esparrago){
-					esparrago.position.set(0, 0.5, 0);
+					esparrago.position.set(0, 0.6, 0);
 					brazo.add(esparrago);
 	});
 	var loader_3 = new THREE.ObjectLoader();
@@ -100,8 +102,21 @@ function loadScene() {
 					head.position.set(0, 1.9, 0);
 					antebrazo.add(head);
 	});
+	var loader_7 = new THREE.ObjectLoader();
+	loader_7.load('models/hw1/.json', 
+				function(head){
+					head.position.set(0, 1.9, 0);
+					antebrazo.add(head);
+	});
+	var loader_8 = new THREE.ObjectLoader();
+	loader_8.load('models/hw1/.json', 
+				function(head){
+					head.position.set(0, 1.9, 0);
+					antebrazo.add(head);
+	});
 
 	//Organizacion de la escena
+	antebrazo.add(mano);
 	brazo.add(antebrazo);
 	robot.add(brazo);
 	scene.add(robot);
