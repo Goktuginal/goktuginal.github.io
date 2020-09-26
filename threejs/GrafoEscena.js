@@ -65,7 +65,7 @@ function loadScene() {
 	var loader_1 = new THREE.ObjectLoader();
 	loader_1.load('models/hw1/sphere.json', 
 				function(eje){
-					eje.position.set(0, 0, 0);
+					eje.position.set(0, 1, 0);
 					brazo.add(eje);
 	});
 	var loader_2 = new THREE.ObjectLoader();
