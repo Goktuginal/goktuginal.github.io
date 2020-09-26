@@ -14,7 +14,7 @@ var esferaCubo, angulo = 0;
 
 // Acciones
 init();
-loadScene();
+//loadScene();
 loadPinzas();
 render();
 
@@ -85,15 +85,6 @@ function loadPinzas() {
 function loadScene() {
 
 	// Construir el grafo de escena
-
-	// Materiales
-
-
-	// Geometrias
-
-	// Objetos
-
-	// Orden de las transformaciones TRS
 
 	// Objeto contenedor
 	robot = new THREE.Object3D();
