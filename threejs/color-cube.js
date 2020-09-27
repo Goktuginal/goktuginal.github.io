@@ -69,11 +69,11 @@ function loadMesh() {
 		var triangulo = new THREE.Face3(indices[i], indices[i+1], indices[i+2]);
 		for(var j = 0; j < 3; j++) {
 			var color = new THREE.Color(colores[indices[i+j]]);
-			//triangulo.vertexColors.push(color);
+			triangulo.vertexColors.push(color);
 		}
 		malla.faces.push(triangulo);
 	}
-	//var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
+	var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
 	var material = new THREE.MeshBasicMaterial({color: 'yellow'});
 	cubo = new THREE.Mesh(malla, material);
 
