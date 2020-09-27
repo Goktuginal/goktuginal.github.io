@@ -76,7 +76,7 @@ function loadMesh() {
 	//var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
 	var material = new THREE.MeshBasicMaterial({color: 'yellow'});
 	cubo = new THREE.Mesh(malla, material);
-this.body.geometry.computeFlatVertexNormals();
+
 	scene.add(cubo);
 
 }
