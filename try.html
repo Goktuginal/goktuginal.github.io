@@ -97,7 +97,7 @@ function main() {
   }
 
   const cubes = [
-    makeInstance(geometry, 0x44FF44,  0),
+    makeInstance(geometry, 0x44FF44,  6),
   ];
 
   function resizeRendererToDisplaySize(renderer) {
@@ -111,7 +111,7 @@ function main() {
     return needResize;
   }
 
-  function render(time) {
+  function render() {
 
     if (resizeRendererToDisplaySize(renderer)) {
       const canvas = renderer.domElement;
