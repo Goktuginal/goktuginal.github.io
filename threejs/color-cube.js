@@ -74,12 +74,11 @@ function loadMesh() {
 		malla.faces.push(triangulo);
 	}
 	var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
-	var material = new THREE.MeshBasicMaterial({color: 'yellow'});
 	cubo = new THREE.Mesh(malla, material);
 
 	scene.add(cubo);
-
 }
+
 function update() {
 
 	// Variacion de la escena entre frames
