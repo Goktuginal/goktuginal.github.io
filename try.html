@@ -83,7 +83,7 @@ function main() {
      new THREE.Face3(1, 6, 5),
      // bottom
      new THREE.Face3(7, 6, 1),
-     new THREE.Face3(7, 1, 0),
+     new THREE.Face3(7, 1, 0)
   );
 
   function makeInstance(geometry, color, x) {
@@ -97,7 +97,8 @@ function main() {
   }
 
   const cubes = [
-    makeInstance(geometry, 0x44FF44,  3)
+    makeInstance(geometry, 0x44FF44,  3),
+    makeInstance(geometry, 0x440044,  0)
   ];
 
   function resizeRendererToDisplaySize(renderer) {
