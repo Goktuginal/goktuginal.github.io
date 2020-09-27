@@ -74,7 +74,7 @@ function loadMesh() {
 		malla.faces.push(triangulo);
 	}
 	var material = new THREE.MeshBasicMaterial({vertexColors: THREE.vertexColors});
-	cubo = new THREE.Mesh(malla, metarial);
+	cubo = new THREE.Mesh(malla, material);
 
 	scene.add(cubo);
 
