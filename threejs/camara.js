@@ -88,7 +88,7 @@ function init() {
 	cameraControls.noKeys = true;
 
 	// Captura de eventos
-	window.addEventListener('resize', updateAspectRatio);
+	window.addEventListener('resize', updateAspectRation);
 	renderer.domElement.addEventListener('dblclick', rotate);
 
 }
