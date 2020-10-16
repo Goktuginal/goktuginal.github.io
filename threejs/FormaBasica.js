@@ -44,8 +44,8 @@ function loadScene() {
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 
 	// Geometrias
-	var cylinder = new THREE.CylinderGeometry( 5, 5, 5, 12 );
-	var geoesfera = new THREE.SphereGeometry(1, 5, 5);
+	var cylinder = new THREE.CylinderGeometry( 3, 3, 5, 10 );
+	var geoesfera = new THREE.SphereGeometry(1, 3, 3);
 
 	// Objetos
 	var base = new THREE.Mesh(cylinder, material);
