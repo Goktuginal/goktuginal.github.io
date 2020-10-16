@@ -51,9 +51,10 @@ function loadScene() {
 
 	// Objetos
 	var base = new THREE.Mesh(cylinder, material);
-	var brazo = new THREE.Mesh(cylinder2, material);
-	brazo.rotation.x = 90;
-	brazo.rotation.z = 45;
+
+	var ground = new THREE.Mesh(cylinder2, material);
+	ground.rotation.x = 90;
+	ground.rotation.z = 45;
 	var head = new THREE.Mesh(sphere, material);
 	head.position.y = 3;
 	// Orden de las transformaciones TRS
@@ -63,6 +64,7 @@ function loadScene() {
 	//esfera.position.x = 1;
 
 	// Objeto contenedor
+	brazo = new THREE.Object3D();
 	robot = new THREE.Object3D();
 	/*esferacubo.position.y = 0.5;
 	esferacubo.rotation.y = angulo;*/
@@ -76,7 +78,8 @@ function loadScene() {
 	});*/
 
 	//Organizacion de la escena
-	brazo.add(head)
+	brazo.add(head);
+	brazo.add(ground);
 	head.add( new THREE.AxisHelper(4));
 	base.add(brazo);
 	brazo.add( new THREE.AxisHelper(5));
