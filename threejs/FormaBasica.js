@@ -45,11 +45,13 @@ function loadScene() {
 
 	// Geometrias
 	var cylinder = new THREE.CylinderGeometry(1.25, 1.25, 0.15, 30);
+	var cylinder2 = new THREE.CylinderGeometry(0.55, 0.55, 0.18, 30);
 	//var geoesfera = new THREE.SphereGeometry(1, 3, 3);
 
 	// Objetos
 	var base = new THREE.Mesh(cylinder, material);
-
+	var brazo = new THREE.Mesh(cylinder, material);
+	brazo.rotation.y = 90;
 	// Orden de las transformaciones TRS
 	//cubo.rotation.y = Math.PI/4;
 	//cubo.position.x = -1;
@@ -70,7 +72,7 @@ function loadScene() {
 	});*/
 
 	//Organizacion de la escena
-	
+	base.add(brazo);
 	robot.add(base);
 	scene.add(robot);
 	scene.add( new THREE.AxisHelper(3));
