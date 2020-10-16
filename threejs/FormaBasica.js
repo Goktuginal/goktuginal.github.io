@@ -59,8 +59,8 @@ function loadScene() {
 	var head = new THREE.Mesh(sphere, material);
 	head.position.y = 3;
 	ground.rotation.z = 45;
-
 	var body = new THREE.Mesh(line, material);
+	
 	// Orden de las transformaciones TRS
 	//cubo.rotation.y = Math.PI/4;
 	//cubo.position.x = -1;
@@ -83,7 +83,7 @@ function loadScene() {
 	});*/
 
 	//Organizacion de la escena
-	brazo.add(line);
+	brazo.add(body);
 	brazo.add(head);
 	brazo.add(ground);
 	head.add( new THREE.AxisHelper(4));
