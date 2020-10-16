@@ -66,9 +66,12 @@ function loadScene() {
 
 	var disco = new THREE.Mesh(cylinder3, material);
 	disco.position.y = 3;
+	disco.rotation.y = 45;
 	var head2 = new THREE.Mesh(cylinder4, material);
 	head2.position.y = 5;
-
+	head2.rotation.x = 90;
+	head2.rotation.z = 45;
+	
 	// Orden de las transformaciones TRS
 	//cubo.rotation.y = Math.PI/4;
 	//cubo.position.x = -1;
