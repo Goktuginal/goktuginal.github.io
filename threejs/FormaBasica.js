@@ -47,7 +47,7 @@ function loadScene() {
 	var cylinder = new THREE.CylinderGeometry(1.25, 1.25, 0.15, 30);
 	var cylinder2 = new THREE.CylinderGeometry(0.55, 0.55, 0.18, 30);
 	var sphere = new THREE.SphereGeometry(0.55, 30, 30);
-	var line = new THREE.Line3(0, 0, 0, 5, 5, 5)
+	var boks = new THREE.BoxGeometry( 1, 5, 0.5 );
 	//var geoesfera = new THREE.SphereGeometry(1, 3, 3);
 
 	// Objetos
@@ -59,8 +59,8 @@ function loadScene() {
 	var head = new THREE.Mesh(sphere, material);
 	head.position.y = 3;
 	ground.rotation.z = 45;
-	var body = new THREE.Mesh(line, material);
-	
+	var body = new THREE.Mesh(boks, material);
+
 	// Orden de las transformaciones TRS
 	//cubo.rotation.y = Math.PI/4;
 	//cubo.position.x = -1;
