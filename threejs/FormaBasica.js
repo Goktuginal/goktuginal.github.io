@@ -45,7 +45,7 @@ function loadScene() {
 
 	// Geometrias
 	var cylinder = new THREE.CylinderGeometry(1.25, 1.25, 0.15, 30);
-	var cylinder2 = new THREE.CylinderGeometry(0.55, 0.55, 0.18, 30);
+	var cylinder2 = new THREE.CylinderGeometry(3.55, 3.55, 3.18, 30);
 	//var geoesfera = new THREE.SphereGeometry(1, 3, 3);
 
 	// Objetos
