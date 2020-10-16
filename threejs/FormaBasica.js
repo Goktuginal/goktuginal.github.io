@@ -54,6 +54,7 @@ function loadScene() {
 
 	var ground = new THREE.Mesh(cylinder2, material);
 	ground.rotation.x = 90;
+	ground.rotation.y = 45;
 	var head = new THREE.Mesh(sphere, material);
 	head.position.y = 3;
 	head.rotation.y = 45;
