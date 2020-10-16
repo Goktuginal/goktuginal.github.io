@@ -51,8 +51,8 @@ function loadScene() {
 	// Objetos
 	var base = new THREE.Mesh(cylinder, material);
 	var brazo = new THREE.Mesh(cylinder2, material);
-	brazo.rotation.x = 90;
-	brazo.rotation.y = 45;
+	brazo.rotation.x = 45;
+	brazo.rotation.y = 90;
 
 	// Orden de las transformaciones TRS
 	//cubo.rotation.y = Math.PI/4;
