@@ -59,7 +59,7 @@ function loadScene() {
 	head.position.y = 3;
 	head.rotation.y = 45;
 	var body = new THREE.Mesh(boks, material);
-	body.position.y = 3;
+	body.position.y = 1.5;
 	body.rotation.y = 45;
 
 	// Orden de las transformaciones TRS
