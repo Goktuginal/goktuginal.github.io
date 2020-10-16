@@ -44,44 +44,44 @@ function loadScene() {
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 
 	// Geometrias
-	var geocubo = new THREE.BoxGeometry(2, 2, 2);
+	var cylinder = new THREE.CylinderGeometry( 5, 5, 20, 32 );
 	var geoesfera = new THREE.SphereGeometry(1, 30, 30);
 
 	// Objetos
-	var cubo = new THREE.Mesh(geocubo, material);
+	var base = new THREE.Mesh(cylinder, material);
 
 	// Orden de las transformaciones TRS
-	cubo.rotation.y = Math.PI/4;
-	cubo.position.x = -1;
+	//cubo.rotation.y = Math.PI/4;
+	//cubo.position.x = -1;
 	var esfera = new THREE.Mesh(geoesfera, material);
-	esfera.position.x = 1;
+	//esfera.position.x = 1;
 
 	// Objeto contenedor
-	esferacubo = new THREE.Object3D();
-	esferacubo.position.y = 0.5;
-	esferacubo.rotation.y = angulo;
+	robot = new THREE.Object3D();
+	/*esferacubo.position.y = 0.5;
+	esferacubo.rotation.y = angulo;*/
 
 	// Modelo externo
-	var loader = new THREE.ObjectLoader();
+	/*var loader = new THREE.ObjectLoader();
 	loader.load('models/soldado/soldado.json', 
 				function(obj){
 					obj.position.set(0, 1, 0);
 					cubo.add(obj);
-	});
+	});*/
 
 	//Organizacion de la escena
-	esferacubo.add(cubo);
-	cubo.add(new THREE.AxisHelper(1));
-	esferacubo.add(esfera);
-	scene.add(esferacubo);
+	base.add(esfera);
+	base.add(new THREE.AxisHelper(1));
+	robot.add(base);
+	scene.add(robot);
 	scene.add( new THREE.AxisHelper(3));
 }
 
 function update() {
 
 	// Variacion de la escena entre frames
-	angulo += Math.PI/100;
-	esferacubo.rotation.y = angulo;
+	//angulo += Math.PI/100;
+	//esferacubo.rotation.y = angulo;
 
 }
 
