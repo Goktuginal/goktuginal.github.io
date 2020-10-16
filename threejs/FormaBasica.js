@@ -57,8 +57,10 @@ function loadScene() {
 	ground.rotation.z = 45;
 	var head = new THREE.Mesh(sphere, material);
 	head.position.y = 3;
-	ground.rotation.z = 45;
+	head.rotation.z = 45;
 	var body = new THREE.Mesh(boks, material);
+	body.position.y = 1;
+	body.rotation.z = 45;
 
 	// Orden de las transformaciones TRS
 	//cubo.rotation.y = Math.PI/4;
