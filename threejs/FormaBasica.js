@@ -47,7 +47,7 @@ function loadScene() {
 	var cylinder = new THREE.CylinderGeometry(1.25, 1.25, 0.15, 30);
 	var cylinder2 = new THREE.CylinderGeometry(0.55, 0.55, 0.18, 30);
 	var sphere = new THREE.SphereGeometry(0.55, 30, 30);
-	var boks = new THREE.BoxGeometry(0.3, 2, 0.3);
+	var boks = new THREE.BoxGeometry(0.3, 2.5, 0.3);
 
 	// Objetos
 	var ba = new THREE.Mesh(cylinder, material);
