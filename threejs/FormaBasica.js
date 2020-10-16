@@ -48,6 +48,8 @@ function loadScene() {
 	var cylinder2 = new THREE.CylinderGeometry(0.59, 0.59, 0.18, 30);
 	var sphere = new THREE.SphereGeometry(0.55, 30, 30);
 	var boks = new THREE.BoxGeometry(0.3, 2.5, 0.3);
+	var cylinder3 = new THREE.CylinderGeometry(0.55, 0.55, 0.18, 30);
+	var cylinder4 = new THREE.CylinderGeometry(0.55, 0.55, 0.78, 30);
 
 	// Objetos
 	var ba = new THREE.Mesh(cylinder, material);
@@ -62,6 +64,11 @@ function loadScene() {
 	body.position.y = 1.5;
 	body.rotation.y = 45;
 
+	var disco = new THREE.Mesh(cylinder3, material);
+	disco.position.y = 3;
+	var head2 = new THREE.Mesh(cylinder4, material);
+	head2.position.y = 4;
+
 	// Orden de las transformaciones TRS
 	//cubo.rotation.y = Math.PI/4;
 	//cubo.position.x = -1;
@@ -69,6 +76,7 @@ function loadScene() {
 	//esfera.position.x = 1;
 
 	// Objeto contenedor
+	antebrazo = new THREE.Object3D();
 	brazo = new THREE.Object3D();
 	base = new THREE.Object3D();
 	robot = new THREE.Object3D();
@@ -84,6 +92,9 @@ function loadScene() {
 	});*/
 
 	//Organizacion de la escena
+	antebrazo.add(head2)
+	antebrazo.add(disco)
+	brazo.add(antebrazo)
 	brazo.add(body);
 	brazo.add(head);
 	brazo.add(ground);
