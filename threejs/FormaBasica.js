@@ -50,7 +50,7 @@ function loadScene() {
 	//var geoesfera = new THREE.SphereGeometry(1, 3, 3);
 
 	// Objetos
-	var base = new THREE.Mesh(cylinder, material);
+	var ba = new THREE.Mesh(cylinder, material);
 
 	var ground = new THREE.Mesh(cylinder2, material);
 	ground.rotation.x = 90;
@@ -65,6 +65,7 @@ function loadScene() {
 
 	// Objeto contenedor
 	brazo = new THREE.Object3D();
+	base = new THREE.Object3D();
 	robot = new THREE.Object3D();
 	/*esferacubo.position.y = 0.5;
 	esferacubo.rotation.y = angulo;*/
@@ -83,6 +84,7 @@ function loadScene() {
 	head.add( new THREE.AxisHelper(4));
 	base.add(brazo);
 	brazo.add( new THREE.AxisHelper(5));
+	base.add(ba)
 	robot.add(base);
 	scene.add(robot);
 	scene.add( new THREE.AxisHelper(3));
