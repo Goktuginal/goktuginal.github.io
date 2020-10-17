@@ -50,10 +50,10 @@ function loadScene() {
 	var boks = new THREE.BoxGeometry(0.3, 2.5, 0.3);
 	var cylinder3 = new THREE.CylinderGeometry(0.75, 0.75, 0.18, 30);
 	var cylinder4 = new THREE.CylinderGeometry(0.55, 0.55, 0.78, 30);
-	var boks2 = new THREE.BoxGeometry(0.1, 1.5, 0.1);
-	var boks3 = new THREE.BoxGeometry(0.1, 1.5, 0.1);
-	var boks4 = new THREE.BoxGeometry(0.1, 1.5, 0.1);
-	var boks5 = new THREE.BoxGeometry(0.1, 1.5, 0.1);
+	var boks2 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
+	var boks3 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
+	var boks4 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
+	var boks5 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
 	// Objetos
 	var ba = new THREE.Mesh(cylinder, material);
 
@@ -75,23 +75,23 @@ function loadScene() {
 	head2.rotation.x = 90;
 	head2.rotation.z = 45;
 	var leg1 = new THREE.Mesh(boks2, material);
-	leg1.position.x = -0.5;
-	leg1.position.z = -0.5;
+	leg1.position.x = -0.3;
+	leg1.position.z = -0.3;
 	leg1.position.y = 4;
 	leg1.rotation.y = 45;
 	var leg2 = new THREE.Mesh(boks3, material);
-	leg2.position.x = -0.5;
-	leg2.position.z = 0.5;
+	leg2.position.x = -0.3;
+	leg2.position.z = 0.3;
 	leg2.position.y = 4;
 	leg2.rotation.y = 45;
 	var leg3 = new THREE.Mesh(boks4, material);
-	leg3.position.x = 0.5;
-	leg3.position.z = -0.5;
+	leg3.position.x = 0.3;
+	leg3.position.z = -0.3;
 	leg3.position.y = 4;
 	leg3.rotation.y = 45;
 	var leg4 = new THREE.Mesh(boks5, material);
-	leg4.position.x = 0.5;
-	leg4.position.z = 0.5;
+	leg4.position.x = 0.3;
+	leg4.position.z = 0.3;
 	leg4.position.y = 4;
 	leg4.rotation.y = 45;
 
