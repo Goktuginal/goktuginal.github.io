@@ -105,8 +105,8 @@ function loadScene() {
 					 semilado, -semilado, -semilado,
 					 semilado/2,  semilado, -semilado,
 					 semilado/2,  semilado,  semilado,
-					-semilado/2,  semilado,  semilado,
-					-semilado/2,  semilado, -semilado,
+					-semilado,  semilado,  semilado,
+					-semilado,  semilado, -semilado,
 					-semilado, -semilado, -semilado,
 					-semilado, -semilado,  semilado	];
 
