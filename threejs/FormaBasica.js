@@ -102,13 +102,13 @@ function loadScene() {
 
 	var coordenadas = [
 					 semilado, -semilado,  semilado,
-					 semilado, -semilado/2, -semilado,
+					 semilado, -semilado, -semilado,
 					 semilado,  semilado, -semilado,
 					 semilado,  semilado,  semilado,
-					-semilado,  semilado,  semilado,
-					-semilado,  semilado, -semilado,
-					-semilado, -semilado, -semilado,
-					-semilado, -semilado,  semilado	];
+					-semilado,  semilado,  semilado/2,
+					-semilado,  semilado, -semilado/2,
+					-semilado, -semilado, -semilado/2,
+					-semilado, -semilado,  semilado/2	];
 
 	var indices = [
 				0,3,7, 7,3,4, 0,1,2,
@@ -125,7 +125,7 @@ function loadScene() {
 		malla.faces.push(triangulo);
 	}
 	cubo = new THREE.Mesh(malla, material);
-	cubo.position.y = 5;
+	cubo.position.y = 4;
 	cubo.rotation.y = 45;
 
 
