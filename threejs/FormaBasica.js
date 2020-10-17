@@ -101,12 +101,12 @@ function loadScene() {
 	var semilado = 1;
 
 	var coordenadas = [
-					 semilado/2, -semilado,  semilado,
-					 semilado/2, -semilado, -semilado,
+					 semilado, -semilado,  semilado,
+					 semilado, -semilado, -semilado,
 					 semilado/2,  semilado, -semilado,
 					 semilado/2,  semilado,  semilado,
-					-semilado,  semilado,  semilado,
-					-semilado,  semilado, -semilado,
+					-semilado/2,  semilado,  semilado,
+					-semilado/2,  semilado, -semilado,
 					-semilado/2, -semilado, -semilado,
 					-semilado/2, -semilado,  semilado	];
 
