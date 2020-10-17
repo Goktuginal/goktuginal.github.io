@@ -116,7 +116,7 @@ function loadScene() {
 				6,7,4, 6,4,5, 1,5,2,
 				1,6,5, 7,6,1, 7,1,0	];
 
-	for(var i = 0; i < indices.length(); i+=3){
+	for(var i = 0; i < coordenadas.length; i+=3){
 		var vertice = new THREE.Vector3(coordenadas[i], coordenadas[i+1], coordenadas[i+2]);
 		malla.vertices.push(vertice);
 	}
