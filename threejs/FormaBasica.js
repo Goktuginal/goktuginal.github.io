@@ -107,7 +107,7 @@ function loadScene() {
 					 semilado/2,  semilado,  semilado,
 					-semilado/2,  semilado,  semilado,
 					-semilado/2,  semilado, -semilado,
-					-semilado/2, -semilado, -semilado,
+					-semilado, -semilado, -semilado,
 					-semilado, -semilado,  semilado	];
 
 	var indices = [
