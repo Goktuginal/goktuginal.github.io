@@ -49,7 +49,7 @@ function loadScene() {
 	var sphere = new THREE.SphereGeometry(0.55, 30, 30);
 	var boks = new THREE.BoxGeometry(0.3, 2.5, 0.3);
 	var cylinder3 = new THREE.CylinderGeometry(0.75, 0.75, 0.18, 30);
-	var cylinder4 = new THREE.CylinderGeometry(0.55, 0.55, 0.78, 30);
+	var cylinder4 = new THREE.CylinderGeometry(0.55, 0.55, 0.98, 30);
 	var boks2 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
 	var boks3 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
 	var boks4 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
