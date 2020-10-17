@@ -98,7 +98,7 @@ function loadScene() {
 	// pinzes
 
 	var malla = new THREE.Geometry();
-	var semilado = 2;
+	var semilado = 1;
 
 	var coordenadas = [
 					 semilado, -semilado,  semilado,
@@ -125,6 +125,10 @@ function loadScene() {
 		malla.faces.push(triangulo);
 	}
 	cubo = new THREE.Mesh(malla, material);
+	cubo.position.y = 5;
+	cubo.rotation.y = 45;
+
+
 
 	// Objeto contenedor
 	pinzes = new THREE.Object3D();
