@@ -75,13 +75,26 @@ function loadScene() {
 	head2.rotation.x = 90;
 	head2.rotation.z = 45;
 	var leg1 = new THREE.Mesh(boks2, material);
+	leg1.position.x = -1;
+	leg1.position.z = -1;
 	leg1.position.y = 4;
+	leg1.rotation.y = 45;
 	var leg2 = new THREE.Mesh(boks3, material);
+	leg2.position.x = -1;
+	leg2.position.z = 1;
 	leg2.position.y = 4;
+	leg2.rotation.y = 45;
 	var leg3 = new THREE.Mesh(boks4, material);
+	leg3.position.x = 1;
+	leg3.position.z = -1;
 	leg3.position.y = 4;
+	leg3.rotation.y = 45;
 	var leg4 = new THREE.Mesh(boks5, material);
+	leg4.position.x = 1;
+	leg4.position.z = 1;
 	leg4.position.y = 4;
+	leg4.rotation.y = 45;
+
 
 	
 	// Orden de las transformaciones TRS
