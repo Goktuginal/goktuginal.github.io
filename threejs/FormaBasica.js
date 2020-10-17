@@ -120,12 +120,11 @@ function loadScene() {
 		var vertice = new THREE.Vector3(coordenadas[i], coordenadas[i+1], coordenadas[i+2]);
 		malla.vertices.push(vertice);
 	}
+	for(var i = 0; i < indices.length; i+=3){
+		var triangulo = new THREE.Face3(indices[i], indices[i+1], indices[i+2]);
+		malla.faces.push(triangulo);
+	}
 	cubo = new THREE.Mesh(malla, material);
-
-
-
-
-
 
 	// Objeto contenedor
 	pinzes = new THREE.Object3D();
