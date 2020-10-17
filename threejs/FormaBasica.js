@@ -123,7 +123,10 @@ function loadScene() {
 				0,2,3,   4,3,2,   4,2,5,
 				6,7,4,   6,4,5,   1,5,2,
 				1,6,5,   7,6,1,   7,1,0,
-				5,10,11,  11,5,6,   11,7,6	];
+				7,4,8,   8,4,9,   7,6,5,
+				7,5,4,   9,4,5,   9,5,10, 
+				11,8,9,  11,9,10, 6,10,5, 
+				6,11,10, 8,11,6,  8,6,7	];
 
 	for(var i = 0; i < coordenadas.length; i+=3){
 		var vertice = new THREE.Vector3(coordenadas[i], coordenadas[i+1], coordenadas[i+2]);
