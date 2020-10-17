@@ -44,7 +44,7 @@ function loadScene() {
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 
 	// Geometrias
-	var cylinder = new THREE.CylinderGeometry(1.25, 1.25, 0.15, 30);
+	var cylinder = new THREE.CylinderGeometry(1.25, 1.25, 0.25, 30);
 	var cylinder2 = new THREE.CylinderGeometry(0.59, 0.59, 0.18, 30);
 	var sphere = new THREE.SphereGeometry(0.55, 30, 30);
 	var boks = new THREE.BoxGeometry(0.3, 2.5, 0.3);
@@ -130,9 +130,7 @@ function loadScene() {
 	brazo.add(body);
 	brazo.add(head);
 	brazo.add(ground);
-	head.add( new THREE.AxisHelper(4));
 	base.add(brazo);
-	brazo.add( new THREE.AxisHelper(5));
 	base.add(ba)
 	robot.add(base);
 	scene.add(robot);
