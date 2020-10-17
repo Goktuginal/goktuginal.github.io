@@ -95,15 +95,40 @@ function loadScene() {
 	leg4.position.y = 4;
 	leg4.rotation.y = 45;
 
+	// pinzes
 
-	
-	// Orden de las transformaciones TRS
-	//cubo.rotation.y = Math.PI/4;
-	//cubo.position.x = -1;
-	//var esfera = new THREE.Mesh(geoesfera, material);
-	//esfera.position.x = 1;
+	var malla = new THREE.Geometry();
+	var semilado = 2;
+
+	var coordenadas = [
+					 semilado, -semilado,  semilado,
+					 semilado, -semilado, -semilado,
+					 semilado,  semilado, -semilado,
+					 semilado,  semilado,  semilado,
+					-semilado,  semilado,  semilado,
+					-semilado,  semilado, -semilado,
+					-semilado, -semilado, -semilado,
+					-semilado, -semilado,  semilado	];
+
+	var indices = [
+				0,3,7, 7,3,4, 0,1,2,
+				0,2,3, 4,3,2, 4,2,5,
+				6,7,4, 6,4,5, 1,5,2,
+				1,6,5, 7,6,1, 7,1,0	];
+
+	for(var i = 0; i < indices.length(); i+=3){
+		var vertice = new THREE.Vector3(coordenadas[i], coordenadas[i+1], coordenadas[i+2]);
+		malla.vertices.push(vertice);
+	}
+	cubo = new THREE.Mesh(malla, material);
+
+
+
+
+
 
 	// Objeto contenedor
+	pinzes = new THREE.Object3D();
 	antebrazo = new THREE.Object3D();
 	brazo = new THREE.Object3D();
 	base = new THREE.Object3D();
@@ -111,22 +136,18 @@ function loadScene() {
 	/*esferacubo.position.y = 0.5;
 	esferacubo.rotation.y = angulo;*/
 
-	// Modelo externo
-	/*var loader = new THREE.ObjectLoader();
-	loader.load('models/soldado/soldado.json', 
-				function(obj){
-					obj.position.set(0, 1, 0);
-					cubo.add(obj);
-	});*/
+	
 
 	//Organizacion de la escena
-	antebrazo.add(leg1)
-	antebrazo.add(leg2)
-	antebrazo.add(leg3)
-	antebrazo.add(leg4)
-	antebrazo.add(head2)
-	antebrazo.add(disco)
-	brazo.add(antebrazo)
+	pinzes.add(cubo);
+	antebrazo.add(pinzes);
+	antebrazo.add(leg1);
+	antebrazo.add(leg2);
+	antebrazo.add(leg3);
+	antebrazo.add(leg4);
+	antebrazo.add(head2);
+	antebrazo.add(disco);
+	brazo.add(antebrazo);
 	brazo.add(body);
 	brazo.add(head);
 	brazo.add(ground);
