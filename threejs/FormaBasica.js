@@ -113,9 +113,9 @@ function loadScene() {
 					 semilado/2, -semilado,  semilado,
 					 semilado/2,  semilado,  semilado*2,
 					 semilado/2,  semilado,  semilado,
-					 semilado/2,  semilado,  semilado*2,
+					-semilado/2,  semilado,  semilado*2,
 					-semilado/2,  semilado,  semilado,
-					 semilado/2, -semilado,  semilado*2,
+					-semilado/2, -semilado,  semilado*2,
 					-semilado/2, -semilado,  semilado	];
 
 	var indices = [
