@@ -46,12 +46,13 @@ function loadScene() {
 
 	// Geometrias
 	var cylinder = new THREE.CylinderGeometry(1.25, 1.25, 0.25, 30);
+	// wheel
 	var cylinder2 = new THREE.CylinderGeometry(0.59, 0.59, 0.18, 30);
 	var sphere = new THREE.SphereGeometry(0.55, 30, 30);
 	var boks = new THREE.BoxGeometry(0.3, 2.5, 0.3);
-	//kemer
-	var cylinder3 = new THREE.CylinderGeometry(0.75, 0.75, 0.18, 30);
-	// kafa
+	// belt
+	var cylinder3 = new THREE.CylinderGeometry(0.75, 0.75, 0.38, 30);
+	// head
 	var cylinder4 = new THREE.CylinderGeometry(0.35, 0.35, 1.38, 30);
 	var boks2 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
 	var boks3 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
@@ -139,10 +140,10 @@ function loadScene() {
 		var triangulo = new THREE.Face3(indices[i], indices[i+1], indices[i+2]);
 		malla.faces.push(triangulo);
 	}
-	cubo = new THREE.Mesh(malla, material2);
+	cubo = new THREE.Mesh(malla, material);
 	cubo.position.y = 5;
 	cubo.rotation.y = 45;
-	cubo2 = new THREE.Mesh(malla, material2);
+	cubo2 = new THREE.Mesh(malla, material);
 	cubo2.position.x = 0.3;
 	cubo2.position.y = 5;
 	cubo2.rotation.y = 45;
@@ -177,7 +178,7 @@ function loadScene() {
 	base.add(ba)
 	robot.add(base);
 	scene.add(robot);
-	scene.add( new THREE.AxisHelper(3));
+	//scene.add( new THREE.AxisHelper(3));
 }
 
 function update() {
