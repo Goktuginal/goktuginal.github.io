@@ -42,6 +42,7 @@ function loadScene() {
 
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
+	var material2 = new THREE.MeshBasicMaterial({color: 'red', wireframe: true});
 
 	// Geometrias
 	var cylinder = new THREE.CylinderGeometry(1.25, 1.25, 0.25, 30);
@@ -138,14 +139,14 @@ function loadScene() {
 		var triangulo = new THREE.Face3(indices[i], indices[i+1], indices[i+2]);
 		malla.faces.push(triangulo);
 	}
-	cubo = new THREE.Mesh(malla, material);
+	cubo = new THREE.Mesh(malla, material2);
 	cubo.position.x = -0.3;
 	cubo.position.y = 5;
-	cubo.rotation.y = 35;
-	cubo2 = new THREE.Mesh(malla, material);
+	cubo.rotation.y = 45;
+	cubo2 = new THREE.Mesh(malla, material2);
 	cubo2.position.x = 0.3;
 	cubo2.position.y = 5;
-	cubo2.rotation.y = 35;
+	cubo2.rotation.y = 45;
 
 
 	// Objeto contenedor
