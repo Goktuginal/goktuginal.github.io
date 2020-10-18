@@ -138,11 +138,11 @@ function loadScene() {
 	}
 	cubo = new THREE.Mesh(malla, material);
 	cubo.position.x = -0.3;
-	cubo.position.y = 4;
+	cubo.position.y = 5;
 	cubo.rotation.y = 45;
 	cubo2 = new THREE.Mesh(malla, material);
 	cubo2.position.x = 0.3;
-	cubo2.position.y = 4;
+	cubo2.position.y = 5;
 	cubo2.rotation.y = 45;
 
 
@@ -159,6 +159,7 @@ function loadScene() {
 
 	//Organizacion de la escena
 	pinzes.add(cubo);
+	pinzes.add(cubo2);
 	antebrazo.add(pinzes);
 	antebrazo.add(leg1);
 	antebrazo.add(leg2);
