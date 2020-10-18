@@ -121,7 +121,7 @@ function loadScene() {
 	var indices = [
 				0,3,7, 7,3,4, 0,1,2,	
 				0,2,3, 4,3,2, 4,2,5,
-				6,7,4	];
+				6,7,4, 6,4,5, 1,5,2	];
 
 	for(var i = 0; i < coordenadas.length; i+=3){
 		var vertice = new THREE.Vector3(coordenadas[i], coordenadas[i+1], coordenadas[i+2]);
