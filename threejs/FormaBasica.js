@@ -109,14 +109,14 @@ function loadScene() {
 					-semilado/2,  semilado, -semilado,
 					-semilado/2, -semilado, -semilado,
 					-semilado/2, -semilado,  semilado,
+					 semilado/2, -semilado,  semilado*4,
 					 semilado/2, -semilado,  semilado*2,
-					 semilado/2, -semilado,  semilado,
-					 semilado/2,  semilado,  semilado,
 					 semilado/2,  semilado,  semilado*2,
+					 semilado/2,  semilado,  semilado*4,
+					-semilado/2,  semilado,  semilado*4,
 					-semilado/2,  semilado,  semilado*2,
-					-semilado/2,  semilado,  semilado,
-					-semilado/2, -semilado,  semilado,
-					-semilado/2, -semilado,  semilado*2	];
+					-semilado/2, -semilado,  semilado*2,
+					-semilado/2, -semilado,  semilado*4	];
 
 	var indices = [
 				0,3,7, 7,3,4, 0,1,2,	
