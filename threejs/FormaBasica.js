@@ -111,12 +111,12 @@ function loadScene() {
 					-semilado/2, -semilado,  semilado,
 					 semilado/2, -semilado,  semilado*2,
 					 semilado/2, -semilado,  semilado,
-					 semilado/2,  semilado,  semilado*2,
 					 semilado/2,  semilado,  semilado,
+					 semilado/2,  semilado,  semilado*2,
 					-semilado/2,  semilado,  semilado*2,
 					-semilado/2,  semilado,  semilado,
-					-semilado/2, -semilado,  semilado*2,
-					-semilado/2, -semilado,  semilado	];
+					-semilado/2, -semilado,  semilado,
+					-semilado/2, -semilado,  semilado*2	];
 
 	var indices = [
 				0,3,7, 7,3,4, 0,1,2,	
@@ -126,7 +126,7 @@ function loadScene() {
 				10,11,9, 9,11,8, 10,0,3,
 				10,0,11, 8,11,3, 8,3,4,
 				7,9,8, 7,8,4, 0,4,3,
-				0,7,4, 9,7,0, 9,0,10];
+				0,7,4, 9,7,0, 9,0,10	];
 
 	for(var i = 0; i < coordenadas.length; i+=3){
 		var vertice = new THREE.Vector3(coordenadas[i], coordenadas[i+1], coordenadas[i+2]);
