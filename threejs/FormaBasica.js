@@ -98,7 +98,7 @@ function loadScene() {
 	// pinzes
 
 	var malla = new THREE.Geometry();
-	var semilado = 1;
+	var semilado = 0.5;
 
 	var coordenadas = [
 					 semilado/2, -semilado,  semilado,
@@ -109,14 +109,14 @@ function loadScene() {
 					-semilado/2,  semilado, -semilado,
 					-semilado/2, -semilado, -semilado,
 					-semilado/2, -semilado,  semilado,
-					 semilado/2, -semilado,  semilado*2,
+					 semilado/2, -semilado/2,  semilado*2,
 					 semilado/2, -semilado,  semilado,
 					 semilado/2,  semilado,  semilado,
-					 semilado/2,  semilado,  semilado*2,
-					-semilado/2,  semilado,  semilado*2,
+					 semilado/2,  semilado/2,  semilado*2,
+					-semilado/2,  semilado/2,  semilado*2,
 					-semilado/2,  semilado,  semilado,
 					-semilado/2, -semilado,  semilado,
-					-semilado/2, -semilado,  semilado*2	];
+					-semilado/2, -semilado/2,  semilado*2	];
 
 	var indices = [
 				0,3,7, 7,3,4, 0,1,2,	
