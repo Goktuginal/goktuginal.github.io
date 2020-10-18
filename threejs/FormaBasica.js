@@ -101,22 +101,22 @@ function loadScene() {
 	var semilado = 0.5;
 
 	var coordenadas = [
-					 semilado/2, -semilado,  semilado,
-					 semilado/2, -semilado, -semilado,
-					 semilado/2,  semilado, -semilado,
-					 semilado/2,  semilado,  semilado,
-					-semilado/2,  semilado,  semilado,
-					-semilado/2,  semilado, -semilado,
-					-semilado/2, -semilado, -semilado,
-					-semilado/2, -semilado,  semilado,
-					 semilado/2, -semilado/2,  semilado*2,
-					 semilado/2, -semilado,  semilado,
-					 semilado/2,  semilado,  semilado,
-					 semilado/2,  semilado/2,  semilado*2,
-					-semilado/2,  semilado/2,  semilado*2,
-					-semilado/2,  semilado,  semilado,
-					-semilado/2, -semilado,  semilado,
-					-semilado/2, -semilado/2,  semilado*2	];
+					 semilado/4, -semilado,  semilado,
+					 semilado/4, -semilado, -semilado,
+					 semilado/4,  semilado, -semilado,
+					 semilado/4,  semilado,  semilado,
+					-semilado/4,  semilado,  semilado,
+					-semilado/4,  semilado, -semilado,
+					-semilado/4, -semilado, -semilado,
+					-semilado/4, -semilado,  semilado,
+					 semilado/4, -semilado/2,  semilado*2,
+					 semilado/4, -semilado,  semilado,
+					 semilado/4,  semilado,  semilado,
+					 semilado/4,  semilado/2,  semilado*2,
+					-semilado/4,  semilado/2,  semilado*2,
+					-semilado/4,  semilado,  semilado,
+					-semilado/4, -semilado,  semilado,
+					-semilado/4, -semilado/2,  semilado*2	];
 
 	var indices = [
 				0,3,7, 7,3,4, 0,1,2,	
@@ -137,7 +137,8 @@ function loadScene() {
 		malla.faces.push(triangulo);
 	}
 	cubo = new THREE.Mesh(malla, material);
-	cubo.position.y = 0.5;
+	cubo.position.x = -0.5;
+	cubo.position.y = 5;
 	cubo.rotation.y = 45;
 
 
