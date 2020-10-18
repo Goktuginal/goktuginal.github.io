@@ -47,7 +47,7 @@ function loadScene() {
 	// Geometrias
 	var cylinder = new THREE.CylinderGeometry(1.25, 1.25, 0.25, 30);
 	// wheel
-	var cylinder2 = new THREE.CylinderGeometry(0.59, 0.59, 0.58, 30);
+	var cylinder2 = new THREE.CylinderGeometry(0.59, 0.59, 0.38, 30);
 	var sphere = new THREE.SphereGeometry(0.55, 30, 30);
 	var boks = new THREE.BoxGeometry(0.3, 2.5, 0.3);
 	// belt
