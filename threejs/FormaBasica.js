@@ -48,8 +48,10 @@ function loadScene() {
 	var cylinder2 = new THREE.CylinderGeometry(0.59, 0.59, 0.18, 30);
 	var sphere = new THREE.SphereGeometry(0.55, 30, 30);
 	var boks = new THREE.BoxGeometry(0.3, 2.5, 0.3);
+	//kemer
 	var cylinder3 = new THREE.CylinderGeometry(0.75, 0.75, 0.18, 30);
-	var cylinder4 = new THREE.CylinderGeometry(0.55, 0.55, 1.38, 30);
+	// kafa
+	var cylinder4 = new THREE.CylinderGeometry(0.35, 0.35, 1.38, 30);
 	var boks2 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
 	var boks3 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
 	var boks4 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
@@ -109,14 +111,14 @@ function loadScene() {
 					-semilado/4,  semilado/2, -semilado,
 					-semilado/4, -semilado/2, -semilado,
 					-semilado/4, -semilado/2,  semilado,
-					 semilado/8, -semilado/4,  semilado*2,
+					 semilado/8, -semilado/4,  semilado*4,
 					 semilado/4, -semilado/2,  semilado,
 					 semilado/4,  semilado/2,  semilado,
-					 semilado/8,  semilado/4,  semilado*2,
-					-semilado/8,  semilado/4,  semilado*2,
+					 semilado/8,  semilado/4,  semilado*4,
+					-semilado/8,  semilado/4,  semilado*4,
 					-semilado/4,  semilado/2,  semilado,
 					-semilado/4, -semilado/2,  semilado,
-					-semilado/8, -semilado/4,  semilado*2	];
+					-semilado/8, -semilado/4,  semilado*4	];
 
 	var indices = [
 				0,3,7, 7,3,4, 0,1,2,	
