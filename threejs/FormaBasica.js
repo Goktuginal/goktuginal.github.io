@@ -100,9 +100,7 @@ function loadScene() {
 	var malla = new THREE.Geometry();
 	var semilado = 1;
 
-	var coordenadas = [
-					 
-					 semilado/2, -semilado,  semilado*2,
+	var coordenadas = [semilado/2, -semilado,  semilado*2,
 					 semilado/2, -semilado,  semilado,
 					 semilado/2,  semilado,  semilado,
 					 semilado/2,  semilado,  semilado*2,
@@ -111,8 +109,7 @@ function loadScene() {
 					-semilado/2, -semilado,  semilado,
 					-semilado/2, -semilado,  semilado*2	];
 
-	var indices = [
-				11,8,13, 13,8,15, 11,10,9,
+	var indices = [11,8,13, 13,8,15, 11,10,9,
 				11,9,8, 15,8,9, 15,9,14,
 				12,13,15, 12,15,14, 10,14,9,
 				10,12,14, 13,12,10, 13,10,11	];
