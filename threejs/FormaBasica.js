@@ -100,7 +100,16 @@ function loadScene() {
 	var malla = new THREE.Geometry();
 	var semilado = 1;
 
-	var coordenadas = [semilado/2, -semilado,  semilado*2,
+	var coordenadas = [
+					 semilado/2, -semilado,  semilado,
+					 semilado/2, -semilado, -semilado,
+					 semilado/2,  semilado, -semilado,
+					 semilado/2,  semilado,  semilado,
+					-semilado/2,  semilado,  semilado,
+					-semilado/2,  semilado, -semilado,
+					-semilado/2, -semilado, -semilado,
+					-semilado/2, -semilado,  semilado,
+					 semilado/2, -semilado,  semilado*2,
 					 semilado/2, -semilado,  semilado,
 					 semilado/2,  semilado,  semilado,
 					 semilado/2,  semilado,  semilado*2,
@@ -109,10 +118,15 @@ function loadScene() {
 					-semilado/2, -semilado,  semilado,
 					-semilado/2, -semilado,  semilado*2	];
 
-	var indices = [11,8,13, 13,8,15, 11,10,9,
+	var indices = [
+				0,3,7, 7,3,4, 0,1,2,	
+				0,2,3, 4,3,2, 4,2,5,
+				6,7,4, 6,4,5, 1,5,2,
+				1,6,5, 7,6,1, 7,1,0,
+				11,8,13, 13,8,15, 11,10,9,
 				11,9,8, 15,8,9, 15,9,14,
 				12,13,15, 12,15,14, 10,14,9,
-				10,12,14, 13,12,10, 13,10,11	];
+				10,12,14, 13,12,10, 13,11,10	];
 
 	for(var i = 0; i < coordenadas.length; i+=3){
 		var vertice = new THREE.Vector3(coordenadas[i], coordenadas[i+1], coordenadas[i+2]);
