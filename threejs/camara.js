@@ -220,7 +220,8 @@ function render() {
 	update();
 
 	// Para cada render debo indicar el viewport
-	renderer.setViewport(0,0,0,0);
+	renderer.setViewport(window.innerWidth, window.innerHeight, 
+						window.innerWidth, window.innerHeight);
 
 	// Aynı anda çalıştırabilirsin.
 	
