@@ -35,29 +35,18 @@ function setCameras(ar) {
 		var camaraOrtografica = new THREE.OrthographicCamera(l, r, t/ar, b/ar, -20, 20);
 	}
 
-	// Camaras ortograficas
-	alzado = camaraOrtografica.clone();
-	alzado.position.set(0, 0, 4);
-	alzado.lookAt(origen);
-	perfil = camaraOrtografica.clone();
-	perfil.position.set(4, 0, 0);
-	perfil.lookAt(origen);
-	planta = camaraOrtografica.clone();
-	planta.position.set(0, 4, 0);
-	planta.lookAt(origen);
-	planta.up = new THREE.Vector3(0, 0, -1);
 
 	// Camara perspectiva
 	var camaraPerspectiva = new THREE.PerspectiveCamera(50, ar, 0.1, 50);
 	camaraPerspectiva.position.set(1, 2, 10);
 	camaraPerspectiva.lookAt(origen);
 
-	camera = camaraPerspectiva.clone();
+	camera2 = camaraPerspectiva.clone();
 
 	//scene.add(alzado);
 	//scene.add(planta);
-	scene.add(perfil);
-	scene.add(camera);
+	//scene.add(perfil);
+	scene.add(camera2);
 
 }
 
@@ -80,7 +69,7 @@ function init() {
 	scene.add(camera);
 	camera.position.set(0.5, 3, 9);
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
-	//setCameras(ar);
+	setCameras(ar);
 
 	// Control de camara
 	cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -218,6 +207,9 @@ function render() {
 	// Construir el frame y mostrarlo
 	requestAnimationFrame(render);
 	update();
+	renderer.render(scene, camera2); 	// Yandan göstermesi gerekiyor
+	renderer.setViewport(0, window.innerHeight/2, 
+						window.innerWidth/2, window.innerHeight/2);
 	renderer.render(scene, camera);
 
 }
