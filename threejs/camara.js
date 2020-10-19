@@ -219,9 +219,7 @@ function render() {
 	requestAnimationFrame(render);
 	update();
 
-	// Para cada render debo indicar el viewport
-	renderer.setViewport(window.innerWidth/2, window.innerHeight/2, 
-						window.innerWidth/2, window.innerHeight/2);
+
 
 	
 	renderer.render(scene, camera);
