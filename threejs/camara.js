@@ -40,7 +40,7 @@ function setCameras(ar) {
 	alzado.position.set(0, 0, 4);
 	alzado.lookAt(origen);
 	perfil = camaraOrtografica.clone();
-	perfil.position.set(18, 0, 0);
+	perfil.position.set(4, 0, 0);
 	perfil.lookAt(origen);
 	planta = camaraOrtografica.clone();
 	planta.position.set(0, 4, 0);
@@ -75,12 +75,12 @@ function init() {
 
 	// Camara
 	var ar = window.innerWidth / window.innerHeight;
-	/*camera = new THREE.PerspectiveCamera(75, ar, 0.1, 100);
+	camera = new THREE.PerspectiveCamera(75, ar, 0.1, 100);
 	camera = new THREE.OrthographicCamera(l, r, t, b, -20, 20);
 	scene.add(camera);
 	camera.position.set(0.5, 3, 9);
-	camera.lookAt(new THREE.Vector3(0, 0, 0));*/
-	setCameras(ar);
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+	//setCameras(ar);
 
 	// Control de camara
 	cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -223,10 +223,7 @@ function render() {
 	renderer.setViewport(window.innerWidth/2, window.innerHeight/2, 
 						window.innerWidth/2, window.innerHeight/2);
 
-	renderer.render(scene, perfil); 	// Yandan göstermesi gerekiyor
-	renderer.setViewport(0, window.innerHeight/2, 
-						window.innerWidth/2, window.innerHeight/2);
-
+	
 	renderer.render(scene, camera);
 
 }
