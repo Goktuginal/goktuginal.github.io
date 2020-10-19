@@ -54,8 +54,8 @@ function setCameras(ar) {
 
 	camera = camaraPerspectiva.clone();
 
-	scene.add(alzado);
-	scene.add(planta);
+	//scene.add(alzado);
+	//scene.add(planta);
 	scene.add(perfil);
 	scene.add(camera);
 
@@ -226,7 +226,7 @@ function render() {
 	renderer.render(scene, perfil); 	// Yandan göstermesi gerekiyor
 	renderer.setViewport(0, window.innerHeight/2, 
 						window.innerWidth/2, window.innerHeight/2);
-							
+
 	renderer.render(scene, camera);
 
 }
