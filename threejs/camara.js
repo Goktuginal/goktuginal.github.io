@@ -223,8 +223,10 @@ function render() {
 	renderer.setViewport(window.innerWidth/2, window.innerHeight/2, 
 						window.innerWidth/2, window.innerHeight/2);
 
-	// Aynı anda çalıştırabilirsin.
-	
+	renderer.render(scene, perfil); 	// Yandan göstermesi gerekiyor
+	renderer.setViewport(0, window.innerHeight/2, 
+						window.innerWidth/2, window.innerHeight/2);
+							
 	renderer.render(scene, camera);
 
 }
