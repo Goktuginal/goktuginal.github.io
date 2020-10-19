@@ -40,7 +40,7 @@ function setCameras(ar) {
 	alzado.position.set(0, 0, 4);
 	alzado.lookAt(origen);
 	perfil = camaraOrtografica.clone();
-	perfil.position.set(2, 0, 0);
+	perfil.position.set(8, 0, 0);
 	perfil.lookAt(origen);
 	planta = camaraOrtografica.clone();
 	planta.position.set(0, 4, 0);
