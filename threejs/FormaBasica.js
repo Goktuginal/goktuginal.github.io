@@ -310,7 +310,7 @@ function render() {
 	renderer.render(scene, camera); 	
 
 	// Robot
-	renderer.setViewport(0, window.innerHeight, 
+	renderer.setViewport(0, 0, 
 						window.innerWidth, window.innerHeight);
 	renderer.render(scene, camera);
 }
