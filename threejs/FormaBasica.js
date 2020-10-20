@@ -250,6 +250,7 @@ function loadScene() {
 		malla.faces.push(triangulo);
 	}
 	cubo = new THREE.Mesh(malla, material);
+	cubo.position.x = -0.1;
 	cubo.position.y = 5;
 	cubo.rotation.y = 45;
 	cubo2 = new THREE.Mesh(malla, material);
