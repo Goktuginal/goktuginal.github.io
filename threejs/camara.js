@@ -70,8 +70,7 @@ function init() {
 	camera.position.set(0.5, 3, 9);
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
 	scene.add(camera);
-	camera2 = camera.clone();
-	scene.add(camera2);
+	
 	// setCameras(ar);
 
 	// Control de camara
@@ -213,9 +212,7 @@ function render() {
 	
 	renderer.render(scene, camera);
 
-	renderer.render(scene, camera2); 	// Yandan göstermesi gerekiyor
-	renderer.setViewport(0, window.innerHeight/2, 
-						window.innerWidth/2, window.innerHeight/2);
+	
 
 }
 
