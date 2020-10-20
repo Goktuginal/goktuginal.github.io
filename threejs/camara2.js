@@ -221,13 +221,14 @@ function render() {
 
 	// Para cada render debo indicar el viewport
 	// Aynı anda çalıştırabilirsin.
-	renderer.render(scene, camera);
 
 	renderer.setViewport(0, 0, 
 						window.innerWidth/4, window.innerHeight/4);
 	renderer.render(scene, perfil); 	// Profilden göstermesi gerekiyor
 
-	
+	renderer.setViewport(window.innerWidth/4, window.innerHeight/4, 
+						window.innerWidth/2, window.innerHeight/2);
+	renderer.render(scene, camera);
 
 }
 
