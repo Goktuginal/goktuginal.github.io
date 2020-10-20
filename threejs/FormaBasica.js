@@ -251,13 +251,13 @@ function loadScene() {
 	}
 	cubo = new THREE.Mesh(malla, material);
 	cubo.position.y = 5;
-	cubo.position.x = -0.1;
+	cubo.position.x = 0.1;
 	cubo.position.z = 0.7;
 	cubo.rotation.y = 45;
 	cubo2 = new THREE.Mesh(malla, material);
 	cubo2.position.x = 0.7;
 	cubo2.position.y = 5;
-	cubo2.position.z = 0.2;
+	cubo2.position.z = 0.1;
 	cubo2.rotation.y = 45;
 
 
