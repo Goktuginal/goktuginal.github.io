@@ -214,14 +214,14 @@ function loadScene() {
 	var semilado = 0.5;
 
 	var coordenadas = [
-					 semilado/4, -semilado/4,  semilado,
-					 semilado/4, -semilado/4, -semilado,
+					 semilado/4, -semilado/2,  semilado/2,
+					 semilado/4, -semilado/2, -semilado,
 					 semilado/4,  semilado/2, -semilado,
-					 semilado/4,  semilado/2,  semilado,
-					-semilado/4,  semilado/2,  semilado,
+					 semilado/4,  semilado/2,  semilado/2,
+					-semilado/4,  semilado/2,  semilado/2,
 					-semilado/4,  semilado/2, -semilado,
-					-semilado/4, -semilado/4, -semilado,
-					-semilado/4, -semilado/4,  semilado,
+					-semilado/4, -semilado/2, -semilado,
+					-semilado/4, -semilado/2,  semilado/2,
 					 semilado/8, -semilado/4,  semilado*2,
 					 semilado/4, -semilado/2,  semilado,
 					 semilado/4,  semilado/2,  semilado,
