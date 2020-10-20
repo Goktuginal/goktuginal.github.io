@@ -186,7 +186,7 @@ function loadScene() {
 	var head2 = new THREE.Mesh(cylinder4, material);
 	head2.position.y = 5;
 	head2.rotation.x = 90;
-	head2.rotation.z = 55;
+	head2.rotation.z = 45;
 	var leg1 = new THREE.Mesh(boks2, material);
 	leg1.position.x = -0.2;
 	leg1.position.z = -0.2;
@@ -251,11 +251,11 @@ function loadScene() {
 	}
 	cubo = new THREE.Mesh(malla, material);
 	cubo.position.y = 5;
-	cubo.rotation.y = 50;
+	cubo.rotation.y = 45;
 	cubo2 = new THREE.Mesh(malla, material);
 	cubo2.position.x = 0.3;
 	cubo2.position.y = 5;
-	cubo2.rotation.y = 50;
+	cubo2.rotation.y = 45;
 
 
 	// Objeto contenedor
@@ -272,23 +272,22 @@ function loadScene() {
 	//Organizacion de la escena
 	pinzes.add(cubo);
 	pinzes.add(cubo2);
+	antebrazo.add(pinzes);
 	antebrazo.add(leg1);
 	antebrazo.add(leg2);
 	antebrazo.add(leg3);
 	antebrazo.add(leg4);
 	antebrazo.add(head2);
 	antebrazo.add(disco);
+	brazo.add(antebrazo);
 	brazo.add(body);
 	brazo.add(head);
 	brazo.add(ground);
 	base.add(brazo);
-	base.add(ba);
-	
-	antebrazo.add(pinzes);
-	brazo.add(antebrazo);
+	base.add(ba)
 	robot.add(base);
 	scene.add(robot);
-	//head2.add( new THREE.AxisHelper(3));
+	//scene.add( new THREE.AxisHelper(3));
 }
 
 function update() {
