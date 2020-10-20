@@ -211,7 +211,7 @@ function render() {
 	renderer.render(scene, camera);
 
 	renderer.render(scene, camera2); 	// Yandan göstermesi gerekiyor
-	renderer.setViewport(0, window.innerHeight/2, 
+	renderer.setViewport(0, 0, 
 						window.innerWidth/2, window.innerHeight/2);
 
 }
