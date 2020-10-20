@@ -305,7 +305,7 @@ function render() {
 	update();
 
 	// Thumnail
-	renderer.setViewport(0, 0, 
+	renderer.setViewport(0, window.innerHeight/16, 
 						window.innerWidth/8, window.innerHeight/8);
 	renderer.render(scene, camera); 	
 
