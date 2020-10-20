@@ -185,8 +185,8 @@ function loadScene() {
 	disco.rotation.y = 45;
 	var head2 = new THREE.Mesh(cylinder4, material);
 	head2.position.y = 5;
-	head2.rotation.z = 90;
-	//head2.rotation.z = 45;
+	head2.rotation.x = 90;
+	head2.rotation.z = 45;
 	var leg1 = new THREE.Mesh(boks2, material);
 	leg1.position.x = -0.2;
 	leg1.position.z = -0.2;
@@ -289,7 +289,6 @@ function loadScene() {
 	robot.add(base);
 	scene.add(robot);
 	head2.add( new THREE.AxisHelper(3));
-	//scene.add( new THREE.AxisHelper(3));
 }
 
 function update() {
