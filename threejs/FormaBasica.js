@@ -172,7 +172,7 @@ function loadScene() {
 
 	var ground = new THREE.Mesh(cylinder2, material);
 	ground.rotation.x = -105;
-	ground.rotation.z = 15;
+	ground.rotation.z = -15;
 	var head = new THREE.Mesh(sphere, material);
 	head.position.y = 3;
 	head.rotation.y = 45;
@@ -188,12 +188,12 @@ function loadScene() {
 	head2.rotation.x = 90;
 	head2.rotation.z = 45;
 	var leg1 = new THREE.Mesh(boks2, material);
-	leg1.position.x = -0.3;
+	leg1.position.x = -0.5;
 	leg1.position.z = -0.3;
 	leg1.position.y = 4;
 	leg1.rotation.y = 45;
 	var leg2 = new THREE.Mesh(boks3, material);
-	leg2.position.x = -0.1;
+	leg2.position.x = -0.3;
 	leg2.position.z = 0.3;
 	leg2.position.y = 4;
 	leg2.rotation.y = 45;
