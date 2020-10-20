@@ -63,8 +63,8 @@ function init() {
 	scene = new THREE.Scene();
 
 	// Camara
-	// var ar = window.innerWidth / window.innerHeight;
-	var camera = new THREE.PerspectiveCamera(75, ar, 0.1, 100);
+	var ar = window.innerWidth / window.innerHeight;
+	camera = new THREE.PerspectiveCamera(75, ar, 0.1, 100);
 	//camera = new THREE.OrthographicCamera(l, r, t, b, -20, 20);
 	
 	camera.position.set(0.5, 3, 9);
@@ -214,7 +214,7 @@ function render() {
 	renderer.render(scene, camera);
 
 	renderer.render(scene, camera2); 	// Yandan göstermesi gerekiyor
-	renderer.setViewport(0, 0, 
+	renderer.setViewport(0, window.innerHeight/2, 
 						window.innerWidth/2, window.innerHeight/2);
 
 }
