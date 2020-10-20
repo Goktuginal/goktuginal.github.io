@@ -172,7 +172,7 @@ function loadScene() {
 
 	var ground = new THREE.Mesh(cylinder2, material);
 	ground.rotation.x = 90;
-	ground.rotation.z = 45;
+	//ground.rotation.z = 45;
 	var head = new THREE.Mesh(sphere, material);
 	head.position.y = 3;
 	head.rotation.y = 45;
@@ -305,8 +305,8 @@ function render() {
 	update();
 
 	// Thumnail
-	renderer.setViewport(0, window.innerHeight/4, 
-						window.innerWidth/4, window.innerHeight/4);
+	renderer.setViewport(0, 0, 
+						window.innerWidth, window.innerHeight);
 	renderer.render(scene, camera); 	
 
 	// Robot
