@@ -230,9 +230,7 @@ function render() {
 	renderer.render(scene, alzado); 	// ? göstermesi gerekiyor
 	renderer.setViewport(0, 0, 
 						window.innerWidth/2, window.innerHeight/2);
-	renderer.render(scene, perfil); 	// Tepeden göstermesi gerekiyor
-	renderer.setViewport(window.innerWidth/2, 0, 
-						window.innerWidth/2, window.innerHeight/2);
+
 	renderer.render(scene, camera);
 
 }
