@@ -251,11 +251,11 @@ function loadScene() {
 	}
 	cubo = new THREE.Mesh(malla, material);
 	cubo.position.y = 5;
-	cubo.rotation.y = 55;
+	cubo.rotation.y = 50;
 	cubo2 = new THREE.Mesh(malla, material);
 	cubo2.position.x = 0.3;
 	cubo2.position.y = 5;
-	cubo2.rotation.y = 55;
+	cubo2.rotation.y = 50;
 
 
 	// Objeto contenedor
