@@ -221,23 +221,17 @@ function render() {
 
 	// Para cada render debo indicar el viewport
 	// Aynı anda çalıştırabilirsin.
-	renderer.setViewport(window.innerWidth/2, window.innerHeight/2, 
-						window.innerWidth/2, window.innerHeight/2);
-	renderer.render(scene, planta); 	// Tepeden göstermesi gerekiyor
-
-	renderer.setViewport(0, window.innerHeight/2, 
-						window.innerWidth/2, window.innerHeight/2);
-	renderer.render(scene, alzado); 	// Yandan göstermesi gerekiyor
+	renderer.render(scene, camera);
 
 	renderer.setViewport(0, 0, 
 						window.innerWidth/4, window.innerHeight/4);
 	renderer.render(scene, perfil); 	// Profilden göstermesi gerekiyor
 
-	renderer.setViewport(window.innerWidth/2, 0, 
-						window.innerWidth/2, window.innerHeight/2);
-	renderer.render(scene, camera);
+	
 
 }
+
+// https://goktuginal.github.io/usocanvas.html
 
 
 
