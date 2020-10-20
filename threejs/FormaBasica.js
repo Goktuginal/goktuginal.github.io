@@ -175,7 +175,7 @@ function loadScene() {
 	ground.rotation.z = -15;
 	var head = new THREE.Mesh(sphere, material);
 	head.position.y = 3;
-	head.rotation.y = 45;
+	head.rotation.y = 55;
 	var body = new THREE.Mesh(boks, material);
 	body.position.y = 1.5;
 	body.rotation.y = 45;
@@ -272,22 +272,23 @@ function loadScene() {
 	//Organizacion de la escena
 	pinzes.add(cubo);
 	pinzes.add(cubo2);
-	antebrazo.add(pinzes);
 	antebrazo.add(leg1);
 	antebrazo.add(leg2);
 	antebrazo.add(leg3);
 	antebrazo.add(leg4);
 	antebrazo.add(head2);
 	antebrazo.add(disco);
-	brazo.add(antebrazo);
 	brazo.add(body);
 	brazo.add(head);
 	brazo.add(ground);
 	base.add(brazo);
-	base.add(ba)
+	base.add(ba);
+	
+	antebrazo.add(pinzes);
+	brazo.add(antebrazo);
 	robot.add(base);
 	scene.add(robot);
-	//scene.add( new THREE.AxisHelper(3));
+	//head2.add( new THREE.AxisHelper(3));
 }
 
 function update() {
