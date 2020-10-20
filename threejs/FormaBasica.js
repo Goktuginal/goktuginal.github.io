@@ -306,7 +306,7 @@ function render() {
 
 	// Thumnail
 	renderer.setViewport(0, 0, 
-						window.innerWidth/2, window.innerHeight/2);
+						window.innerWidth/4, window.innerHeight/2);
 	renderer.render(scene, camera); 	
 
 	// Robot
