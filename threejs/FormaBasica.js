@@ -214,22 +214,22 @@ function loadScene() {
 	var semilado = 0.5;
 
 	var coordenadas = [
-					 semilado/4, -semilado/2,  semilado/2,
+					 semilado/4, -semilado/2,  semilado,
 					 semilado/4, -semilado/2, -semilado,
 					 semilado/4,  semilado/2, -semilado,
-					 semilado/4,  semilado/2,  semilado/2,
-					-semilado/4,  semilado/2,  semilado/2,
+					 semilado/4,  semilado/2,  semilado,
+					-semilado/4,  semilado/2,  semilado,
 					-semilado/4,  semilado/2, -semilado,
 					-semilado/4, -semilado/2, -semilado,
-					-semilado/4, -semilado/2,  semilado/2,
-					 semilado/8, -semilado/4,  semilado,
-					 semilado/4, -semilado/2,  semilado/2,
-					 semilado/4,  semilado/2,  semilado/2,
-					 semilado/8,  semilado/4,  semilado,
-					-semilado/8,  semilado/4,  semilado,
-					-semilado/4,  semilado/2,  semilado/2,
-					-semilado/4, -semilado/2,  semilado/2,
-					-semilado/8, -semilado/4,  semilado	];
+					-semilado/4, -semilado/2,  semilado,
+					 semilado/8, -semilado/4,  semilado*3,
+					 semilado/4, -semilado/2,  semilado,
+					 semilado/4,  semilado/2,  semilado,
+					 semilado/8,  semilado/4,  semilado*3,
+					-semilado/8,  semilado/4,  semilado*3,
+					-semilado/4,  semilado/2,  semilado,
+					-semilado/4, -semilado/2,  semilado,
+					-semilado/8, -semilado/4,  semilado*3	];
 
 	var indices = [
 				0,3,7, 7,3,4, 0,1,2,	
