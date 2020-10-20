@@ -38,7 +38,6 @@ function setCameras(ar) {
 	camaraPerspectiva.lookAt(origen);
 
 	camera = camaraPerspectiva.clone();
-
 	
 	scene.add(camera);
 
@@ -50,6 +49,7 @@ function init() {
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.setClearColor(new THREE.Color(0x000000));
+	renderer.autoClear = false;
 	document.getElementById("container").appendChild(renderer.domElement);
 
 	// Escena
@@ -314,6 +314,8 @@ function render() {
 						window.innerWidth/2, window.innerHeight/2);
 	renderer.render(scene, camera);
 }
+
+// https://goktuginal.github.io/usocanvas.html
 
 
 
