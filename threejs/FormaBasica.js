@@ -288,6 +288,7 @@ function loadScene() {
 	brazo.add(antebrazo);
 	robot.add(base);
 	scene.add(robot);
+	head2.add( new THREE.AxisHelper(3));
 	//scene.add( new THREE.AxisHelper(3));
 }
 
