@@ -63,13 +63,16 @@ function init() {
 	scene = new THREE.Scene();
 
 	// Camara
-	var ar = window.innerWidth / window.innerHeight;
-	camera = new THREE.PerspectiveCamera(75, ar, 0.1, 100);
+	// var ar = window.innerWidth / window.innerHeight;
+	var camera = new THREE.PerspectiveCamera(75, ar, 0.1, 100);
 	//camera = new THREE.OrthographicCamera(l, r, t, b, -20, 20);
-	scene.add(camera);
+	
 	camera.position.set(0.5, 3, 9);
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
-	setCameras(ar);
+	scene.add(camera);
+	camera2 = camera.clone();
+	scene.add(camera2);
+	// setCameras(ar);
 
 	// Control de camara
 	cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
