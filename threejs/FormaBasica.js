@@ -33,7 +33,7 @@ function setCameras(ar) {
 	}
 
 	// Camara perspectiva
-	var camaraPerspectiva = new THREE.PerspectiveCamera(50, ar, 0.1, 100);
+	var camaraPerspectiva = new THREE.PerspectiveCamera(10, ar, 0.1, 50);
 	camaraPerspectiva.position.set(1, 2, 10);
 	camaraPerspectiva.lookAt(origen);
 
