@@ -188,7 +188,7 @@ function loadScene() {
 	head2.rotation.x = 90;
 	head2.rotation.z = 45;
 	var leg1 = new THREE.Mesh(boks2, material);
-	leg1.position.x = -0.1;
+	leg1.position.x = -0.2;
 	leg1.position.z = -0.2;
 	leg1.position.y = 4;
 	leg1.rotation.y = 45;
