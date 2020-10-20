@@ -306,11 +306,11 @@ function render() {
 
 	// Thumnail
 	renderer.setViewport(0, 0, 
-						window.innerWidth/4, window.innerHeight/4);
+						window.innerWidth/8, window.innerHeight/8);
 	renderer.render(scene, camera); 	
 
 	// Robot
-	renderer.setViewport(window.innerWidth/4, window.innerHeight/4, 
+	renderer.setViewport(window.innerWidth/8, window.innerHeight/8, 
 						window.innerWidth/2, window.innerHeight/2);
 	renderer.render(scene, camera);
 }
