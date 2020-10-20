@@ -207,10 +207,12 @@ function render() {
 	// Construir el frame y mostrarlo
 	requestAnimationFrame(render);
 	update();
+	
+	renderer.render(scene, camera);
+
 	renderer.render(scene, camera2); 	// Yandan göstermesi gerekiyor
 	renderer.setViewport(0, window.innerHeight/2, 
 						window.innerWidth/2, window.innerHeight/2);
-	renderer.render(scene, camera);
 
 }
 
