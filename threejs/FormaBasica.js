@@ -171,7 +171,7 @@ function loadScene() {
 	var ba = new THREE.Mesh(cylinder, material);
 
 	var ground = new THREE.Mesh(cylinder2, material);
-	ground.rotation.x = -75;
+	ground.rotation.x = -95;
 	//ground.rotation.y = 45;
 	var head = new THREE.Mesh(sphere, material);
 	head.position.y = 3;
