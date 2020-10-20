@@ -275,19 +275,21 @@ function loadScene() {
 	//Organizacion de la escena
 	pinzes.add(cubo);
 	pinzes.add(cubo2);
-	antebrazo.add(pinzes);
+	
 	antebrazo.add(leg1);
 	antebrazo.add(leg2);
 	antebrazo.add(leg3);
 	antebrazo.add(leg4);
 	antebrazo.add(head2);
 	antebrazo.add(disco);
-	brazo.add(antebrazo);
+	
 	brazo.add(body);
 	brazo.add(head);
 	brazo.add(ground);
 	base.add(brazo);
-	base.add(ba)
+	base.add(ba);
+	antebrazo.add(pinzes);
+	brazo.add(antebrazo);
 	robot.add(base);
 	scene.add(robot);
 	//scene.add( new THREE.AxisHelper(3));
