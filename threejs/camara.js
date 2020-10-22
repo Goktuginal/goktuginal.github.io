@@ -131,7 +131,7 @@ function loadScene() {
 		}
 		if (keyboard.pressed('down')) {
 			esferacubo.rotation.x += 1 * delta;
-		}else if(keyboard.pressed('right')){
+		}else if(keyboard.pressed('up')){
 			esferacubo.rotation.x -= 1 * delta;
 		}
 	});
