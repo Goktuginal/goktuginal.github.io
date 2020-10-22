@@ -18,8 +18,8 @@ var effectController;
 
 // Otras globales
 var angulo = 0;
-var l = b = -4;
-var r = t = -l;
+/*var l = b = -4;
+var r = t = -l;*/
 
 var cameraControls;
 
