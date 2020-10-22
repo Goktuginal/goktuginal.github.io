@@ -27,7 +27,6 @@ var antes = Date.now();
 init();
 loadScene();
 setupGui();
-startAnimation();
 render();
 
 function init()
