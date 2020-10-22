@@ -17,7 +17,7 @@ var stats;
 var effectController;
 
 // Otras globales
-var base, brazo, antrebrazo, pinzas, robot, cubo, cubo2, angulo = 0;
+var base, brazo, antrebrazo, pinzas, robot, cubo, cubo2, angulo = 0, angulo2 = 0;
 var antes = Date.now();
 /*var l = b = -4;
 var r = t = -l;*/
@@ -323,6 +323,7 @@ function setupGui()
 	effectController = {
 		mensaje: 'Interfaz',
 		velang: 1,
+		velang2: 1,
 		sombras: true,
 		color: "rgb(255,0,0)"
 	};
@@ -334,6 +335,7 @@ function setupGui()
 	var h = gui.addFolder("Control peonza");
 	h.add(effectController, "mensaje").name("Peonza");
 	h.add(effectController, "velang", 0, 5, 0.5).name("Vueltas/sg");
+	h.add(effectController, "velang2", 0, 5, 0.5).name("Vueltas/sg2");
 	var sensorColor = h.addColor(effectController, "color").name("Color");
 	sensorColor.onChange( function(color){
 							base.traverse( function(hijo){
@@ -362,8 +364,10 @@ function update() {
 	// Rotacion de la peonza ------------
 	var ahora = Date.now();							// Hora actual
 	angulo += effectController.velang * 2*Math.PI * (ahora-antes)/1000;			// Incrementar el angulo en 360Âº / sg
+	angulo2 += effectController.velang2 * 2*Math.PI * (ahora-antes)/1000;
 	antes = ahora;									// Actualizar antes
 	robot.rotation.y = angulo/2;
+	base.rotation.y = angulo2/2;
 	//eje.rotation.y = angulo/2;
 
 	// Control de camra
