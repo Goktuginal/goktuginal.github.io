@@ -174,19 +174,19 @@ function loadScene() {
 	belt.position.set(0, 2.5, 0);
 	antrebrazo.add(belt);
 	var head = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 1.3, 10, 2), material);
-	head.position.set(0, 3.2, 0);
+	head.position.set(0, 3.7, 0);
 	antrebrazo.add(head);
 	var rib1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
-	rib1.position.set(-0.3, 2.8, -0.3);
+	rib1.position.set(-0.3, 3.0, -0.3);
 	antrebrazo.add(rib1);
 	var rib2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
-	rib2.position.set(-0.3, 2.8, 0.3);
+	rib2.position.set(-0.3, 3.0, 0.3);
 	antrebrazo.add(rib2);
 	var rib3 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
-	rib3.position.set(0.3, 2.8, -0.3);
+	rib3.position.set(0.3, 3.0, -0.3);
 	antrebrazo.add(rib3);
 	var rib4 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
-	rib4.position.set(0.3, 2.8, 0.3);
+	rib4.position.set(0.3, 3.0, 0.3);
 	antrebrazo.add(rib4);
 
 	pinzas = new THREE.Object3D();
@@ -231,9 +231,9 @@ function loadScene() {
 	}
 
 	cubo = new THREE.Mesh(malla, material);
-	cubo.position.set(-0.5, 3.2, 0.5);
+	cubo.position.set(-0.5, 3.7, 0.5);
 	cubo2 = new THREE.Mesh(malla, material);
-	cubo2.position.set(0.5, 3.2, 0.5);
+	cubo2.position.set(0.5, 3.7, 0.5);
 	pinzas.add(cubo);
 	pinzas.add(cubo2);
 
