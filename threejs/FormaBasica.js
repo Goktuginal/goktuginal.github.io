@@ -327,12 +327,12 @@ function setupGui()
 	// Definicion de los controles
 	effectController = {
 		mensaje: 'Interfaz',
-		velang: 1,
-		velang2: 1,
-		velang3: 1,
-		velang4: 1,
-		velang5: 1,
-		velang6: 1,
+		velang: 0,
+		velang2: 0,
+		velang3: 0,
+		velang4: 0,
+		velang5: 0,
+		velang6: 0,
 		sombras: true,
 		color: "rgb(255,0,0)"
 	};
@@ -372,7 +372,6 @@ function update() {
 
 	// Variacion de la escena entre frames
 	// Variacion de la escena entre frames
-	// https://goktuginal.github.io/usocanvas.html
 
 	// Rotacion de la peonza ------------
 	var ahora = Date.now();							// Hora actual
