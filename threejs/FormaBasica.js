@@ -161,7 +161,7 @@ function loadScene() {
 	brazo = new THREE.Object3D();
 	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), material);
 	wheel.position.set(0, 0.25, 0);
-	wheel.rotation.x = Math.PI/4;
+	wheel.rotation.z = Math.PI/4;
 	brazo.add(wheel);
 	var legs = new THREE.Mesh(new THREE.BoxGeometry(0.3, 2.5, 0.3), material);
 	legs.position.set(0, 1.5, 0);
@@ -176,7 +176,7 @@ function loadScene() {
 	antrebrazo.add(belt);
 	var head = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 1.3, 10, 2), material);
 	head.position.set(0, 4.0, 0);
-	head.rotation.z = Math.PI/4;
+	head.rotation.z = Math.PI/2;
 	antrebrazo.add(head);
 	var rib1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
 	rib1.position.set(-0.3, 3.3, -0.3);
