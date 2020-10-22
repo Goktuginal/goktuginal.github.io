@@ -161,7 +161,7 @@ function loadScene() {
 	brazo = new THREE.Object3D();
 	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), material);
 	wheel.position.set(0, 0.25, 0);
-	wheel.rotation.z = Math.PI/4;
+	wheel.rotation.z = Math.PI/2;
 	brazo.add(wheel);
 	var legs = new THREE.Mesh(new THREE.BoxGeometry(0.3, 2.5, 0.3), material);
 	legs.position.set(0, 1.5, 0);
