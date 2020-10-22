@@ -177,16 +177,16 @@ function loadScene() {
 	head.position.set(0, 3.2, 0);
 	antrebrazo.add(head);
 	var rib1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
-	rib1.position.set(-0.5, 2.8, -0.5);
+	rib1.position.set(-0.3, 2.8, -0.3);
 	antrebrazo.add(rib1);
 	var rib2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
-	rib2.position.set(-0.5, 2.8, 0.5);
+	rib2.position.set(-0.3, 2.8, 0.3);
 	antrebrazo.add(rib2);
 	var rib3 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
-	rib3.position.set(0.5, 2.8, -0.5);
+	rib3.position.set(0.3, 2.8, -0.3);
 	antrebrazo.add(rib3);
 	var rib4 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
-	rib4.position.set(0.5, 2.8, 0.5);
+	rib4.position.set(0.3, 2.8, 0.3);
 	antrebrazo.add(rib4);
 
 	pinzas = new THREE.Object3D();
