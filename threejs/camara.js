@@ -77,21 +77,23 @@ function loadScene() {
 	var updateFcts	= [];
 
 	// Materiales
-	var material = new THREE.MeshBasicMaterial( 
-                                      { color:0xFFFFFF,
-                                        wireframe: true } );
+	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 
-	// Peonza
+	var geocubo = new THREE.BoxGeometry(2, 2, 2);
+	var geoesfera = new THREE.SphereGeometry(1, 30, 30);
+	var cubo = new THREE.Mesh(geocubo, material);
+	cubo.position.y = 1.5;
+	// Orden de las transformaciones TRS
+	
+	var esfera = new THREE.Mesh(geoesfera, material);
+	esfera.position.set( 0, 0.25, 0 );
+
 	esferacubo = new THREE.Object3D();
-	var cuerpo = new THREE.Mesh(new THREE.CylinderGeometry( 1, 0.2, 2, 10, 2 ), material);
-	cuerpo.position.y = 1.5;
-	esferacubo.add( cuerpo );
-	var punta = new THREE.Mesh(new THREE.CylinderGeometry( 0.1, 0, 0.5, 10, 1 ), material);
-	punta.position.set( 0, 0.25, 0 );
-	esferacubo.add( punta );
-	var mango = new THREE.Mesh(new THREE.CylinderGeometry( 0.1, 0.1, 0.5, 10, 1 ), material);
-	mango.position.set( 0, 2.75, 0 );
-	esferacubo.add( mango );
+	esferacubo.add(cubo);
+	
+	//cubo.add(new THREE.AxisHelper(1));
+	esferacubo.add(esfera);
+	scene.add(esferacubo);
 	esferacubo.rotation.x = Math.PI/16;
 
 	eje = new THREE.Object3D();
@@ -126,7 +128,7 @@ function setupGui()
 	h.add(effectController, "velang", 0, 5, 0.5).name("Vueltas/sg");
 	var sensorColor = h.addColor(effectController, "color").name("Color");
 	sensorColor.onChange( function(color){
-							eje.traverse( function(hijo){
+							esferacubo.traverse( function(hijo){
 								if( hijo instanceof THREE.Mesh ) hijo.material.color = new THREE.Color(color);
 							})
 						  });
