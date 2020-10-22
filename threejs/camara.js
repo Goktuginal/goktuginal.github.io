@@ -167,7 +167,7 @@ function setupGui()
 		velang: 1,
 		reiniciar: function(){
 			TWEEN.removeAll();
-			cubo.position.set(-2.5,0,-2.5);
+			cubo.position.set(-1,0,0);
 			cubo.rotation.set( 0, 0, 0 );
 			startAnimation();
 		},
@@ -259,6 +259,13 @@ function update() {
 
 	// Variacion de la escena entre frames
 	// https://goktuginal.github.io/usocanvas.html
+
+	// Rotacion de la peonza ------------
+	var ahora = Date.now();							// Hora actual
+	angulo += effectController.velang * 2*Math.PI * (ahora-antes)/1000;			// Incrementar el angulo en 360Âº / sg
+	antes = ahora;									// Actualizar antes
+	cubo.rotation.y = angulo;
+	//eje.rotation.y = angulo/2;
 
 	// Control de camra
 	cameraControls.update();
