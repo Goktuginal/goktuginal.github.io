@@ -372,7 +372,7 @@ function update() {
 	var ahora2 = Date.now();							// Hora actual
 	angulo2 += effectController.velang2 * 2*Math.PI * (ahora2-antes2)/1000;			// Incrementar el angulo en 360Âº / sg
 	antes2 = ahora2;									// Actualizar antes
-	base.rotation.y = angulo2/2;
+	brazo.rotation.y = angulo2/2;
 
 	// Control de camra
 	cameraControls.update();
