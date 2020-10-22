@@ -118,30 +118,38 @@ function loadScene() {
 	scene.add(esferacubo);
 	scene.add( new THREE.AxisHelper(3));
 
-	var xSpeed = 0.0001;
-	var ySpeed = 0.0001;
+	var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
 
-	document.addEventListener("keydown", onDocumentKeyDown, false);
-	function onDocumentKeyDown(event) {
-	    var keyCode = event.which;
-	    if (keyCode == 87) {
-	        esferacubo.position.y += ySpeed;
-	    } else if (keyCode == 83) {
-	        esferacubo.position.y -= ySpeed;
-	    } else if (keyCode == 65) {
-	        esferacubo.position.x -= xSpeed;
-	    } else if (keyCode == 68) {
-	        esferacubo.position.x += xSpeed;
-	    } else if (keyCode == 32) {
-	        esferacubo.position.set(0, 0, 0);
-	    }
-	};
-}
+	updateFcts.push(function(delta, now){
+		if (keyboard.pressed('left')) {
+			esferacubo.rotation.y -= 1 * delta;
+		}else if(keyboard.pressed('right')){
+			esferacubo.rotation.y += 1 * delta;
+		}
+		if (keyboard.pressed('down')) {
+			esferacubo.rotation.x += 1 * delta;
+		}else if(keyboard.pressed('right')){
+			esferacubo.rotation.x -= 1 * delta;
+		}
+	});
+
+	// only on keydown
+	keyboard.domElement.addEventListener('keydown', function(event){
+		if (keyboard.eventMatches(event, 'w')) esferacubo.scale.y /= 2;
+		if (keyboard.eventMatches(event, 's')) esferacubo.scale.y *= 2;
+	});
+	// only on keyup
+}	keyboard.domElement.addEventListener('keyup', function(event){
+		if (keyboard.eventMatches(event, 'a')) esferacubo.scale.x *= 2;
+		if (keyboard.eventMatches(event, 'd')) esferacubo.scale.x /= 2;
+	});
 
 function update() {
 
 	// Variacion de la escena entre frames
-	
+	// https://goktuginal.github.io/usocanvas.html
 
 }
 
