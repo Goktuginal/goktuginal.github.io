@@ -117,10 +117,6 @@ function loadScene() {
 	esferacubo.add(esfera);
 	scene.add(esferacubo);
 	scene.add( new THREE.AxisHelper(3));
-	/**
-	 * declare THREEx namespace
-	 */
-	var THREEx    = THREEx    || {};
 
 	var keyboard = new THREEx.KeyboardState(renderer.domElement);
 	renderer.domElement.setAttribute("tabIndex", "0");
