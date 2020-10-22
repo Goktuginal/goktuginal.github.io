@@ -18,6 +18,7 @@ var effectController;
 
 // Otras globales
 var base, brazo, antrebrazo, pinzas, robot, cubo, cubo2, angulo = 0;
+var antes = Date.now();
 /*var l = b = -4;
 var r = t = -l;*/
 
