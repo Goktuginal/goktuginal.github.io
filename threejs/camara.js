@@ -147,10 +147,12 @@ function loadScene() {
 		if (keyboard.eventMatches(event, 'd')) esferacubo.scale.x /= 2;
 	});
 
-	updateFcts.push(function(){
-		renderer.render( scene, camera );		
-	})
+	
+}
+function update() {
 
+	// Variacion de la escena entre frames
+	// https://goktuginal.github.io/usocanvas.html
 	var lastTimeMsec= null
 	requestAnimationFrame(function animate(nowMsec){
 		// keep looping
@@ -165,17 +167,13 @@ function loadScene() {
 		})
 	})
 }
-function update() {
-
-	// Variacion de la escena entre frames
-	// https://goktuginal.github.io/usocanvas.html
-
-}
 
 function render() {
 	
 	// Construir el frame y mostrarlo
 	requestAnimationFrame(render);
 	update();
-	renderer.render(scene, camera);
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	})
 }
