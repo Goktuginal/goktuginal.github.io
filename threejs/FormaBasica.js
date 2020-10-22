@@ -241,11 +241,11 @@ function loadScene() {
 	brazo.add(antrebrazo);
 	antrebrazo.add(pinzas);
 
-	base.rotation.x = Math.PI/8;
+	base.rotation.x = Math.PI/2;
 
 	robot = new THREE.Object3D();
 	robot.position.set(0,0,0);
-	robot.add( base );
+	robot.add(base);
 	scene.add(robot);
 	
 
