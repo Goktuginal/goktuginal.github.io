@@ -297,9 +297,7 @@ function loadScene() {
 		if (keyboard.eventMatches(event, 'd')) robot.scale.x /= 2;
 	});*/
 
-	updateFcts.push(function(){
-		renderer.render( scene, camera );		
-	});
+	
 
 	var lastTimeMsec= null
 	requestAnimationFrame(function animate(nowMsec){
