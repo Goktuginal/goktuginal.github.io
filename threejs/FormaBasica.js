@@ -19,6 +19,7 @@ var effectController;
 // Otras globales
 var base, brazo, antrebrazo, pinzas, robot, cubo, cubo2, angulo = 0, angulo2 = 0;
 var antes = Date.now();
+var antes2 = Date.now();
 /*var l = b = -4;
 var r = t = -l;*/
 
@@ -364,11 +365,14 @@ function update() {
 	// Rotacion de la peonza ------------
 	var ahora = Date.now();							// Hora actual
 	angulo += effectController.velang * 2*Math.PI * (ahora-antes)/1000;			// Incrementar el angulo en 360Âº / sg
-	angulo2 += effectController.velang2 * 2*Math.PI * (ahora-antes)/1000;
 	antes = ahora;									// Actualizar antes
 	robot.rotation.y = angulo/2;
-	base.rotation.y = angulo2/2;
 	//eje.rotation.y = angulo/2;
+
+	var ahora2 = Date.now();							// Hora actual
+	angulo2 += effectController.velang2 * 2*Math.PI * (ahora2-antes2)/1000;			// Incrementar el angulo en 360Âº / sg
+	antes2 = ahora2;									// Actualizar antes
+	base.rotation.y = angulo2/2;
 
 	// Control de camra
 	cameraControls.update();
