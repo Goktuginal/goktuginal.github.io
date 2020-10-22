@@ -29,7 +29,6 @@ var antes = Date.now();
 init();
 loadScene();
 setupGui();
-startAnimation();
 render();
 
 function init() {
@@ -80,31 +79,27 @@ function loadScene() {
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 
-	// Geometrias
 	var geocubo = new THREE.BoxGeometry(2, 2, 2);
 	var geoesfera = new THREE.SphereGeometry(1, 30, 30);
-
-	// Objetos
 	var cubo = new THREE.Mesh(geocubo, material);
-
+	cubo.position.y = 1.5;
 	// Orden de las transformaciones TRS
-	cubo.rotation.y = Math.PI/4;
-	cubo.position.x = -1;
+	
 	var esfera = new THREE.Mesh(geoesfera, material);
-	esfera.position.x = 1;
+	esfera.position.set( 0, 0.25, 0 );
 
-	// Objeto contenedor
 	esferacubo = new THREE.Object3D();
-	esferacubo.position.y = 0.5;
-	esferacubo.rotation.y = angulo;
-
-
-	//Organizacion de la escena
 	esferacubo.add(cubo);
+	
 	//cubo.add(new THREE.AxisHelper(1));
 	esferacubo.add(esfera);
 	scene.add(esferacubo);
-	scene.add( new THREE.AxisHelper(3));
+	esferacubo.rotation.x = Math.PI/16;
+
+	eje = new THREE.Object3D();
+	eje.position.set(-2.5,0,-2.5);
+	eje.add( esferacubo );
+	scene.add(eje);
 
 	//Coordinates.drawGrid({size:6,scale:1});
 	Coordinates.drawGrid({size:6,scale:1, orientation:"y"});
@@ -164,12 +159,6 @@ function setupGui()
 	effectController = {
 		mensaje: 'Interfaz',
 		velang: 1,
-		reiniciar: function(){
-			TWEEN.removeAll();
-			cubo.position.set(-1,0,0);
-			cubo.rotation.set( 0, 0, 0 );
-			startAnimation();
-		},
 		sombras: true,
 		color: "rgb(255,0,0)"
 	};
@@ -181,7 +170,6 @@ function setupGui()
 	var h = gui.addFolder("Control peonza");
 	h.add(effectController, "mensaje").name("Peonza");
 	h.add(effectController, "velang", 0, 5, 0.5).name("Vueltas/sg");
-	h.add(effectController, "reiniciar").name("Reiniciar");
 	var sensorColor = h.addColor(effectController, "color").name("Color");
 	sensorColor.onChange( function(color){
 							esferacubo.traverse( function(hijo){

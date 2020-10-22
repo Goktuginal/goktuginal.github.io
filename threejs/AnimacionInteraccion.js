@@ -18,7 +18,6 @@ var stats;
 // Global GUI
 var effectController;
 // Objetos y tiempo
-var esferacubo, cubo;
 var peonza,eje;
 var angulo = 0;
 var antes = Date.now();
@@ -27,6 +26,7 @@ var antes = Date.now();
 init();
 loadScene();
 setupGui();
+startAnimation();
 render();
 
 function init()
@@ -68,30 +68,8 @@ function loadScene()
                                       { color:0xFFFFFF,
                                         wireframe: true } );
 
-	var geocubo = new THREE.BoxGeometry(2, 2, 2);
-	var geoesfera = new THREE.SphereGeometry(1, 30, 30);
-	var cubo = new THREE.Mesh(geocubo, material);
-	cubo.position.y = 1.5;
-	// Orden de las transformaciones TRS
-	
-	var esfera = new THREE.Mesh(geoesfera, material);
-	esfera.position.set( 0, 0.25, 0 );
-
-	esferacubo = new THREE.Object3D();
-	esferacubo.add(cubo);
-	
-	//cubo.add(new THREE.AxisHelper(1));
-	esferacubo.add(esfera);
-	scene.add(esferacubo);
-	esferacubo.rotation.x = Math.PI/16;
-
-	eje = new THREE.Object3D();
-	eje.position.set(-2.5,0,-2.5);
-	eje.add( esferacubo );
-	scene.add(eje);
-
 	// Peonza
-	/*peonza = new THREE.Object3D();
+	peonza = new THREE.Object3D();
 	var cuerpo = new THREE.Mesh(new THREE.CylinderGeometry( 1, 0.2, 2, 10, 2 ), material);
 	cuerpo.position.y = 1.5;
 	peonza.add( cuerpo );
@@ -107,7 +85,7 @@ function loadScene()
 	eje.position.set(-2.5,0,-2.5);
 	eje.add( peonza );
 	scene.add(eje);
-*/
+
 
 	// Suelo
 	var geoSuelo = new THREE.PlaneGeometry( 5, 5 );
@@ -127,6 +105,12 @@ function setupGui()
 	effectController = {
 		mensaje: 'Interfaz',
 		velang: 1,
+		reiniciar: function(){
+			TWEEN.removeAll();
+			eje.position.set(-2.5,0,-2.5);
+			eje.rotation.set( 0, 0, 0 );
+			startAnimation();
+		},
 		sombras: true,
 		color: "rgb(255,0,0)"
 	};
@@ -138,15 +122,51 @@ function setupGui()
 	var h = gui.addFolder("Control peonza");
 	h.add(effectController, "mensaje").name("Peonza");
 	h.add(effectController, "velang", 0, 5, 0.5).name("Vueltas/sg");
+	h.add(effectController, "reiniciar").name("Reiniciar");
 	var sensorColor = h.addColor(effectController, "color").name("Color");
 	sensorColor.onChange( function(color){
-							esferacubo.traverse( function(hijo){
+							peonza.traverse( function(hijo){
 								if( hijo instanceof THREE.Mesh ) hijo.material.color = new THREE.Color(color);
 							})
 						  });
 }
 
+function startAnimation(){
+	// Movimiento autonomo de la peonza mediante TWEEN
+	var mvtoDer = new TWEEN.Tween( eje.position ).to( {x: [-1.5, -2.5],
+													 y: [0, 0],
+													 z: [0, 2.5] }, 5000 );
+	var mvtoFrente = new TWEEN.Tween( eje.position ).to( {x: [0, 2.5],
+													 y: [0, 0],
+													 z: [0, 2.5] }, 5000 );
+	var mvtoIzq = new TWEEN.Tween( eje.position ).to( {x: [1.5, 2.5],
+													 y: [0, 0],
+													 z: [0, -2.5] }, 5000 );
+	var mvtoTras = new TWEEN.Tween( eje.position ).to( {x: [0, -2.5],
+													 y: [0, 0],
+													 z: [-1.5, -2.5] }, 5000 );
 
+	mvtoDer.easing(TWEEN.Easing.Bounce.Out);
+	mvtoDer.interpolation( TWEEN.Interpolation.Bezier );
+	mvtoFrente.easing(TWEEN.Easing.Bounce.Out);
+	mvtoFrente.interpolation( TWEEN.Interpolation.Bezier );
+	mvtoIzq.easing(TWEEN.Easing.Bounce.Out);
+	mvtoIzq.interpolation( TWEEN.Interpolation.Bezier );
+	mvtoTras.easing(TWEEN.Easing.Bounce.Out);
+	mvtoTras.interpolation( TWEEN.Interpolation.Bezier );
+
+	mvtoDer.chain( mvtoFrente );
+	mvtoFrente.chain( mvtoIzq );
+	mvtoIzq.chain( mvtoTras );
+	//mvto.repeat( 1 );
+	//mvto.yoyo( true );
+	mvtoDer.start();
+
+	// Giro de la peonza
+	var giro = new TWEEN.Tween( eje.rotation ).to( {x:0, y:-Math.PI*2, z:0}, 2000 );
+	giro.repeat(Infinity);
+	giro.start();
+}
 
 function updateAspectRatio()
 {
@@ -161,7 +181,7 @@ function update()
 	var ahora = Date.now();							// Hora actual
 	angulo += effectController.velang * 2*Math.PI * (ahora-antes)/1000;			// Incrementar el angulo en 360Âº / sg
 	antes = ahora;									// Actualizar antes
-	esferacubo.rotation.y = angulo;
+	peonza.rotation.y = angulo;
 	//eje.rotation.y = angulo/2;
 	// ---------------------------------
 
