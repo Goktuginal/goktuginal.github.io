@@ -148,11 +148,7 @@ function loadScene() {
 	});
 
 	
-}
-function update() {
 
-	// Variacion de la escena entre frames
-	// https://goktuginal.github.io/usocanvas.html
 	var lastTimeMsec= null
 	requestAnimationFrame(function animate(nowMsec){
 		// keep looping
@@ -166,6 +162,12 @@ function update() {
 			updateFn(deltaMsec/1000, nowMsec/1000)
 		})
 	})
+}
+function update() {
+
+	// Variacion de la escena entre frames
+	// https://goktuginal.github.io/usocanvas.html
+
 }
 
 function render() {
