@@ -1,0 +1,45 @@
+var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
+
+	updateFcts.push(function(delta, now){
+		if (keyboard.pressed('left')) {
+			esferacubo.position.y -= 1 * delta;
+		}else if(keyboard.pressed('right')){
+			esferacubo.position.y += 1 * delta;
+		}
+		if (keyboard.pressed('down')) {
+			esferacubo.position.x += 1 * delta;
+		}else if(keyboard.pressed('up')){
+			esferacubo.position.x -= 1 * delta;
+		}
+	});
+
+	// only on keydown
+	keyboard.domElement.addEventListener('keydown', function(event){
+		if (keyboard.eventMatches(event, 'w')) esferacubo.scale.y /= 2;
+		if (keyboard.eventMatches(event, 's')) esferacubo.scale.y *= 2;
+	});
+	// only on keyup
+	keyboard.domElement.addEventListener('keyup', function(event){
+		if (keyboard.eventMatches(event, 'a')) esferacubo.scale.x *= 2;
+		if (keyboard.eventMatches(event, 'd')) esferacubo.scale.x /= 2;
+	});
+
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	})
+
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame( animate );
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		})
+	})
