@@ -118,7 +118,7 @@ function loadScene() {
 	scene.add(esferacubo);
 	scene.add( new THREE.AxisHelper(3));
 
-	var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	var keyboard = new THREEx.keyboardState(renderer.domElement);
 	renderer.domElement.setAttribute("tabIndex", "0");
 	renderer.domElement.focus();
 
