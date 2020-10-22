@@ -131,7 +131,7 @@ function setupGui()
 						  });
 }
 
-/*function startAnimation(){
+function startAnimation(){
 	// Movimiento autonomo de la peonza mediante TWEEN
 	var mvtoDer = new TWEEN.Tween( eje.position ).to( {x: [-1.5, -2.5],
 													 y: [0, 0],
@@ -166,7 +166,7 @@ function setupGui()
 	var giro = new TWEEN.Tween( eje.rotation ).to( {x:0, y:-Math.PI*2, z:0}, 2000 );
 	giro.repeat(Infinity);
 	giro.start();
-}*/
+}
 
 function updateAspectRatio()
 {
