@@ -275,14 +275,14 @@ function loadScene() {
 
 	updateFcts.push(function(delta, now){
 		if (keyboard.pressed('left')) {
-			robot.position.y -= 1 * delta;
+			robot.position.x -= 1 * delta;
 		}else if(keyboard.pressed('right')){
-			robot.position.y += 1 * delta;
+			robot.position.x += 1 * delta;
 		}
 		if (keyboard.pressed('down')) {
-			robot.position.x += 1 * delta;
+			robot.position.y += 1 * delta;
 		}else if(keyboard.pressed('up')){
-			robot.position.x -= 1 * delta;
+			robot.position.y -= 1 * delta;
 		}
 	});
 
@@ -362,7 +362,7 @@ function update() {
 	var ahora = Date.now();							// Hora actual
 	angulo += effectController.velang * 2*Math.PI * (ahora-antes)/1000;			// Incrementar el angulo en 360Âº / sg
 	antes = ahora;									// Actualizar antes
-	base.rotation.y = angulo/2;
+	robot.rotation.y = angulo/2;
 	//eje.rotation.y = angulo/2;
 
 	// Control de camra
