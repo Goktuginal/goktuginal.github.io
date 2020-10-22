@@ -168,7 +168,7 @@ function update() {
 	var ahora = Date.now();							// Hora actual
 	angulo += effectController.velang * 2*Math.PI * (ahora-antes)/1000;			// Incrementar el angulo en 360Âº / sg
 	antes = ahora;									// Actualizar antes
-	cuerpo.rotation.y = angulo/2;
+	esferacubo.rotation.y = angulo/2;
 	//eje.rotation.y = angulo/2;
 
 	// Control de camra
