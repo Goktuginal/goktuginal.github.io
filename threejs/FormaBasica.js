@@ -327,6 +327,8 @@ function setupGui()
 		mensaje: 'Interfaz',
 		velang: 1,
 		velang2: 1,
+		velang3: 1,
+		velang4: 1,
 		sombras: true,
 		color: "rgb(255,0,0)"
 	};
@@ -339,6 +341,8 @@ function setupGui()
 	h.add(effectController, "mensaje").name("Peonza");
 	h.add(effectController, "velang", 0, 5, 0.5).name("Vueltas/sg");
 	h.add(effectController, "velang2", 0, 5, 0.5).name("Vueltas/sg2");
+	h.add(effectController, "velang3", 0, 5, 0.5).name("Vueltas/sg3");
+	h.add(effectController, "velang4", 0, 5, 0.5).name("Vueltas/sg4");
 	var sensorColor = h.addColor(effectController, "color").name("Color");
 	sensorColor.onChange( function(color){
 							base.traverse( function(hijo){
