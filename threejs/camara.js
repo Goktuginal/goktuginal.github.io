@@ -22,34 +22,6 @@ init();
 loadScene();
 render();
 
-
-function setCameras(ar) {
-
-	// Construye las camaras planta, alzado, perfil y perspectiva
-	var origen = new THREE.Vector3(0, 0, 0);
-
-	if (ar > 1) {
-		var camaraOrtografica = new THREE.OrthographicCamera(l*ar, r*ar, t, b, -20, 20);
-	}
-	else {
-		var camaraOrtografica = new THREE.OrthographicCamera(l, r, t/ar, b/ar, -20, 20);
-	}
-
-
-	// Camara perspectiva
-	var camaraPerspectiva = new THREE.PerspectiveCamera(50, ar, 0.1, 50);
-	camaraPerspectiva.position.set(1, 2, 10);
-	camaraPerspectiva.lookAt(origen);
-
-	camera2 = camaraPerspectiva.clone();
-
-	//scene.add(alzado);
-	//scene.add(planta);
-	//scene.add(perfil);
-	scene.add(camera2);
-
-}
-
 function init() {
 
 	// Configurar el motor de render y el canvas
@@ -71,7 +43,6 @@ function init() {
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
 	scene.add(camera);
 	
-	// setCameras(ar);
 
 	// Control de camara
 	cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -80,49 +51,7 @@ function init() {
 
 	// Captura de eventos
 	window.addEventListener('resize', updateAspectRation);
-	renderer.domElement.addEventListener('dblclick', rotate);
 
-}
-
-function rotate(event) {
-
-	// Gira el objeto senyalado 45 grados
-	var x = event.clientX;
-	var y = event.clientY;
-
-	var derecha = false, abajo = false;
-	var cam = null;
-
-	// Cuadrante para la x,y?
-	if (x > window.innerWidth/2) {
-		x -= window.innerWidth/2;
-		derecha = true;
-	};
-	if (y > window.innerHeight/2) {
-		y -= window.innerHeight/2;
-		abajo = true;
-	};
-	if (derecha)
-		if (abajo)	cam = camera;
-		else 	cam = perfil;
-	else 
-		if (abajo) cam = planta;
-		else cam = alzado;
-		
-
-	// Transformacion a cuadrado de 2x2
-	x = (2 * x / window.innerWidth) * 2 - 1;
-	y = -(2 * y / window.innerHeight) * 2 + 1;
-
-	console.log(x + "," + y);
-	var rayo = new THREE.Raycaster();
-	rayo.setFromCamera(new THREE.vector2(x, y), camera);
-
-	var interseccion = rayo.intersectObjects(scene.children, true);
-
-	if (interseccion.length > 0) {
-		interseccion[0].object.rotation.y += Math.PI/4;
-	}
 }
 
 function updateAspectRation(argument) {
@@ -181,13 +110,6 @@ function loadScene() {
 	esferacubo.position.y = 0.5;
 	esferacubo.rotation.y = angulo;
 
-	// Modelo externo
-	var loader = new THREE.ObjectLoader();
-	loader.load('models/soldado/soldado.json', 
-				function(obj){
-					obj.position.set(0, 1, 0);
-					cubo.add(obj);
-	});
 
 	//Organizacion de la escena
 	esferacubo.add(cubo);
@@ -210,20 +132,7 @@ function render() {
 	requestAnimationFrame(render);
 	update();
 	
-	// Para cada render debo indicar el viewport
-	renderer.setViewport(window.innerWidth/2, window.innerHeight/2, 
-						window.innerWidth/2, window.innerHeight/2);
-
-	// Aynı anda çalıştırabilirsin.
-	renderer.render(scene, planta); 	// Tepeden göstermesi gerekiyor
-	renderer.setViewport(0, window.innerHeight/2, 
-						window.innerWidth/2, window.innerHeight/2);
-	renderer.render(scene, alzado); 	// Yandan göstermesi gerekiyor
-	renderer.setViewport(0, 0, 
-						window.innerWidth/2, window.innerHeight/2);
-	renderer.render(scene, perfil); 	// Profilden göstermesi gerekiyor
-	renderer.setViewport(window.innerWidth/2, 0, 
-						window.innerWidth/2, window.innerHeight/2);
+	
 	renderer.render(scene, camera);
 
 	
