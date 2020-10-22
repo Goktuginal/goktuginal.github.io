@@ -88,6 +88,7 @@ function updateAspectRation(argument) {
 function loadScene() {
 
 	// Construir el grafo de escena
+	var updateFcts	= [];
 
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
@@ -141,11 +142,29 @@ function loadScene() {
 		if (keyboard.eventMatches(event, 's')) esferacubo.scale.y *= 2;
 	});
 	// only on keyup
-}	keyboard.domElement.addEventListener('keyup', function(event){
+	keyboard.domElement.addEventListener('keyup', function(event){
 		if (keyboard.eventMatches(event, 'a')) esferacubo.scale.x *= 2;
 		if (keyboard.eventMatches(event, 'd')) esferacubo.scale.x /= 2;
 	});
 
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	})
+
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame( animate );
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		})
+	})
+}
 function update() {
 
 	// Variacion de la escena entre frames
