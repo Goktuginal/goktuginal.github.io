@@ -298,19 +298,7 @@ function loadScene() {
 	});*/
 
 	updateFcts.push(function(){
-		// Construir el frame y mostrarlo
-	requestAnimationFrame(render);
-	update();
-
-	// Thumnail
-	renderer.setViewport(0, window.innerHeight/16, 
-						window.innerWidth/8, window.innerHeight/8);
-	renderer.render(scene, camera); 	
-
-	// Robot
-	renderer.setViewport(0, window.innerHeight/4, 
-						window.innerWidth, window.innerHeight);
-	renderer.render(scene, camera);	
+		renderer.render( scene, camera );		
 	});
 
 	var lastTimeMsec= null
@@ -388,7 +376,19 @@ function update() {
 
 function render() {
 	
-	
+	// Construir el frame y mostrarlo
+	requestAnimationFrame(render);
+	update();
+
+	// Thumnail
+	renderer.setViewport(0, window.innerHeight/16, 
+						window.innerWidth/8, window.innerHeight/8);
+	renderer.render(scene, camera); 	
+
+	// Robot
+	renderer.setViewport(0, window.innerHeight/4, 
+						window.innerWidth, window.innerHeight);
+	renderer.render(scene, camera);
 }
 
 // https://goktuginal.github.io/usocanvas.html
