@@ -93,7 +93,6 @@ function loadScene() {
 	
 	//cubo.add(new THREE.AxisHelper(1));
 	esferacubo.add(esfera);
-	scene.add(esferacubo);
 	esferacubo.rotation.x = Math.PI/16;
 
 	eje = new THREE.Object3D();
@@ -170,7 +169,7 @@ function update() {
 	var ahora = Date.now();							// Hora actual
 	angulo += effectController.velang * 2*Math.PI * (ahora-antes)/1000;			// Incrementar el angulo en 360Âº / sg
 	antes = ahora;									// Actualizar antes
-	esferacubo.rotation.y = angulo/2;
+	cubo.rotation.y = angulo/2;
 	//eje.rotation.y = angulo/2;
 
 	// Control de camra
