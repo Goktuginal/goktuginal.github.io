@@ -18,6 +18,7 @@ var stats;
 // Global GUI
 var effectController;
 // Objetos y tiempo
+var esferacubo, cubo;
 var peonza,eje;
 var angulo = 0;
 var antes = Date.now();
@@ -84,7 +85,7 @@ function loadScene()
 	esferacubo.add(esfera);
 	scene.add(esferacubo);
 	esferacubo.rotation.x = Math.PI/16;
-	
+
 	eje = new THREE.Object3D();
 	eje.position.set(-2.5,0,-2.5);
 	eje.add( esferacubo );
