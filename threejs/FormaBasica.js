@@ -5,19 +5,28 @@
 *
 */
 
+"use strict";
+
 // Variables de consenso
 // Motor, escena y la camara
 var renderer, scene, camera;
 
+// Monitor de recursos
+var stats;
+// Global GUI
+var effectController;
+
 // Otras globales
-var esferaCubo, angulo = 0;
+var angulo = 0;
 var l = b = -4;
 var r = t = -l;
+
 var cameraControls;
 
 // Acciones
 init();
 loadScene();
+setupGui();
 render();
 
 function setCameras(ar) {
@@ -57,21 +66,29 @@ function init() {
 
 	// Camara
 	var ar = window.innerWidth / window.innerHeight;
-	/*camera = new THREE.PerspectiveCamera(50, ar, 0.1, 100);
-	scene.add(camera);
+	camera = new THREE.PerspectiveCamera(75, ar, 0.1, 100);
+	
 	camera.position.set(0.5, 3, 9);
-	camera.lookAt(new THREE.Vector3(0, 2, 0));*/
-
-	setCameras(ar);
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+	scene.add(camera);
+	//setCameras(ar);
 
 	// Control de camara
 	cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
 	cameraControls.target.set(0, 0, 0);
 	cameraControls.noKeys = true;
 
+	// STATS --> stats.update() en update()
+	stats = new Stats();
+	stats.setMode( 0 );					// Muestra FPS
+	stats.domElement.style.position = 'absolute';		// Abajo izquierda
+	stats.domElement.style.bottom = '0px';
+	stats.domElement.style.left = '0px';
+	document.getElementById( 'container' ).appendChild( stats.domElement );
+
 	// Captura de eventos
 	window.addEventListener('resize', updateAspectRation);
-	renderer.domElement.addEventListener('dblclick', rotate);
+	//renderer.domElement.addEventListener('dblclick', rotate);
 }
 
 function rotate(event) {
@@ -148,6 +165,7 @@ function updateAspectRation(argument) {
 function loadScene() {
 
 	// Construir el grafo de escena
+	var updateFcts	= [];
 
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
@@ -249,154 +267,110 @@ function loadScene() {
 	robot.position.set(0,0,0);
 	robot.add(base);
 	scene.add(robot);
-	
 
-	// Geometrias
-	// var cylinder = new THREE.CylinderGeometry(1.45, 1.45, 0.25, 30);
-	// wheel
-	/*var cylinder2 = new THREE.CylinderGeometry(0.59, 0.59, 0.38, 30);
-	var sphere = new THREE.SphereGeometry(0.55, 30, 30);
-	var boks = new THREE.BoxGeometry(0.3, 2.5, 0.3);*/
-	// belt
-	// var cylinder3 = new THREE.CylinderGeometry(0.75, 0.75, 0.18, 30);
-	// head
-	/*var cylinder4 = new THREE.CylinderGeometry(0.35, 0.35, 1.38, 30);
-	var boks2 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
-	var boks3 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
-	var boks4 = new THREE.BoxGeometry(0.1, 1.7, 0.1);
-	var boks5 = new THREE.BoxGeometry(0.1, 1.7, 0.1);*/
-	// Objetos
-/*	var ba = new THREE.Mesh(cylinder, material);
+	// Keybord
+	var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
 
-	var ground = new THREE.Mesh(cylinder2, material);
-	ground.rotation.x = -105;
-	ground.rotation.z = -15;
-	var head = new THREE.Mesh(sphere, material);
-	head.position.y = 3;
-	head.rotation.y = 45;
-	var body = new THREE.Mesh(boks, material);
-	body.position.y = 1.5;
-	body.rotation.y = 45;
+	updateFcts.push(function(delta, now){
+		if (keyboard.pressed('left')) {
+			robot.position.y -= 1 * delta;
+		}else if(keyboard.pressed('right')){
+			robot.position.y += 1 * delta;
+		}
+		if (keyboard.pressed('down')) {
+			robot.position.x += 1 * delta;
+		}else if(keyboard.pressed('up')){
+			robot.position.x -= 1 * delta;
+		}
+	});
 
-	var disco = new THREE.Mesh(cylinder3, material);
-	disco.position.y = 3;
-	disco.rotation.y = 45;
-	var head2 = new THREE.Mesh(cylinder4, material);
-	head2.position.y = 5;
-	head2.rotation.x = 90;
-	head2.rotation.z = 55;
-	var leg1 = new THREE.Mesh(boks2, material);
-	leg1.position.x = -0.2;
-	leg1.position.z = -0.2;
-	leg1.position.y = 4;
-	leg1.rotation.y = 45;
-	var leg2 = new THREE.Mesh(boks3, material);
-	leg2.position.x = -0.1;
-	leg2.position.z = 0.2;
-	leg2.position.y = 4;
-	leg2.rotation.y = 45;
-	var leg3 = new THREE.Mesh(boks4, material);
-	leg3.position.x = 0.1;
-	leg3.position.z = -0.2;
-	leg3.position.y = 4;
-	leg3.rotation.y = 45;
-	var leg4 = new THREE.Mesh(boks5, material);
-	leg4.position.x = 0.3;
-	leg4.position.z = 0.2;
-	leg4.position.y = 4;
-	leg4.rotation.y = 45;*/
+	// only on keydown
+	/*keyboard.domElement.addEventListener('keydown', function(event){
+		if (keyboard.eventMatches(event, 'w')) robot.scale.y /= 2;
+		if (keyboard.eventMatches(event, 's')) robot.scale.y *= 2;
+	});*/
+	// only on keyup
+	/*keyboard.domElement.addEventListener('keyup', function(event){
+		if (keyboard.eventMatches(event, 'a')) robot.scale.x *= 2;
+		if (keyboard.eventMatches(event, 'd')) robot.scale.x /= 2;
+	});*/
 
-	// pinzas
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	});
 
-	/*var malla = new THREE.Geometry();
-	var semilado = 0.5;
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame( animate );
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		})
+	});
+}
 
-	var coordenadas = [
-					 semilado/4, -semilado/2,  semilado,
-					 semilado/4, -semilado/2, -semilado,
-					 semilado/4,  semilado/2, -semilado,
-					 semilado/4,  semilado/2,  semilado,
-					-semilado/4,  semilado/2,  semilado,
-					-semilado/4,  semilado/2, -semilado,
-					-semilado/4, -semilado/2, -semilado,
-					-semilado/4, -semilado/2,  semilado,
-					 semilado/8, -semilado/4,  semilado*3,
-					 semilado/4, -semilado/2,  semilado,
-					 semilado/4,  semilado/2,  semilado,
-					 semilado/8,  semilado/4,  semilado*3,
-					-semilado/8,  semilado/4,  semilado*3,
-					-semilado/4,  semilado/2,  semilado,
-					-semilado/4, -semilado/2,  semilado,
-					-semilado/8, -semilado/4,  semilado*3	];
+function setupGui()
+{
+	// Definicion de los controles
+	effectController = {
+		mensaje: 'Interfaz',
+		velang: 1,
+		sombras: true,
+		color: "rgb(255,0,0)"
+	};
 
-	var indices = [
-				0,3,7, 7,3,4, 0,1,2,	
-				0,2,3, 4,3,2, 4,2,5,
-				6,7,4, 6,4,5, 1,5,2,
-				1,6,5, 7,6,1, 7,1,0,
-				8,11,15, 15,11,15, 8,9,10,
-				8,10,11, 12,11,10, 12,10,13,
-				14,15,12, 14,12,13, 9,13,10,
-				9,14,13, 15,14,9, 15,9,8	];
+	// Creacion interfaz
+	var gui = new dat.GUI();
 
-	for(var i = 0; i < coordenadas.length; i+=3){
-		var vertice = new THREE.Vector3(coordenadas[i], coordenadas[i+1], coordenadas[i+2]);
-		malla.vertices.push(vertice);
-	}
-	for(var i = 0; i < indices.length; i+=3){
-		var triangulo = new THREE.Face3(indices[i], indices[i+1], indices[i+2]);
-		malla.faces.push(triangulo);
-	}
-	cubo = new THREE.Mesh(malla, material);
-	cubo.position.x = -0.3;
-	cubo.position.y = 4.95;
-	cubo.position.z = 0.3;
-	cubo.rotation.y = 57;
-	cubo2 = new THREE.Mesh(malla, material);
-	cubo2.position.x = 0.3;
-	cubo2.position.y = 4.95;
-	cubo2.position.z = 0.3;
-	cubo2.rotation.y = 57;*/
+	// Construccion del menu
+	var h = gui.addFolder("Control peonza");
+	h.add(effectController, "mensaje").name("Peonza");
+	h.add(effectController, "velang", 0, 5, 0.5).name("Vueltas/sg");
+	var sensorColor = h.addColor(effectController, "color").name("Color");
+	sensorColor.onChange( function(color){
+							base.traverse( function(hijo){
+								if( hijo instanceof THREE.Mesh ) hijo.material.color = new THREE.Color(color);
+							})
+						  });
+}
 
+function updateAspectRation(argument) {
 
-	// Objeto contenedor
-	/*pinzes = new THREE.Object3D();
-	antebrazo = new THREE.Object3D();
-	brazo = new THREE.Object3D();
-	base = new THREE.Object3D();
-	robot = new THREE.Object3D();*/
-	/*esferacubo.position.y = 0.5;
-	esferacubo.rotation.y = angulo;*/
+	// Renueva la relacion de aspecto de la camara
 
-	
-
-	//Organizacion de la escena
-	/*pinzes.add(cubo);
-	pinzes.add(cubo2);*/
-	/*antebrazo.add(leg1);
-	antebrazo.add(leg2);
-	antebrazo.add(leg3);
-	antebrazo.add(leg4);
-	antebrazo.add(head2);
-	antebrazo.add(disco);
-	brazo.add(body);
-	brazo.add(head);
-	brazo.add(ground);
-	base.add(brazo);
-	base.add(ba);
-	
-	antebrazo.add(pinzes);
-	brazo.add(antebrazo);
-	robot.add(base);
-	scene.add(robot);*/
-	//head2.add( new THREE.AxisHelper(3));
+	// Ajustar el tamano del canvas
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	camera.aspect = window.innerWidth/window.innerHeight;
+	// Camara perspectiva
+	camera.updateProjectionMatrix();
 }
 
 function update() {
 
 	// Variacion de la escena entre frames
-	//angulo += Math.PI/100;
-	//esferacubo.rotation.y = angulo;
+	// Variacion de la escena entre frames
+	// https://goktuginal.github.io/usocanvas.html
+
+	// Rotacion de la peonza ------------
+	var ahora = Date.now();							// Hora actual
+	angulo += effectController.velang * 2*Math.PI * (ahora-antes)/1000;			// Incrementar el angulo en 360Âº / sg
+	antes = ahora;									// Actualizar antes
+	base.rotation.y = angulo/2;
+	//eje.rotation.y = angulo/2;
+
+	// Control de camra
+	cameraControls.update();
+	// Actualiza los FPS
+	stats.update();
+	// Actualiza interpoladores
+	TWEEN.update();
 
 }
 
