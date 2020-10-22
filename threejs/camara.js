@@ -114,7 +114,7 @@ function loadScene() {
 
 	//Organizacion de la escena
 	esferacubo.add(cubo);
-	cubo.add(new THREE.AxisHelper(1));
+	//cubo.add(new THREE.AxisHelper(1));
 	esferacubo.add(esfera);
 	scene.add(esferacubo);
 	scene.add( new THREE.AxisHelper(3));
@@ -125,14 +125,14 @@ function loadScene() {
 
 	updateFcts.push(function(delta, now){
 		if (keyboard.pressed('left')) {
-			esferacubo.translation.y -= 1 * delta;
+			esferacubo.position.y -= 1 * delta;
 		}else if(keyboard.pressed('right')){
-			esferacubo.translation.y += 1 * delta;
+			esferacubo.position.y += 1 * delta;
 		}
 		if (keyboard.pressed('down')) {
-			esferacubo.translation.x += 1 * delta;
+			esferacubo.position.x += 1 * delta;
 		}else if(keyboard.pressed('up')){
-			esferacubo.translation.x -= 1 * delta;
+			esferacubo.position.x -= 1 * delta;
 		}
 	});
 
