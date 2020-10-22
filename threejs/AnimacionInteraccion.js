@@ -109,7 +109,6 @@ function setupGui()
 			TWEEN.removeAll();
 			eje.position.set(-2.5,0,-2.5);
 			eje.rotation.set( 0, 0, 0 );
-			startAnimation();
 		},
 		sombras: true,
 		color: "rgb(255,0,0)"
