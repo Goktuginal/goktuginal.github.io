@@ -17,7 +17,7 @@ var stats;
 var effectController;
 
 // Otras globales
-var angulo = 0;
+var base, brazo, antebrazo, pinzas, robot, angulo = 0;
 /*var l = b = -4;
 var r = t = -l;*/
 
@@ -312,7 +312,7 @@ function loadScene() {
 		// call each update function
 		updateFcts.forEach(function(updateFn){
 			updateFn(deltaMsec/1000, nowMsec/1000)
-		})
+		});
 	});
 }
 
