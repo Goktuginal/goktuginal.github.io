@@ -154,7 +154,6 @@ function loadScene() {
 	
 }
 
-
 function setupGui()
 {
 	// Definicion de los controles
