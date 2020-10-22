@@ -117,12 +117,33 @@ function loadScene() {
 	esferacubo.add(esfera);
 	scene.add(esferacubo);
 	scene.add( new THREE.AxisHelper(3));
+
+	var xSpeed = 0.0001;
+	var ySpeed = 0.0001;
+
+	document.addEventListener("keydown", onDocumentKeyDown, false);
+	function onDocumentKeyDown(event) {
+	    var keyCode = event.which;
+	    if (keyCode == 87) {
+	        esferacubo.position.y += ySpeed;
+	    } else if (keyCode == 83) {
+	        esferacubo.position.y -= ySpeed;
+	    } else if (keyCode == 65) {
+	        esferacubo.position.x -= xSpeed;
+	    } else if (keyCode == 68) {
+	        esferacubo.position.x += xSpeed;
+	    } else if (keyCode == 32) {
+	        esferacubo.position.set(0, 0, 0);
+	    }
+	};
 }
 
 function update() {
 
 	// Variacion de la escena entre frames
-	
+	esferacubo.rotation.x += 0.03;
+  	esferacubo.rotation.y += 0.02;
+  	esferacubo.rotation.z += 0.01;
 
 }
 
@@ -131,17 +152,5 @@ function render() {
 	// Construir el frame y mostrarlo
 	requestAnimationFrame(render);
 	update();
-	
-	
 	renderer.render(scene, camera);
-
-	
-
 }
-
-
-
-
-
-
-
