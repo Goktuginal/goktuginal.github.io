@@ -141,9 +141,7 @@ function loadScene() {
 function update() {
 
 	// Variacion de la escena entre frames
-	esferacubo.rotation.x += 0.03;
-  	esferacubo.rotation.y += 0.02;
-  	esferacubo.rotation.z += 0.01;
+	
 
 }
 
