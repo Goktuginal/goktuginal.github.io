@@ -125,14 +125,14 @@ function loadScene() {
 
 	updateFcts.push(function(delta, now){
 		if (keyboard.pressed('left')) {
-			esferacubo.rotation.y -= 1 * delta;
+			esferacubo.translation.y -= 1 * delta;
 		}else if(keyboard.pressed('right')){
-			esferacubo.rotation.y += 1 * delta;
+			esferacubo.translation.y += 1 * delta;
 		}
 		if (keyboard.pressed('down')) {
-			esferacubo.rotation.x += 1 * delta;
+			esferacubo.translation.x += 1 * delta;
 		}else if(keyboard.pressed('up')){
-			esferacubo.rotation.x -= 1 * delta;
+			esferacubo.translation.x -= 1 * delta;
 		}
 	});
 
@@ -147,7 +147,9 @@ function loadScene() {
 		if (keyboard.eventMatches(event, 'd')) esferacubo.scale.x /= 2;
 	});
 
-	
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	})
 
 	var lastTimeMsec= null
 	requestAnimationFrame(function animate(nowMsec){
@@ -175,7 +177,5 @@ function render() {
 	// Construir el frame y mostrarlo
 	requestAnimationFrame(render);
 	update();
-	updateFcts.push(function(){
-		renderer.render( scene, camera );		
-	})
+	renderer.render(scene, camera);
 }
