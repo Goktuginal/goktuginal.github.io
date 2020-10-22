@@ -165,7 +165,7 @@ function loadScene() {
 	var legs = new THREE.Mesh(new THREE.BoxGeometry(0.3, 2.5, 0.3), material);
 	legs.position.set(0, 1.5, 0);
 	brazo.add(legs);
-	var belly = new THREE.Mesh(new THREE.SphereGeometry(0.5, 10, 2), material);
+	var belly = new THREE.Mesh(new THREE.SphereGeometry(0.5, 10, 10), material);
 	belly.position.set(0, 2.5, 0);
 	brazo.add(belly);
 
@@ -241,7 +241,7 @@ function loadScene() {
 	brazo.add(antrebrazo);
 	antrebrazo.add(pinzas);
 
-	base.rotation.x = Math.PI/16;
+	base.rotation.x = Math.PI/8;
 
 	robot = new THREE.Object3D();
 	robot.position.set(0,0,0);
