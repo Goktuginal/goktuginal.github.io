@@ -18,8 +18,7 @@ var effectController;
 
 // Otras globales
 var esferacubo, cubo, angulo = 0;
-var l = b = -4;
-var r = t = -l;
+
 var cameraControls;
 var alzado, planta, perfil;
 
