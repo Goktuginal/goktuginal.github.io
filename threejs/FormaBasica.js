@@ -23,8 +23,6 @@ var r = t = -l;*/
 
 var cameraControls;
 
-var keyboard;
-
 // Acciones
 init();
 loadScene();
@@ -91,9 +89,6 @@ function init() {
 	// Captura de eventos
 	window.addEventListener('resize', updateAspectRation);
 	//renderer.domElement.addEventListener('dblclick', rotate);
-
-	keyboard = new THREEx.KeyboardState(renderer.domElement);
-	
 }
 
 function rotate(event) {
@@ -280,7 +275,54 @@ function loadScene() {
 
 	robot.rotation.y = Math.PI/16;
 
-	scene.add(robot);	
+	scene.add(robot);
+
+	// Keybord
+	var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
+
+	updateFcts.push(function(delta, now){
+		if (keyboard.pressed('left')) {
+			robot.position.x -= 1 * delta;
+		}else if(keyboard.pressed('right')){
+			robot.position.x += 1 * delta;
+		}
+		if (keyboard.pressed('down')) {
+			robot.position.z += 1 * delta;
+		}else if(keyboard.pressed('up')){
+			robot.position.z -= 1 * delta;
+		}
+	});
+
+	// only on keydown
+	/*keyboard.domElement.addEventListener('keydown', function(event){
+		if (keyboard.eventMatches(event, 'w')) robot.scale.y /= 2;
+		if (keyboard.eventMatches(event, 's')) robot.scale.y *= 2;
+	});*/
+	// only on keyup
+	/*keyboard.domElement.addEventListener('keyup', function(event){
+		if (keyboard.eventMatches(event, 'a')) robot.scale.x *= 2;
+		if (keyboard.eventMatches(event, 'd')) robot.scale.x /= 2;
+	});*/
+
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	});
+
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame( animate );
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		});
+	});
 }
 
 function setupGui()
@@ -332,17 +374,7 @@ function updateAspectRation(argument) {
 function update() {
 
 	// Variacion de la escena entre frames
-	
-	keyboard.update();
 
-	var moveDistance = 50 * clock.getDelta(); 
-
-	if ( keyboard.down("left") ) 
-		robot.translateX( -moveDistance );
-		
-	if ( keyboard.down("right") ) 
-		robot.translateX(  moveDistance );
-	
 	// Rotacion de la peonza ------------
 
 	robot.rotation.y = effectController.velang*Math.PI/180;
