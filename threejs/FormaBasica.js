@@ -108,25 +108,10 @@ function init() {
 		}else if(keyboard.pressed('up')){
 			robot.position.z -= 1 * delta;
 		}
-	})
+	});
 
-	updateFcts.push(function(){
-		renderer.render( scene, camera );		
-	})
 
-	var lastTimeMsec= null
-	requestAnimationFrame(function animate(nowMsec){
-		// keep looping
-		requestAnimationFrame( animate );
-		// measure time
-		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
-		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
-		lastTimeMsec	= nowMsec
-		// call each update function
-		updateFcts.forEach(function(updateFn){
-			updateFn(deltaMsec/1000, nowMsec/1000)
-		})
-	})
+	
 }
 
 function rotate(event) {
@@ -366,7 +351,9 @@ function updateAspectRation(argument) {
 function update() {
 
 	// Variacion de la escena entre frames
-
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	});
 	// Rotacion de la peonza ------------
 
 	robot.rotation.y = effectController.velang*Math.PI/180;
@@ -387,9 +374,6 @@ function update() {
 	stats.update();
 	// Actualiza interpoladores
 	TWEEN.update();
-
-	keyboard.update();
-
 }
 
 function render() {
@@ -397,6 +381,20 @@ function render() {
 	// Construir el frame y mostrarlo
 	requestAnimationFrame(render);
 	update();
+
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame( animate );
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		});
+	});
 
 	// Thumnail
 	renderer.setViewport(0, window.innerHeight/16, 
