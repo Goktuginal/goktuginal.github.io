@@ -249,9 +249,9 @@ function loadScene() {
 	}
 
 	cubo = new THREE.Mesh(malla, material);
-	cubo.position.set(-0.5, -2.0, 0.5);
+	cubo.position.set(-0.5, -2.5, 0.5);
 	cubo2 = new THREE.Mesh(malla, material);
-	cubo2.position.set(0.5, -2.0, 0.5);
+	cubo2.position.set(0.5, -2.5, 0.5);
 	pinzas.add(cubo);
 	pinzas.add(cubo2);
 
