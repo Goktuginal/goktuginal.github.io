@@ -376,7 +376,7 @@ function update() {
 
 	base.rotation.y = effectController.velang*Math.PI/180;
 										
-	brazo.rotation.z = effectController.velang2*Math.PI/180;
+	brazo.rotation.x = effectController.velang2*Math.PI/180;
 
 	antrebrazo.rotation.y = effectController.velang3*Math.PI/180;
 
