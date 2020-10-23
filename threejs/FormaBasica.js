@@ -94,8 +94,7 @@ function init() {
 
 	// Keybord
 	var keyboard = new THREEx.KeyboardState(renderer.domElement);
-	renderer.domElement.setAttribute("tabIndex", "0");
-	renderer.domElement.focus();
+	
 
 	updateFcts.push(function(delta, now){
 		if (keyboard.pressed('left')) {
