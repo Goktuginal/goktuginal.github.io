@@ -286,6 +286,7 @@ function loadScene() {
 	root1.rotation.y = Math.PI/4;
 
 	scene.add(robot);
+	scene.add(suelo);
 }
 
 function setupGui()
