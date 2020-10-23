@@ -273,7 +273,7 @@ function loadScene() {
 	antrebrazo.add(root3);
 	root3.add(pinzas);
 
-	robot.rotation.y = Math.PI/2;
+	robot.rotation.y = Math.PI/16;
 
 	scene.add(robot);
 
