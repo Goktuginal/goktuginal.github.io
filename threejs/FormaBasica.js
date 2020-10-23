@@ -61,7 +61,7 @@ function init() {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.setClearColor(new THREE.Color(0x000000));
 	renderer.autoClear = false;
-	//document.getElementById("container").appendChild(renderer.domElement);
+	document.getElementById("container").appendChild(renderer.domElement);
 
 	// Escena
 	scene = new THREE.Scene();
@@ -86,7 +86,7 @@ function init() {
 	stats.domElement.style.position = 'absolute';		// Abajo izquierda
 	stats.domElement.style.bottom = '0px';
 	stats.domElement.style.left = '0px';
-	document.getElementById( 'container' ).appendChild(stats.domElement);
+	//document.getElementById( 'container' ).appendChild(stats.domElement);
 
 	// Captura de eventos
 	window.addEventListener('resize', updateAspectRation);
