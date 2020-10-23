@@ -307,7 +307,7 @@ function setupGui()
 	h.add(effectController, "velang2", -45, 45, 1).name("Giro Brazo");
 	h.add(effectController, "velang3", -180, 180, 1).name("Giro Antrebrazo Y");
 	h.add(effectController, "velang4", -90, 90, 1).name("Giro Antrebrazo Z");
-	h.add(effectController, "velang5", -40, 220, 1).name("Giro Pinza");
+	h.add(effectController, "velang5", -220, 40, 1).name("Giro Pinza");
 	h.add(effectController, "velang6", 0, 15, 1).name("Separacion Pinza");
 	var sensorColor = h.addColor(effectController, "color").name("Color");
 	sensorColor.onChange( function(color){
@@ -342,7 +342,7 @@ function update() {
 
 	antrebrazo.rotation.x = effectController.velang4*Math.PI/180;
 
-	pinzas.rotation.x = effectController.velang5*180/Math.PI;
+	pinzas.rotation.x = effectController.velang5*Math.PI/180;
 
 	pinzas.rotation.z = effectController.velang6*Math.PI/180;
 
