@@ -342,7 +342,7 @@ function update() {
 
 	antrebrazo.rotation.x = effectController.velang4*Math.PI/180;
 
-	pinzas.rotation.x = effectController.velang5*Math.PI/180;
+	pinzas.rotation.x = effectController.velang5*180/Math.PI;
 
 	pinzas.rotation.z = effectController.velang6*Math.PI/180;
 
