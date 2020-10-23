@@ -273,7 +273,7 @@ function loadScene() {
 	antrebrazo.add(root3);
 	root3.add(pinzas);
 
-	robot.rotation.y = Math.PI/8;
+	robot.rotation.y = Math.PI/2;
 
 	scene.add(robot);
 
@@ -383,11 +383,11 @@ function update() {
 
 	antrebrazo.rotation.y = effectController.velang3*Math.PI/180;
 
-	antrebrazo.rotation.z = effectController.velang4*Math.PI/180;
+	antrebrazo.rotation.x = effectController.velang4*Math.PI/180;
 
-	pinzas.rotation.z =  effectController.velang5*Math.PI/180;
+	pinzas.rotation.z = effectController.velang5*Math.PI/180;
 
-	pinzas.rotation.z =  effectController.velang6*Math.PI/180;
+	pinzas.rotation.z = effectController.velang6*Math.PI/180;
 
 	// Control de camra
 	cameraControls.update();
