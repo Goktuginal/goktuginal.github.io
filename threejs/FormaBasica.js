@@ -253,9 +253,9 @@ function loadScene() {
 	}
 
 	cubo = new THREE.Mesh(malla, material);
-	cubo.position.set(-0.5, -2.5, 0.5);
+	cubo.position.set(-0.5, 0, 0.5);
 	cubo2 = new THREE.Mesh(malla, material);
-	cubo2.position.set(0.5, -2.5, 0.5);
+	cubo2.position.set(0.5, 0, 0.5);
 	pinzas.add(cubo);
 	pinzas.add(cubo2);
 
@@ -273,7 +273,7 @@ function loadScene() {
 	brazo.add(root2);
 	root2.add(antrebrazo);
 	root3 = new THREE.Object3D();
-	root3.position.set(0,4.0,0);
+	root3.position.set(0,1.5,0);
 	antrebrazo.add(root3);
 	root3.add(pinzas);
 
