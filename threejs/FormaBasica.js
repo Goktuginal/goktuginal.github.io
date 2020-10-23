@@ -264,7 +264,7 @@ function loadScene() {
 	pinzas.add(cubo2);
 
 	base.add(brazo);
-	brazo.add(antrebrazo);
+	belly.add(antrebrazo);
 	antrebrazo.add(pinzas);
 
 	base.rotation.y = Math.PI/4;
