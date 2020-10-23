@@ -86,7 +86,7 @@ function init() {
 	stats.domElement.style.position = 'absolute';		// Abajo izquierda
 	stats.domElement.style.bottom = '0px';
 	stats.domElement.style.left = '0px';
-	//document.getElementById( 'container' ).appendChild(stats.domElement);
+	document.getElementById( 'container' ).appendChild(stats.domElement);
 
 	// Captura de eventos
 	window.addEventListener('resize', updateAspectRation);
@@ -173,8 +173,14 @@ function loadScene() {
 
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
-	var material2 = new THREE.MeshBasicMaterial({color: 'red', wireframe: true});
+	var materialBasico = new THREE.MeshBasicMaterial({color: 'yellow'});
 
+	var geosuelo = new THREE.PlaneGeometry(20, 20, 200, 200);
+
+	var suelo = new THREE.Mesh(geosuelo, materialBasico);
+	suelo.rotation.x = -Math.PI/2;
+	suelo.position.y = -0.5;
+	suelo.receiveShadow = true;
 
 	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), material);
 
