@@ -259,7 +259,7 @@ function loadScene() {
 
 	base.add(brazo);
 	root = new THREE.Object3D();
-	root.position.set(0, 2.5, 0);
+	root.position.set(0, 3.5, 0);
 	brazo.add(root);
 	root.add(antrebrazo);
 	antrebrazo.add(pinzas);
