@@ -108,24 +108,25 @@ function init() {
 		}else if(keyboard.pressed('up')){
 			robot.position.z -= 1 * delta;
 		}
-	});
-
-	// only on keydown
-	/*keyboard.domElement.addEventListener('keydown', function(event){
-		if (keyboard.eventMatches(event, 'w')) robot.scale.y /= 2;
-		if (keyboard.eventMatches(event, 's')) robot.scale.y *= 2;
-	});*/
-	// only on keyup
-	/*keyboard.domElement.addEventListener('keyup', function(event){
-		if (keyboard.eventMatches(event, 'a')) robot.scale.x *= 2;
-		if (keyboard.eventMatches(event, 'd')) robot.scale.x /= 2;
-	});*/
+	})
 
 	updateFcts.push(function(){
 		renderer.render( scene, camera );		
-	});
+	})
 
-	
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame( animate );
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		})
+	})
 }
 
 function rotate(event) {
@@ -366,19 +367,6 @@ function update() {
 
 	// Variacion de la escena entre frames
 
-	var lastTimeMsec= null
-	requestAnimationFrame(function animate(nowMsec){
-		// keep looping
-		requestAnimationFrame( animate );
-		// measure time
-		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
-		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
-		lastTimeMsec	= nowMsec
-		// call each update function
-		updateFcts.forEach(function(updateFn){
-			updateFn(deltaMsec/1000, nowMsec/1000)
-		});
-	});
 	// Rotacion de la peonza ------------
 
 	robot.rotation.y = effectController.velang*Math.PI/180;
@@ -399,6 +387,8 @@ function update() {
 	stats.update();
 	// Actualiza interpoladores
 	TWEEN.update();
+
+	keyboard.update();
 
 }
 
