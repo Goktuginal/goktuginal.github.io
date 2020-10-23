@@ -345,7 +345,7 @@ function setupGui()
 	h.add(effectController, "mensaje").name("Peonza");
 	h.add(effectController, "velang", -5, 5, 0.5).name("Giro Base");
 	h.add(effectController, "velang2", -5, 5, 0.5).name("Giro Brazo");
-	h.add(effectController, "velang3", -5, 5, 0.5).name("Giro Antrebrazo Y");
+	h.add(effectController, "velang3", -45, 45, 1).name("Giro Antrebrazo Y");
 	h.add(effectController, "velang4", 0, 5, 0.5).name("Giro Antrebrazo Z");
 	h.add(effectController, "velang5", 0, 5, 0.5).name("Giro Pinza");
 	h.add(effectController, "velang6", 0, 5, 0.5).name("Separacion Pinza");
@@ -385,10 +385,11 @@ function update() {
 	antes2 = ahora2;									// Actualizar antes
 	brazo.rotation.z = angulo2/2;
 
-	var ahora3 = Date.now();							// Hora actual
-	angulo3 += effectController.velang3 * Math.PI/4 * (ahora3-antes3)/1000;			// Incrementar el angulo en 360Âº / sg
-	antes3 = ahora3;									// Actualizar antes
-	if(antrebrazo.position.y < 45)	antrebrazo.rotation.y = angulo3/2;
+										// Actualizar antes
+	
+	if (antes3 > effectController.velang3)	antrebrazo.rotation.y -= 0.01;
+	else if (antes3 < effectController.velang3)	antrebrazo.rotation.y += 0.01;
+	antes3 = effectController.velang3;
 
 	var ahora4 = Date.now();							// Hora actual
 	angulo4 += effectController.velang4 * 2*Math.PI * (ahora4-antes4)/1000;			// Incrementar el angulo en 360Âº / sg
