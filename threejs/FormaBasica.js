@@ -259,9 +259,9 @@ function loadScene() {
 
 	base.add(brazo);
 	root = new THREE.Object3D();
-	root.position.set(0, 0, 0);
-	root.add(antrebrazo)
+	root.position.set(0, 2.5, 0);
 	brazo.add(root);
+	root.add(antrebrazo);
 	antrebrazo.add(pinzas);
 
 	base.rotation.y = Math.PI/4;
