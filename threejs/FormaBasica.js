@@ -344,9 +344,10 @@ function update() {
 
 	pinzas.rotation.x = effectController.velang5*Math.PI/180;
 
-	cubo.position.x = effectController.velang6*Math.PI/180;
+	cubo.position.x = effectController.velang6*Math.PI/180 + -0.5;
 
- 
+ 	cubo2.position.x = -1*effectController.velang6*Math.PI/180 + 0.5;
+
 
 	// Control de camra
 	cameraControls.update();
