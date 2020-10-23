@@ -343,8 +343,8 @@ function setupGui()
 	// Construccion del menu
 	var h = gui.addFolder("Control peonza");
 	h.add(effectController, "mensaje").name("Peonza");
-	h.add(effectController, "velang", 0, 5, 0.5).name("Giro Base");
-	h.add(effectController, "velang2", 0, 5, 0.5).name("Giro Brazo");
+	h.add(effectController, "velang", -5, 5, 0.5).name("Giro Base");
+	h.add(effectController, "velang2", -5, 5, 0.5).name("Giro Brazo");
 	h.add(effectController, "velang3", -5, 5, 0.5).name("Giro Antrebrazo Y");
 	h.add(effectController, "velang4", 0, 5, 0.5).name("Giro Antrebrazo Z");
 	h.add(effectController, "velang5", 0, 5, 0.5).name("Giro Pinza");
@@ -388,7 +388,8 @@ function update() {
 	var ahora3 = Date.now();							// Hora actual
 	angulo3 += effectController.velang3 * Math.PI/4 * (ahora3-antes3)/1000;			// Incrementar el angulo en 360Âº / sg
 	antes3 = ahora3;									// Actualizar antes
-	if (angulo3 < 45)	antrebrazo.rotation.y = angulo3/2;
+	log.console(angulo3);
+	antrebrazo.rotation.y = angulo3/2;
 
 	var ahora4 = Date.now();							// Hora actual
 	angulo4 += effectController.velang4 * 2*Math.PI * (ahora4-antes4)/1000;			// Incrementar el angulo en 360Âº / sg
