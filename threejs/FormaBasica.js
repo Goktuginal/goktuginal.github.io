@@ -388,7 +388,7 @@ function update() {
 	var ahora3 = Date.now();							// Hora actual
 	angulo3 += effectController.velang3 * Math.PI/4 * (ahora3-antes3)/1000;			// Incrementar el angulo en 360Âº / sg
 	antes3 = ahora3;									// Actualizar antes
-	antrebrazo.rotation.y = angulo3/2;
+	if(antrebrazo.rotation.y * 180 / Math.PI < 45)	antrebrazo.rotation.y = angulo3/2;
 
 	var ahora4 = Date.now();							// Hora actual
 	angulo4 += effectController.velang4 * 2*Math.PI * (ahora4-antes4)/1000;			// Incrementar el angulo en 360Âº / sg
