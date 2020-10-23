@@ -171,10 +171,8 @@ function loadScene() {
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 	var material2 = new THREE.MeshBasicMaterial({color: 'red', wireframe: true});
 
-	base = new THREE.Object3D();
+
 	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), material);
-	base_del_robot.position.set(0, 0.25, 0);
-	base.add(base_del_robot);
 
 	brazo = new THREE.Object3D();
 	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), material);
@@ -257,18 +255,26 @@ function loadScene() {
 	pinzas.add(cubo);
 	pinzas.add(cubo2);
 
-	base.add(brazo);
-	root = new THREE.Object3D();
-	root.position.set(0, 3.5, 0);
-	brazo.add(root);
-	root.add(antrebrazo);
-	antrebrazo.add(pinzas);
-
-	base.rotation.y = Math.PI/4;
 
 	robot = new THREE.Object3D();
 	robot.position.set(0,0,0);
-	robot.add(base);
+	robot.add(base_del_robot);
+
+	root1 = new THREE.Object3D();
+	root1.position.set(0,0,0);
+	robot.add(root1);
+	root1.add(brazo);
+	root2 = new THREE.Object3D();
+	root2.position.set(0,2.5,0);
+	brazo.add(root2);
+	root2.add(antrebrazo);
+	root3 = new THREE.Object3D();
+	root3.position.set(0,4.0,0);
+	antrebrazo.add(root3);
+	root3.add(pinzas);
+
+	robot.rotation.y = Math.PI/4;
+
 	scene.add(robot);
 
 	// Keybord
