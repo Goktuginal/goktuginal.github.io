@@ -249,9 +249,9 @@ function loadScene() {
 	}
 
 	cubo = new THREE.Mesh(malla, material);
-	cubo.position.set(-0.5, 1.5, 0.5);
+	cubo.position.set(-0.5, 0, 0.5);
 	cubo2 = new THREE.Mesh(malla, material);
-	cubo2.position.set(0.5, 1.5, 0.5);
+	cubo2.position.set(0.5, 0, 0.5);
 	pinzas.add(cubo);
 	pinzas.add(cubo2);
 
@@ -354,7 +354,7 @@ function setupGui()
 	h.add(effectController, "velang6", 0, 5, 0.5).name("Separacion Pinza");
 	var sensorColor = h.addColor(effectController, "color").name("Color");
 	sensorColor.onChange( function(color){
-							base.traverse( function(hijo){
+							robot.traverse( function(hijo){
 								if( hijo instanceof THREE.Mesh ) hijo.material.color = new THREE.Color(color);
 							})
 						  });
@@ -377,7 +377,7 @@ function update() {
 
 	// Rotacion de la peonza ------------
 
-	base.rotation.y = effectController.velang*Math.PI/180;
+	robot.rotation.y = effectController.velang*Math.PI/180;
 										
 	brazo.rotation.x = effectController.velang2*Math.PI/180;
 
