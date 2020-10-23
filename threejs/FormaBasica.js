@@ -346,7 +346,6 @@ function update() {
 
 	cubo.position.x = effectController.velang5*Math.PI/180;
 
-	cubo2.position.x = -1*effectController.velang5*Math.PI/180;
  
 
 	// Control de camra
