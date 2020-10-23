@@ -289,9 +289,9 @@ function loadScene() {
 			robot.position.x += 1 * delta;
 		}
 		if (keyboard.pressed('down')) {
-			robot.position.y -= 1 * delta;
+			robot.position.z -= 1 * delta;
 		}else if(keyboard.pressed('up')){
-			robot.position.y += 1 * delta;
+			robot.position.z += 1 * delta;
 		}
 	});
 
