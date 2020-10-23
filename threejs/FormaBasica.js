@@ -61,7 +61,7 @@ function init() {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.setClearColor(new THREE.Color(0x000000));
 	renderer.autoClear = false;
-	document.getElementById("container").appendChild(renderer.domElement);
+	//document.getElementById("container").appendChild(renderer.domElement);
 
 	// Escena
 	scene = new THREE.Scene();
@@ -286,7 +286,7 @@ function setupGui()
 {
 	// Definicion de los controles
 	effectController = {
-		mensaje: 'Interfaz',
+		mensaje: 'Robot',
 		velang: 0,
 		velang2: 0,
 		velang3: 0,
