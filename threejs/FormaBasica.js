@@ -86,7 +86,7 @@ function init() {
 	stats.domElement.style.position = 'absolute';		// Abajo izquierda
 	stats.domElement.style.bottom = '0px';
 	stats.domElement.style.left = '0px';
-	document.getElementById( 'container' ).appendChild( stats.domElement );
+	document.getElementById( 'container' ).appendChild(stats.domElement);
 
 	// Captura de eventos
 	window.addEventListener('resize', updateAspectRation);
@@ -110,7 +110,19 @@ function init() {
 		}
 	});
 
-	
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame(animate);
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		});
+	});
 }
 
 function rotate(event) {
@@ -265,7 +277,7 @@ function loadScene() {
 	antrebrazo.add(root3);
 	root3.add(pinzas);
 
-	robot.rotation.y = Math.PI/16;
+	root1.rotation.y = Math.PI/16;
 
 	scene.add(robot);
 }
