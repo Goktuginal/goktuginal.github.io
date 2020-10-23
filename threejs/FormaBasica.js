@@ -343,11 +343,11 @@ function setupGui()
 	// Construccion del menu
 	var h = gui.addFolder("Control peonza");
 	h.add(effectController, "mensaje").name("Peonza");
-	h.add(effectController, "velang", -5, 5, 0.5).name("Giro Base");
-	h.add(effectController, "velang2", -5, 5, 0.5).name("Giro Brazo");
-	h.add(effectController, "velang3", -45, 45, 1).name("Giro Antrebrazo Y");
-	h.add(effectController, "velang4", 0, 5, 0.5).name("Giro Antrebrazo Z");
-	h.add(effectController, "velang5", 0, 5, 0.5).name("Giro Pinza");
+	h.add(effectController, "velang", -180, 180, 1).name("Giro Base");
+	h.add(effectController, "velang2", -45, 45, 1).name("Giro Brazo");
+	h.add(effectController, "velang3", -180, 180, 1).name("Giro Antrebrazo Y");
+	h.add(effectController, "velang4", -90, 90, 1).name("Giro Antrebrazo Z");
+	h.add(effectController, "velang5", -40, 220, 1).name("Giro Pinza");
 	h.add(effectController, "velang6", 0, 5, 0.5).name("Separacion Pinza");
 	var sensorColor = h.addColor(effectController, "color").name("Color");
 	sensorColor.onChange( function(color){
@@ -371,38 +371,20 @@ function updateAspectRation(argument) {
 function update() {
 
 	// Variacion de la escena entre frames
-	// Variacion de la escena entre frames
 
 	// Rotacion de la peonza ------------
-	var ahora = Date.now();							// Hora actual
-	angulo += effectController.velang * 2*Math.PI * (ahora-antes)/1000;			// Incrementar el angulo en 360Âº / sg
-	antes = ahora;									// Actualizar antes
-	base.rotation.y = angulo/2;
-	//eje.rotation.y = angulo/2;
 
-	var ahora2 = Date.now();							// Hora actual
-	angulo2 += effectController.velang2 * 2*Math.PI * (ahora2-antes2)/1000;			// Incrementar el angulo en 360Âº / sg
-	antes2 = ahora2;									// Actualizar antes
-	brazo.rotation.z = angulo2/2;
+	base.rotation.y = effectController.velang*Math.PI/180;
+										
+	brazo.rotation.z = effectController.velang2*Math.PI/180;
 
-										// Actualizar antes
-	
 	antrebrazo.rotation.y = effectController.velang3*Math.PI/180;
 
-	var ahora4 = Date.now();							// Hora actual
-	angulo4 += effectController.velang4 * 2*Math.PI * (ahora4-antes4)/1000;			// Incrementar el angulo en 360Âº / sg
-	antes4 = ahora4;									// Actualizar antes
-	antrebrazo.rotation.z = angulo4/2;
+	antrebrazo.rotation.z = effectController.velang4*Math.PI/180;
 
-	var ahora5 = Date.now();							// Hora actual
-	angulo5 += effectController.velang5 * 2*Math.PI * (ahora5-antes5)/1000;			// Incrementar el angulo en 360Âº / sg
-	antes5 = ahora5;									// Actualizar antes
-	pinzas.rotation.z = angulo5/2;
+	pinzas.rotation.z =  effectController.velang5*Math.PI/180;
 
-	var ahora6 = Date.now();							// Hora actual
-	angulo6 += effectController.velang6 * 2*Math.PI * (ahora6-antes6)/1000;			// Incrementar el angulo en 360Âº / sg
-	antes6 = ahora6;									// Actualizar antes
-	pinzas.rotation.z = angulo6/2;
+	pinzas.rotation.z =  effectController.velang6*Math.PI/180;
 
 	// Control de camra
 	cameraControls.update();
