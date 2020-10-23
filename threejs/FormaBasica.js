@@ -17,13 +17,7 @@ var stats;
 var effectController;
 
 // Otras globales
-var base, brazo, antrebrazo, pinzas, robot, cubo, cubo2, angulo = 0, angulo2 = 0, angulo3 = 0, angulo4 = 0, angulo5 = 0, angulo6 = 0;
-var antes = Date.now();
-var antes2 = Date.now();
-var antes3 = Date.now();
-var antes4 = Date.now();
-var antes5 = Date.now();
-var antes6 = Date.now();
+var base, brazo, antrebrazo, root, pinzas, robot, cubo, cubo2, angulo = 0;
 /*var l = b = -4;
 var r = t = -l;*/
 
@@ -264,7 +258,10 @@ function loadScene() {
 	pinzas.add(cubo2);
 
 	base.add(brazo);
-	belly.add(antrebrazo);
+	root = new THREE.Object3D();
+	root.position.set(0, 2.5, 0);
+	root.add(antrebrazo)
+	brazo.add(root);
 	antrebrazo.add(pinzas);
 
 	base.rotation.y = Math.PI/4;
