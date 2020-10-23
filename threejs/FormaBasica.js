@@ -344,7 +344,7 @@ function update() {
 
 	pinzas.rotation.x = effectController.velang5*Math.PI/180;
 
-	pinzas.rotation.z = effectController.velang6*Math.PI/180;
+	pinzas.position.x = (1*effectController.velang6*Math.PI/180, 0, -1*effectController.velang6*Math.PI/180);
 
 	// Control de camra
 	cameraControls.update();
