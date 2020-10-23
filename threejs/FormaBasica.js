@@ -110,7 +110,9 @@ function init() {
 		}
 	});
 
-	
+	updateFcts.push(function(){
+		renderer.render(scene, camera);		
+	});
 
 	var lastTimeMsec= null
 	requestAnimationFrame(function animate(nowMsec){
@@ -166,36 +168,6 @@ function rotate(event) {
 	if (interseccion.length > 0) {
 		interseccion[0].object.rotation.y += Math.PI/4;
 	}
-}
-
-function updateAspectRation(argument) {
-
-	// Renueva la relacion de aspecto de la camara
-
-	// Ajustar el tamano del canvas
-	renderer.setSize(window.innerWidth, window.innerHeight);
-
-	// Razon de aspecto
-	var ar = window.innerWidth/window.innerHeight;
-
-	/* Camara ortografica
-	if (ar > 1) { //büyük ise ekranın sol ve sağına tersinde aşağı ve yukarı
-		camera.left = -4*ar;
-		camera.right = 4*ar;
-		camera.bottom = -4;
-		camera.top = 4;
-	}
-	else {
-		camera.top = 4/ar;
-		camera.bottom = -4/ar;
-		camera.left = -4;
-		camera.right = 4;
-	}
-*/
-
-	// Camara perspectiva
-	camera.aspect = ar;
-	camera.updateProjectionMatrix();
 }
 
 function loadScene() {
