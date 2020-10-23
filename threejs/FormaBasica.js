@@ -351,9 +351,7 @@ function updateAspectRation(argument) {
 function update() {
 
 	// Variacion de la escena entre frames
-	updateFcts.push(function(){
-		renderer.render( scene, camera );		
-	});
+	
 	// Rotacion de la peonza ------------
 
 	robot.rotation.y = effectController.velang*Math.PI/180;
@@ -404,7 +402,9 @@ function render() {
 	// Robot
 	renderer.setViewport(0, window.innerHeight/4, 
 						window.innerWidth, window.innerHeight);
-	renderer.render(scene, camera);
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	});
 }
 
 // https://goktuginal.github.io/usocanvas.html
