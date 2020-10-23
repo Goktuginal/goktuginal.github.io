@@ -249,9 +249,9 @@ function loadScene() {
 	}
 
 	cubo = new THREE.Mesh(malla, material);
-	cubo.position.set(-0.5, 0, 0.5);
+	cubo.position.set(-0.5, -4.0, 0.5);
 	cubo2 = new THREE.Mesh(malla, material);
-	cubo2.position.set(0.5, 0, 0.5);
+	cubo2.position.set(0.5, -4.0, 0.5);
 	pinzas.add(cubo);
 	pinzas.add(cubo2);
 
@@ -273,7 +273,7 @@ function loadScene() {
 	antrebrazo.add(root3);
 	root3.add(pinzas);
 
-	robot.rotation.y = Math.PI/4;
+	robot.rotation.y = Math.PI/8;
 
 	scene.add(robot);
 
