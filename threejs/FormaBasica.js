@@ -23,7 +23,7 @@ var r = t = -l;*/
 
 var cameraControls;
 
-var keyboard = new KeyboardState();
+var keyboard;
 
 // Acciones
 init();
@@ -92,6 +92,7 @@ function init() {
 	window.addEventListener('resize', updateAspectRation);
 	//renderer.domElement.addEventListener('dblclick', rotate);
 
+	keyboard = new THREEx.KeyboardState(renderer.domElement);
 	
 }
 
