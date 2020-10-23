@@ -345,7 +345,7 @@ function setupGui()
 	h.add(effectController, "mensaje").name("Peonza");
 	h.add(effectController, "velang", 0, 5, 0.5).name("Giro Base");
 	h.add(effectController, "velang2", 0, 5, 0.5).name("Giro Brazo");
-	h.add(effectController, "velang3", 0, 5, 0.5).name("Giro Antrebrazo Y");
+	h.add(effectController, "velang3", -5, 5, 0.5).name("Giro Antrebrazo Y");
 	h.add(effectController, "velang4", 0, 5, 0.5).name("Giro Antrebrazo Z");
 	h.add(effectController, "velang5", 0, 5, 0.5).name("Giro Pinza");
 	h.add(effectController, "velang6", 0, 5, 0.5).name("Separacion Pinza");
