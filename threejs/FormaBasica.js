@@ -94,7 +94,8 @@ function init() {
 
 	// Keybord
 	var keyboard = new THREEx.KeyboardState(renderer.domElement);
-	
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
 
 	updateFcts.push(function(delta, now){
 		if (keyboard.pressed('left')) {
@@ -109,19 +110,7 @@ function init() {
 		}
 	});
 
-	var lastTimeMsec= null
-	requestAnimationFrame(function animate(nowMsec){
-		// keep looping
-		requestAnimationFrame(animate);
-		// measure time
-		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
-		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
-		lastTimeMsec	= nowMsec
-		// call each update function
-		updateFcts.forEach(function(updateFn){
-			updateFn(deltaMsec/1000, nowMsec/1000)
-		});
-	});
+	
 }
 
 function rotate(event) {
