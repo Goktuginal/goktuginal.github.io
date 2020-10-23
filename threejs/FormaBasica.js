@@ -277,6 +277,11 @@ function loadScene() {
 
 	scene.add(robot);
 
+	// Keybord
+	var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
+
 	
 
 	// only on keydown
@@ -290,7 +295,23 @@ function loadScene() {
 		if (keyboard.eventMatches(event, 'd')) robot.scale.x /= 2;
 	});*/
 
-	
+	updateFcts.push(function(){
+		renderer.render( scene, camera );		
+	});
+
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame( animate );
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		});
+	});
 }
 
 function setupGui()
@@ -342,12 +363,6 @@ function updateAspectRation(argument) {
 function update() {
 
 	// Variacion de la escena entre frames
-
-	// Keybord
-	var keyboard = new THREEx.KeyboardState(renderer.domElement);
-	renderer.domElement.setAttribute("tabIndex", "0");
-	renderer.domElement.focus();
-
 	updateFcts.push(function(delta, now){
 		if (keyboard.pressed('left')) {
 			robot.position.x -= 1 * delta;
@@ -359,24 +374,6 @@ function update() {
 		}else if(keyboard.pressed('up')){
 			robot.position.z -= 1 * delta;
 		}
-	});
-
-	updateFcts.push(function(){
-		renderer.render( scene, camera );		
-	});
-
-	var lastTimeMsec= null
-	requestAnimationFrame(function animate(nowMsec){
-		// keep looping
-		requestAnimationFrame( animate );
-		// measure time
-		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
-		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
-		lastTimeMsec	= nowMsec
-		// call each update function
-		updateFcts.forEach(function(updateFn){
-			updateFn(deltaMsec/1000, nowMsec/1000)
-		});
 	});
 
 	// Rotacion de la peonza ------------
