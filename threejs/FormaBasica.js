@@ -17,7 +17,7 @@ var stats;
 var effectController;
 
 // Otras globales
-var base, brazo, antrebrazo, root, pinzas, robot, cubo, cubo2, angulo = 0;
+var base, brazo, antrebrazo, root1, root2, root3, pinzas, robot, cubo, cubo2, angulo = 0;
 /*var l = b = -4;
 var r = t = -l;*/
 
