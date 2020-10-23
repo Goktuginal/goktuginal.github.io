@@ -11,6 +11,8 @@
 // Motor, escena y la camara
 var renderer, scene, camera;
 
+var updateFcts	= [];
+
 // Monitor de recursos
 var stats;
 // Global GUI
@@ -89,6 +91,11 @@ function init() {
 	// Captura de eventos
 	window.addEventListener('resize', updateAspectRation);
 	//renderer.domElement.addEventListener('dblclick', rotate);
+
+	// Keybord
+	var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
 }
 
 function rotate(event) {
@@ -165,7 +172,7 @@ function updateAspectRation(argument) {
 function loadScene() {
 
 	// Construir el grafo de escena
-	var updateFcts	= [];
+	
 
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
@@ -277,10 +284,7 @@ function loadScene() {
 
 	scene.add(robot);
 
-	// Keybord
-	var keyboard = new THREEx.KeyboardState(renderer.domElement);
-	renderer.domElement.setAttribute("tabIndex", "0");
-	renderer.domElement.focus();
+	
 
 	updateFcts.push(function(delta, now){
 		if (keyboard.pressed('left')) {
@@ -294,17 +298,6 @@ function loadScene() {
 			robot.position.z -= 1 * delta;
 		}
 	});
-
-	// only on keydown
-	/*keyboard.domElement.addEventListener('keydown', function(event){
-		if (keyboard.eventMatches(event, 'w')) robot.scale.y /= 2;
-		if (keyboard.eventMatches(event, 's')) robot.scale.y *= 2;
-	});*/
-	// only on keyup
-	/*keyboard.domElement.addEventListener('keyup', function(event){
-		if (keyboard.eventMatches(event, 'a')) robot.scale.x *= 2;
-		if (keyboard.eventMatches(event, 'd')) robot.scale.x /= 2;
-	});*/
 
 	updateFcts.push(function(){
 		renderer.render( scene, camera );		
