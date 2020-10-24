@@ -113,8 +113,8 @@ function init() {
 	var luzFocal = new THREE.SpotLight(0xFFFFFF, 0.5);
 	luzFocal.position.set(10, 10, 0);
 	luzFocal.target.position.set(0, 0, 0);
-	luzFocal.angel = Math.PI/5;
-	luzFocal.penumbra = 0.5;
+	luzFocal.angel = Math.PI/10;
+	luzFocal.penumbra = 0.2;
 	scene.add(luzFocal);
 }
 
