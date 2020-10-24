@@ -99,7 +99,7 @@ function init() {
 	});
 }
 
-function rotate(event) {
+/*function rotate(event) {
 
 	// Gira el objeto senyalado 45 grados
 	var x = event.clientX;
@@ -138,7 +138,7 @@ function rotate(event) {
 	if (interseccion.length > 0) {
 		interseccion[0].object.rotation.y += Math.PI/4;
 	}
-}
+}*/
 
 function loadScene() {
 
