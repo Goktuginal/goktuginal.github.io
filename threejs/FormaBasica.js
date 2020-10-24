@@ -171,7 +171,8 @@ function loadScene() {
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 	var materialBasico = new THREE.MeshBasicMaterial({color: 'yellow'});
 	var materialMate = new THREE.MeshLambertMaterial({color: 'red'});
-	var materialMate = new THREE.MeshLambertMaterial({color: 'blue'});
+	var materialMate2 = new THREE.MeshLambertMaterial({color: 'blue'});
+	var matsuelo = new THREE.MeshLambertMaterial({color: 'white'});
 	var materialBrillante = new THREE.MeshPhongMaterial({color: 'white', 
 														specular:'white',
 														shinniness: 50});
@@ -206,33 +207,33 @@ function loadScene() {
 	brazo.add(belly);
 
 	antrebrazo = new THREE.Object3D();
-	var belt = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 0.1, 10, 2), material);
+	var belt = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 0.1, 10, 2), materialMate2);
 	belt.position.set(0, 0, 0);
 	belt.receiveShadow = true;
 	belt.castShadow = true;
 	antrebrazo.add(belt);
-	var head = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 1.3, 10, 2), material);
+	var head = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 1.3, 10, 2), materialMate2);
 	head.position.set(0, 1.5, 0);
 	head.rotation.z = Math.PI/2;
 	head.receiveShadow = true;
 	head.castShadow = true;
 	antrebrazo.add(head);
-	var rib1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
+	var rib1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), materialMate2);
 	rib1.position.set(-0.3, 0.8, -0.2);
 	rib1.receiveShadow = true;
 	rib1.castShadow = true;
 	antrebrazo.add(rib1);
-	var rib2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
+	var rib2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), materialMate2);
 	rib2.position.set(-0.3, 0.8, 0.2);
 	rib2.receiveShadow = true;
 	rib2.castShadow = true;
 	antrebrazo.add(rib2);
-	var rib3 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
+	var rib3 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), materialMate2);
 	rib3.position.set(0.3, 0.8, -0.2);
 	rib3.receiveShadow = true;
 	rib3.castShadow = true;
 	antrebrazo.add(rib3);
-	var rib4 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
+	var rib4 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), materialMate2);
 	rib4.position.set(0.3, 0.8, 0.2);
 	rib4.receiveShadow = true;
 	rib4.castShadow = true;
@@ -279,11 +280,11 @@ function loadScene() {
 		malla.faces.push(triangulo);
 	}
 
-	cubo = new THREE.Mesh(malla, material);
+	cubo = new THREE.Mesh(malla, materialMate);
 	cubo.position.set(-0.5, 0, 0.5);
 	cubo.receiveShadow = true;
 	cubo.castShadow = true;
-	cubo2 = new THREE.Mesh(malla, material);
+	cubo2 = new THREE.Mesh(malla, materialMate);
 	cubo2.position.set(0.5, 0, 0.5);
 	cubo2.receiveShadow = true;
 	cubo2.castShadow = true;
