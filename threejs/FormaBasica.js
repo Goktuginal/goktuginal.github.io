@@ -180,6 +180,13 @@ function loadScene() {
 	var texturaRib = new THREE.TextureLoader().load(path+'burberry_256.jpg');
 	var texturaCubo = new THREE.TextureLoader().load(path+'metal_128.jpg');
 	var texturaCubo2 = new THREE.TextureLoader().load(path+'metal_128.jpg');
+
+	var paredes = [path+'pond/posx.jpg', path+'pond/negx.jpg',
+					path+'pond/posx.jpg', path+'pond/negx.jpg',
+					path+'pond/posy.jpg', path+'pond/negy.jpg',
+					path+'pond/posz.jpg', path+'pond/negz.jpg'
+					];
+	var mapaEntorno = new THREE.CubeTextureLoader().load(paredes);
 	
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
@@ -308,7 +315,22 @@ function loadScene() {
 
 	pinzas.add(cubo);
 	pinzas.add(cubo2);
-	
+
+	// Habitacion
+	var shader = THREE.ShaderLib.cube;
+	shader.uniforms.tCube.value = mapaEntorno;
+
+	var matparedes = new THREE.ShaderMaterial({
+		fragmentShader: shader.fragmentShader,
+		vertexShader: shader.vertexShader,
+		uniforms: shader.uniforms,
+		depthWrite: false,
+		side: THREE.BackSide
+	});
+
+	var habitacion = new THREE.Mesh(new THREE.CubeGeometry(20, 20, 20, matparedes));
+	scene.add(habitacion);
+
 	robot = new THREE.Object3D();
 	robot.position.set(0,0,0);
 	robot.add(base_del_robot);
