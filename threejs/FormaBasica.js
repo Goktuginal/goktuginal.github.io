@@ -425,15 +425,12 @@ function update() {
 
  	cubo2.position.x = -1*effectController.velang6*Math.PI/180 + 0.5;
 
-
 	// Control de camra
 	cameraControls.update();
 	// Actualiza los FPS
 	stats.update();
 	// Actualiza interpoladores
 	//TWEEN.update();
-	updateFcts.update();
-
 }
 
 function render() {
