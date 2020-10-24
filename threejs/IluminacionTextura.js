@@ -47,7 +47,7 @@ function init() {
 	scene.add(luzAmbiente);
 
 	var luzPuntual = new THREE.PointLight(0xFFFFFF, 0.5);
-	luzPuntual.position.set(10, 10, -10);
+	luzPuntual.position.set(-10, 10, -10);
 	scene.add(luzPuntual);
 
 	var luzDireccional = new THREE.DirectionalLight(0xFFFFFF, 0.5);
@@ -69,27 +69,27 @@ function loadScene() {
 	// Cargar la escena con objetos
 	//Texturas
 	var path = "images/";
-	var texturaSuelo = new THREE.textureLoader().load(path+'wet_ground_512x512.jpg');
+	var texturaSuelo = new THREE.TextureLoader().load(path+'wet_ground_512x512.jpg');
 	texturaSuelo.magFilter = THREE.LinearFilter;
 	texturaSuelo.minFilter = THREE.LinearFilter;
-	texturaSuelo.repeat.set(1, 1);
+	texturaSuelo.repeat.set(3, 2);
 	texturaSuelo.wrapS = texturaSuelo.wrapT = THREE.MirroredRepeatWrapping;
 
-	var texturaCubo = new THREE.textureLoader().load(path+'wood512.jpg');
+	var texturaCubo = new THREE.TextureLoader().load(path+'wood512.jpg');
 
-	var texturaEsfera = new THREE.textureLoader().load(path+'Earth.jpg');
+	var texturaEsfera = new THREE.TextureLoader().load(path+'Earth.jpg');
 
 	var paredes = [path+'pond/posx.jpg',path+'pond/negx.jpg',
 				path+'pond/posy.jpg',path+'pond/negy.jpg',
 				path+'pond/posz.jpg',path+'pond/negz.jpg'
-				]
+				];
 	var mapaEntorno = new THREE.CubeTextureLoader().load(paredes);
 
 	// Materiales
 	var materialBasico = new THREE.MeshBasicMaterial({color: 'yellow'});
 	var materialMate = new THREE.MeshLambertMaterial({color:'red', map:texturaCubo});
 	var matsuelo = new HREE.MeshLambertMaterial({color:'white', map:texturaSuelo});
-	var materialBrillante = new THREE.MeshPongMaterial({color:'white', 
+	var materialBrillante = new THREE.MeshPhongMaterial({color:'white', 
 														specular:'white',
 														shinniness:'50',
 														envMap:mapaEntorno});
@@ -134,9 +134,9 @@ function loadScene() {
 	shader.unifors.tCube.value = mapaEntorno;
 
 	var matparedes = new THREE.ShaderMaterial({
-		fragmentShader: shader.fragmentShader;
-		vertexShader: shader.vertexShader;
-		uniforms: shader.uniforms;
+		fragmentShader: shader.fragmentShader,
+		vertexShader: shader.vertexShader,
+		uniforms: shader.uniforms,
 		depthWrite: false,
 		side: THREE.BackSide
 	});
