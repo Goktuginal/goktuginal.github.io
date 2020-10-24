@@ -35,6 +35,7 @@ function init() {
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.setClearColor(new THREE.Color(0xFFFFFF));
+	renderer.shadowMap.enabled = true;
 	document.getElementById('container').appendChild(renderer.domElement);
 
 	// Escena
@@ -113,7 +114,7 @@ function init() {
 	var luzFocal = new THREE.SpotLight(0xFFFFFF, 0.5);
 	luzFocal.position.set(10, 10, 0);
 	luzFocal.target.position.set(0, 0, 0);
-	luzFocal.angel = Math.PI/10;
+	luzFocal.angel = Math.PI/4;
 	luzFocal.penumbra = 0.2;
 	scene.add(luzFocal);
 }
