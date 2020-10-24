@@ -67,23 +67,7 @@ function init() {
 	window.addEventListener('resize', updateAspectRation);
 	//renderer.domElement.addEventListener('dblclick', rotate);
 
-	// Keybord
-	var keyboard = new THREEx.KeyboardState(renderer.domElement);
-	renderer.domElement.setAttribute("tabIndex", "0");
-	renderer.domElement.focus();
-
-	updateFcts.push(function(delta, now){
-		if (keyboard.pressed('left')) {
-			robot.position.x -= 1 * delta;
-		}else if(keyboard.pressed('right')){
-			robot.position.x += 1 * delta;
-		}
-		if (keyboard.pressed('down')) {
-			robot.position.z += 1 * delta;
-		}else if(keyboard.pressed('up')){
-			robot.position.z -= 1 * delta;
-		}
-	})
+	
 
 	
 
@@ -390,8 +374,13 @@ function updateAspectRation(argument) {
 function update() {
 
 	// Variacion de la escena entre frames
+// Keybord
+	var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
 
-	if (keyboard.pressed('left')) {
+	updateFcts.push(function(delta, now){
+		if (keyboard.pressed('left')) {
 			robot.position.x -= 1 * delta;
 		}else if(keyboard.pressed('right')){
 			robot.position.x += 1 * delta;
@@ -401,6 +390,7 @@ function update() {
 		}else if(keyboard.pressed('up')){
 			robot.position.z -= 1 * delta;
 		}
+	})
 	// Rotacion de la peonza ------------
 
 	robot.rotation.y = effectController.velang*Math.PI/180;
