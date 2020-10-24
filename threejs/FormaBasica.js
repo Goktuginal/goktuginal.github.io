@@ -162,6 +162,12 @@ function loadScene() {
 														specular:'white',
 														shinniness: 50});
 
+	var geosuelo = new THREE.PlaneGeometry(20, 20, 20, 20);
+
+	var suelo = new THREE.Mesh(geosuelo, materialMate);
+	suelo.rotation.x = -Math.PI/2;
+	suelo.position.y = -0.5;
+
 	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialMate);
 
 	brazo = new THREE.Object3D();
@@ -266,6 +272,7 @@ function loadScene() {
 	root1.rotation.y = Math.PI/4;
 
 	scene.add(robot);
+	scene.add(suelo);
 }
 
 function setupGui()
