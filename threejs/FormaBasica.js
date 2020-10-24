@@ -107,12 +107,13 @@ function init() {
 	luzFocal.castShadow =true;
 	scene.add(luzFocal);
 }
-updateFcts.push(function(){
+
+	updateFcts.push(function(){
 		renderer.render( scene, camera );		
 	})
 
 
-var lastTimeMsec= null
+	var lastTimeMsec= null
 	requestAnimationFrame(function animate(nowMsec){
 		// keep looping
 		requestAnimationFrame(animate);
@@ -431,6 +432,7 @@ function update() {
 	stats.update();
 	// Actualiza interpoladores
 	//TWEEN.update();
+	updateFcts.update();
 
 }
 
