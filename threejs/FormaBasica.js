@@ -420,7 +420,7 @@ function render() {
 	// Construir el frame y mostrarlo
 	requestAnimationFrame(render);
 	update();
-	requestAnimationFrame(animate);
+
 	// Thumnail
 	renderer.setViewport(0, window.innerHeight/16, 
 						window.innerWidth/8, window.innerHeight/8);
