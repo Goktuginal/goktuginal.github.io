@@ -116,6 +116,7 @@ function init() {
 	luzFocal.target.position.set(0, 0, 0);
 	luzFocal.angel = Math.PI/10;
 	luzFocal.penumbra = 0.9;
+	luzFocal.castShadow =true;
 	scene.add(luzFocal);
 }
 
@@ -179,8 +180,11 @@ function loadScene() {
 	var suelo = new THREE.Mesh(geosuelo, materialMate);
 	suelo.rotation.x = -Math.PI/2;
 	suelo.position.y = -0.5;
+	suelo.receiveShadow = true;
 
 	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialMate);
+	base_del_robot.receiveShadow = true;
+	base_del_robot.castShadow = true;
 
 	brazo = new THREE.Object3D();
 	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), materialMate);
@@ -193,6 +197,8 @@ function loadScene() {
 	var belly = new THREE.Mesh(new THREE.SphereGeometry(0.5, 10, 10), materialBrillante);
 	belly.position.set(0, 2.5, 0);
 	brazo.add(belly);
+	brazo.receiveShadow = true;
+	brazo.castShadow = true;
 
 	antrebrazo = new THREE.Object3D();
 	var belt = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 0.1, 10, 2), material);
@@ -214,6 +220,8 @@ function loadScene() {
 	var rib4 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
 	rib4.position.set(0.3, 0.8, 0.2);
 	antrebrazo.add(rib4);
+	antrebrazo.receiveShadow = true;
+	antrebrazo.castShadow = true;
 
 	pinzas = new THREE.Object3D();
 	var malla = new THREE.Geometry();
@@ -262,6 +270,8 @@ function loadScene() {
 	cubo2.position.set(0.5, 0, 0.5);
 	pinzas.add(cubo);
 	pinzas.add(cubo2);
+	pinzas.receiveShadow = true;
+	pinzas.castShadow = true;
 
 
 	robot = new THREE.Object3D();
