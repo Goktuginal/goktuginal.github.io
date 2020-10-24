@@ -18,7 +18,7 @@ var stats;
 // Global GUI
 var effectController;
 // Objetos y tiempo
-var peonza,eje;
+var peonza,eje, f;
 var angulo = 0;
 var antes = Date.now();
 var updateFcts	= [];
@@ -34,6 +34,7 @@ function init()
 {
 
 	
+	var updateFcts = [];
 
 	// Inicializar el motor con sombras
 	renderer = new THREE.WebGLRenderer();
