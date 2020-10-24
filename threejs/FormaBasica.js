@@ -182,7 +182,6 @@ function loadScene() {
 	var texturaCubo2 = new THREE.TextureLoader().load(path+'metal_128.jpg');
 
 	var paredes = [path+'pond/posx.jpg', path+'pond/negx.jpg',
-					path+'pond/posx.jpg', path+'pond/negx.jpg',
 					path+'pond/posy.jpg', path+'pond/negy.jpg',
 					path+'pond/posz.jpg', path+'pond/negz.jpg'
 					];
