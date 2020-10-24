@@ -154,7 +154,7 @@ function loadScene() {
 														specular:'white',
 														shinniness: 50});
 
-	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialMate);
+	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialBasico);
 
 	brazo = new THREE.Object3D();
 	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), materialBrillante);
@@ -272,7 +272,7 @@ function setupGui()
 		velang5: 0,
 		velang6: 0,
 		sombras: true,
-		color: "rgb(255,0,0)"
+		color: "rgb(255,255,255)"
 	};
 
 	// Creacion interfaz
