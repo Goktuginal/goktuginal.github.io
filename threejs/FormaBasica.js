@@ -168,7 +168,7 @@ function loadScene() {
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 	var materialBasico = new THREE.MeshBasicMaterial({color: 'yellow'});
-	var materialMate = new THREE.MeshLambertMaterial({color: 'white'});
+	var materialMate = new THREE.MeshLambertMaterial({color: 'red'});
 	var materialBrillante = new THREE.MeshPhongMaterial({color: 'white', 
 														specular:'white',
 														shinniness: 50});
