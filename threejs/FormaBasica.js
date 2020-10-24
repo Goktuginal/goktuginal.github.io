@@ -11,8 +11,6 @@
 // Motor, escena y la camara
 var renderer, scene, camera;
 
-var updateFcts	= [];
-
 // Monitor de recursos
 var stats;
 // Global GUI
@@ -67,37 +65,10 @@ function init() {
 	window.addEventListener('resize', updateAspectRation);
 	//renderer.domElement.addEventListener('dblclick', rotate);
 
-	// Keybord
-	var keyboard = new THREEx.KeyboardState(renderer.domElement);
-	renderer.domElement.setAttribute("tabIndex", "0");
-	renderer.domElement.focus();
-
-	updateFcts.push(function(delta, now){
-		if (keyboard.pressed('left')) {
-			robot.position.x -= 1 * delta;
-		}else if(keyboard.pressed('right')){
-			robot.position.x += 1 * delta;
-		}
-		if (keyboard.pressed('down')) {
-			robot.position.z += 1 * delta;
-		}else if(keyboard.pressed('up')){
-			robot.position.z -= 1 * delta;
-		}
-	});
-
-	var lastTimeMsec= null
-	requestAnimationFrame(function animate(nowMsec){
-		// keep looping
-		requestAnimationFrame(animate);
-		// measure time
-		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
-		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
-		lastTimeMsec	= nowMsec
-		// call each update function
-		updateFcts.forEach(function(updateFn){
-			updateFn(deltaMsec/1000, nowMsec/1000)
-		});
-	});
+	// Add listener for keyboard
+    document.body.addEventListener('keydown', keyPressed, false);
+    
+    render();
 
 	// Luces
 	var luzAmbiente = new THREE.AmbientLight(0xFFFFFF, 0.2);
@@ -118,6 +89,25 @@ function init() {
 	luzFocal.penumbra = 0.2;
 	luzFocal.castShadow =true;
 	scene.add(luzFocal);
+}
+
+function keyPressed(e){
+  switch(e.key) {
+  	case 'ArrowUp':
+    	robot.rotateX(-0.1);
+    	break;
+    case 'ArrowDown':
+    	robot.rotateX(0.1);
+    	break;
+    case 'ArrowLeft':
+    	robot.rotateY(-0.1);
+    	break;
+    case 'ArrowRight':
+    	robot.rotateY(0.1);
+    	break;
+  }
+  e.preventDefault();
+  render();
 }
 
 /*function rotate(event) {
