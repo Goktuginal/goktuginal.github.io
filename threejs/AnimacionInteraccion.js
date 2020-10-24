@@ -63,7 +63,7 @@ function init()
 	var keyboard = new THREEx.KeyboardState(renderer.domElement);
 	renderer.domElement.setAttribute("tabIndex", "0");
 	renderer.domElement.focus();
-	
+
 	// Callbacks
 	window.addEventListener('resize', updateAspectRatio );
 
@@ -148,14 +148,14 @@ function setupGui()
 
 	updateFcts.push(function(delta, now){
 		if (keyboard.pressed('left')) {
-			robot.position.x -= 1 * delta;
+			f.position.x -= 1 * delta;
 		}else if(keyboard.pressed('right')){
-			robot.position.x += 1 * delta;
+			f.position.x += 1 * delta;
 		}
 		if (keyboard.pressed('down')) {
-			robot.position.z += 1 * delta;
+			f.position.z += 1 * delta;
 		}else if(keyboard.pressed('up')){
-			robot.position.z -= 1 * delta;
+			f.position.z -= 1 * delta;
 		}
 	});
 
