@@ -162,10 +162,10 @@ function loadScene() {
 														specular:'white',
 														shinniness: 50});
 
-	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialBasico);
+	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialMate);
 
 	brazo = new THREE.Object3D();
-	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), materialBasico);
+	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), materialMate);
 	wheel.position.set(0, 0.25, 0);
 	wheel.rotation.z = Math.PI/2;
 	brazo.add(wheel);
