@@ -52,7 +52,7 @@ function init() {
 	// Control de camara
 	cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
 	cameraControls.target.set(0, 0, 0);
-	cameraControls.noKeys = true;
+	//cameraControls.noKeys = true;
 
 	// STATS --> stats.update() en update()
 	stats = new Stats();
@@ -153,7 +153,6 @@ function loadScene() {
 	var materialBrillante = new THREE.MeshPhongMaterial({color: 'white', 
 														specular:'white',
 														shinniness: 50});
-
 
 	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialMate);
 
