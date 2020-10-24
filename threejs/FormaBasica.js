@@ -34,7 +34,7 @@ function init() {
 	// Configurar el motor de render y el canvas
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
-	renderer.setClearColor(new THREE.Color(0x000000));
+	renderer.setClearColor(new THREE.Color(0xFFFFFF));
 	document.getElementById('container').appendChild(renderer.domElement);
 
 	// Escena
