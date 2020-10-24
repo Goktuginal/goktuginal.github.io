@@ -11,6 +11,8 @@
 // Motor, escena y la camara
 var renderer, scene, camera;
 
+var updateFcts	= [];
+
 // Monitor de recursos
 var stats;
 // Global GUI
@@ -65,8 +67,37 @@ function init() {
 	window.addEventListener('resize', updateAspectRation);
 	//renderer.domElement.addEventListener('dblclick', rotate);
 
-	// Add listener for keyboard
-    document.addEventListener('keydown', Keyboard, false);
+	// Keybord
+	var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
+
+	updateFcts.push(function(delta, now){
+		if (keyboard.pressed('left')) {
+			robot.position.x -= 1 * delta;
+		}else if(keyboard.pressed('right')){
+			robot.position.x += 1 * delta;
+		}
+		if (keyboard.pressed('down')) {
+			robot.position.z += 1 * delta;
+		}else if(keyboard.pressed('up')){
+			robot.position.z -= 1 * delta;
+		}
+	});
+
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		// keep looping
+		requestAnimationFrame(animate);
+		// measure time
+		lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+		var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec	= nowMsec
+		// call each update function
+		updateFcts.forEach(function(updateFn){
+			updateFn(deltaMsec/1000, nowMsec/1000)
+		});
+	});
 
 	// Luces
 	var luzAmbiente = new THREE.AmbientLight(0xFFFFFF, 0.2);
@@ -87,19 +118,6 @@ function init() {
 	luzFocal.penumbra = 0.2;
 	luzFocal.castShadow =true;
 	scene.add(luzFocal);
-}
-
-function Keyboard() {
-
-    if (event.keyCode == 37) {
-        base_del_robot.position.x += 0.001;
-    } else if (keyCode == 39) {
-        base_del_robot.position.x -= 0.001 ;
-    } else if (keyCode == 40) {
-        base_del_robot.position.z -= 0.001;
-    } else if (keyCode == 38) {
-        base_del_robot.position.z += 0.001;
-    }
 }
 
 /*function rotate(event) {
@@ -414,7 +432,6 @@ function update() {
 function render() {
 	
 	// Construir el frame y mostrarlo
-	renderer.clear();
 	requestAnimationFrame(render);
 	update();
 
