@@ -180,12 +180,6 @@ function loadScene() {
 														specular:'white',
 														shinniness: 50});
 
-	var geosuelo = new THREE.PlaneGeometry(20, 20, 200, 200);
-
-	var suelo = new THREE.Mesh(geosuelo, matsuelo);
-	suelo.rotation.x = -Math.PI/2;
-	suelo.position.y = -0.5;
-	suelo.receiveShadow = true;
 
 	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialMate);
 
