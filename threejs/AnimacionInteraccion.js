@@ -18,10 +18,9 @@ var stats;
 // Global GUI
 var effectController;
 // Objetos y tiempo
-var peonza,eje, f;
+var peonza,eje;
 var angulo = 0;
 var antes = Date.now();
-var updateFcts	= [];
 
 // Acciones a realizar
 init();
@@ -32,10 +31,6 @@ render();
 
 function init()
 {
-
-	
-	var updateFcts = [];
-
 	// Inicializar el motor con sombras
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );
@@ -61,25 +56,8 @@ function init()
 	stats.domElement.style.left = '0px';
 	document.getElementById( 'container' ).appendChild( stats.domElement );
 
-	var keyboard = new THREEx.KeyboardState(renderer.domElement);
-	renderer.domElement.setAttribute("tabIndex", "0");
-	renderer.domElement.focus();
-
-	
-
-	updateFcts.push(function(delta, now){
-		if (keyboard.pressed('left')) {
-			f.position.x -= 1 * delta;
-		}else if(keyboard.pressed('right')){
-			f.position.x += 1 * delta;
-		}
-		
-	});
-	
 	// Callbacks
 	window.addEventListener('resize', updateAspectRatio );
-
-
 
 }
 
@@ -107,10 +85,6 @@ function loadScene()
 	eje.position.set(-2.5,0,-2.5);
 	eje.add( peonza );
 	scene.add(eje);
-
-	f = new THREE.Mesh(new THREE.CylinderGeometry( 2, 2, 2, 10, 2 ), material);
-	f.position.y = 3.5;
-	scene.add(f);
 
 	// Suelo
 	var geoSuelo = new THREE.PlaneGeometry( 5, 5 );
@@ -154,10 +128,6 @@ function setupGui()
 								if( hijo instanceof THREE.Mesh ) hijo.material.color = new THREE.Color(color);
 							})
 						  });
-
-
-
-
 }
 
 function startAnimation(){
@@ -228,20 +198,3 @@ function render()
 	update();
 	renderer.render( scene, camera );
 }
-updateFcts.push(function(){
-	renderer.render(scene, camera);		
-})
-
-var lastTimeMsec= null
-requestAnimationFrame(function animate(nowMsec){
-	// keep looping
-	requestAnimationFrame(animate);
-	// measure time
-	lastTimeMsec	= lastTimeMsec || nowMsec-1000/60;
-	var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec);
-	lastTimeMsec	= nowMsec;
-	// call each update function
-	updateFcts.forEach(function(updateFn){
-		updateFn(deltaMsec/1000, nowMsec/1000);
-	})
-})
