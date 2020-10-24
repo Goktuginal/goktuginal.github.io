@@ -152,11 +152,7 @@ var keyboard = new THREEx.KeyboardState(renderer.domElement);
 		}else if(keyboard.pressed('right')){
 			f.position.x += 1 * delta;
 		}
-		if (keyboard.pressed('down')) {
-			f.position.z += 1 * delta;
-		}else if(keyboard.pressed('up')){
-			f.position.z -= 1 * delta;
-		}
+		
 	});
 
 
