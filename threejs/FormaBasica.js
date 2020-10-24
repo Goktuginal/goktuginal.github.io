@@ -164,15 +164,19 @@ function init() {
 function loadScene() {
 
 	// Construir el grafo de escena
-	
-	
+	var path = "images/";
+	var texturaSuelo = new THREE.TextureLoader().load(path+'pisometal_1024x1024.jpg');
+	texturaSuelo.magFilter = THREE.LinearFilter;
+	texturaSuelo.minFilter = THREE.LinearFilter;
+	texturaSuelo.repeat.set(1, 1);
+	texturaSuelo.wrapS = texturaSuelo.wrapT = THREE.RepeatWrapping;
 	
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 	var materialBasico = new THREE.MeshBasicMaterial({color: 'yellow'});
 	var materialMate = new THREE.MeshLambertMaterial({color: 'red'});
 	var materialMate2 = new THREE.MeshLambertMaterial({color: 'blue'});
-	var matsuelo = new THREE.MeshLambertMaterial({color: 'white'});
+	var matsuelo = new THREE.MeshLambertMaterial({color: 'white', map:texturaSuelo});
 	var materialBrillante = new THREE.MeshPhongMaterial({color: 'white', 
 														specular:'white',
 														shinniness: 50});
