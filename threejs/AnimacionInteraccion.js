@@ -60,10 +60,7 @@ function init()
 	stats.domElement.style.left = '0px';
 	document.getElementById( 'container' ).appendChild( stats.domElement );
 
-	var keyboard = new THREEx.KeyboardState(renderer.domElement);
-	renderer.domElement.setAttribute("tabIndex", "0");
-	renderer.domElement.focus();
-
+	
 	// Callbacks
 	window.addEventListener('resize', updateAspectRatio );
 
@@ -143,6 +140,9 @@ function setupGui()
 							})
 						  });
 
+var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
 
 	
 
