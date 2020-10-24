@@ -115,7 +115,7 @@ function init() {
 	luzFocal.position.set(10, 10, 0);
 	luzFocal.target.position.set(0, 0, 0);
 	luzFocal.angel = Math.PI/10;
-	luzFocal.penumbra = 0.9;
+	luzFocal.penumbra = 0.2;
 	luzFocal.castShadow =true;
 	scene.add(luzFocal);
 }
