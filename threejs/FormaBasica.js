@@ -190,38 +190,52 @@ function loadScene() {
 	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), materialMate);
 	wheel.position.set(0, 0.25, 0);
 	wheel.rotation.z = Math.PI/2;
+	wheel.receiveShadow = true;
+	wheel.castShadow = true;
 	brazo.add(wheel);
 	var legs = new THREE.Mesh(new THREE.BoxGeometry(0.3, 2.5, 0.3), materialBrillante);
 	legs.position.set(0, 1.5, 0);
+	legs.receiveShadow = true;
+	legs.castShadow = true;
 	brazo.add(legs);
 	var belly = new THREE.Mesh(new THREE.SphereGeometry(0.5, 10, 10), materialBrillante);
 	belly.position.set(0, 2.5, 0);
+	belly.receiveShadow = true;
+	belly.castShadow = true;
 	brazo.add(belly);
-	brazo.receiveShadow = true;
-	brazo.castShadow = true;
 
 	antrebrazo = new THREE.Object3D();
 	var belt = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 0.1, 10, 2), material);
 	belt.position.set(0, 0, 0);
+	belt.receiveShadow = true;
+	belt.castShadow = true;
 	antrebrazo.add(belt);
 	var head = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 1.3, 10, 2), material);
 	head.position.set(0, 1.5, 0);
 	head.rotation.z = Math.PI/2;
+	head.receiveShadow = true;
+	head.castShadow = true;
 	antrebrazo.add(head);
 	var rib1 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
 	rib1.position.set(-0.3, 0.8, -0.2);
+	rib1.receiveShadow = true;
+	rib1.castShadow = true;
 	antrebrazo.add(rib1);
 	var rib2 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
 	rib2.position.set(-0.3, 0.8, 0.2);
+	rib2.receiveShadow = true;
+	rib2.castShadow = true;
 	antrebrazo.add(rib2);
 	var rib3 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
 	rib3.position.set(0.3, 0.8, -0.2);
+	rib3.receiveShadow = true;
+	rib3.castShadow = true;
 	antrebrazo.add(rib3);
 	var rib4 = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.7, 0.1), material);
 	rib4.position.set(0.3, 0.8, 0.2);
+	rib4.receiveShadow = true;
+	rib4.castShadow = true;
 	antrebrazo.add(rib4);
-	antrebrazo.receiveShadow = true;
-	antrebrazo.castShadow = true;
 
 	pinzas = new THREE.Object3D();
 	var malla = new THREE.Geometry();
@@ -266,14 +280,16 @@ function loadScene() {
 
 	cubo = new THREE.Mesh(malla, material);
 	cubo.position.set(-0.5, 0, 0.5);
+	cubo.receiveShadow = true;
+	cubo.castShadow = true;
 	cubo2 = new THREE.Mesh(malla, material);
 	cubo2.position.set(0.5, 0, 0.5);
+	cubo2.receiveShadow = true;
+	cubo2.castShadow = true;
+
 	pinzas.add(cubo);
 	pinzas.add(cubo2);
-	pinzas.receiveShadow = true;
-	pinzas.castShadow = true;
-
-
+	
 	robot = new THREE.Object3D();
 	robot.position.set(0,0,0);
 	robot.add(base_del_robot);
