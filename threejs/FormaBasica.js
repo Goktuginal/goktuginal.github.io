@@ -92,13 +92,13 @@ function init() {
 function Keyboard() {
 
     if (event.keyCode == 37) {
-        robot.position.x += 0.001;
+        base_del_robot.position.x += 0.001;
     } else if (keyCode == 39) {
-        robot.position.x -= 0.001 ;
+        base_del_robot.position.x -= 0.001 ;
     } else if (keyCode == 40) {
-        robot.position.z -= 0.001;
+        base_del_robot.position.z -= 0.001;
     } else if (keyCode == 38) {
-        robot.position.z += 0.001;
+        base_del_robot.position.z += 0.001;
     }
 }
 
@@ -414,6 +414,7 @@ function update() {
 function render() {
 	
 	// Construir el frame y mostrarlo
+	renderer.clear();
 	requestAnimationFrame(render);
 	update();
 
