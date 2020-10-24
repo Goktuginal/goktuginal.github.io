@@ -66,7 +66,7 @@ function init() {
 	//renderer.domElement.addEventListener('dblclick', rotate);
 
 	// Add listener for keyboard
-    document.addEventListener('keydown', keyboard, false);
+    document.addEventListener('keydown', Keyboard, false);
 
 	// Luces
 	var luzAmbiente = new THREE.AmbientLight(0xFFFFFF, 0.2);
@@ -89,7 +89,7 @@ function init() {
 	scene.add(luzFocal);
 }
 
-function keyboard() {
+function Keyboard() {
 
     if (event.keyCode == 37) {
         robot.position.x += 0.001;
