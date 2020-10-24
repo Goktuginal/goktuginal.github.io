@@ -66,9 +66,7 @@ function init() {
 	//renderer.domElement.addEventListener('dblclick', rotate);
 
 	// Add listener for keyboard
-    document.body.addEventListener('keydown', keyPressed, false);
-    
-    render();
+    document.addEventListener("keydown", onDocumentKeyDown, false);
 
 	// Luces
 	var luzAmbiente = new THREE.AmbientLight(0xFFFFFF, 0.2);
@@ -91,23 +89,19 @@ function init() {
 	scene.add(luzFocal);
 }
 
-function keyPressed(e){
-  switch(e.key) {
-  	case 'ArrowUp':
-    	robot.position.x = 0.001;
-    	break;
-    case 'ArrowDown':
-    	robot.position.x -= 0.001;
-    	break;
-    case 'ArrowLeft':
-    	robot.position.y = 0.001;
-    	break;
-    case 'ArrowRight':
-    	robot.position.y -= 0.001;
-    	break;
-  }
-  e.preventDefault();
-  render();
+function onDocumentKeyDown(event) {
+    var keyCode = event.which;
+    if (keyCode == 87) {
+        robot.position.y += ySpeed;
+    } else if (keyCode == 83) {
+        robot.position.y -= ySpeed;
+    } else if (keyCode == 65) {
+        robot.position.x -= xSpeed;
+    } else if (keyCode == 68) {
+        robot.position.x += xSpeed;
+    } else if (keyCode == 32) {
+        robot.position.set(0, 0, 0);
+    }
 }
 
 /*function rotate(event) {
