@@ -112,7 +112,7 @@ function setupGui()
 			startAnimation();
 		},
 		sombras: true,
-		color: "rgb(255,0,0)"
+		color: "rgb(255,255,255)"
 	};
 
 	// Creacion interfaz
