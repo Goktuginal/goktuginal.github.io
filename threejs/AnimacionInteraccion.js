@@ -33,9 +33,7 @@ render();
 function init()
 {
 
-	var keyboard = new THREEx.KeyboardState(renderer.domElement);
-	renderer.domElement.setAttribute("tabIndex", "0");
-	renderer.domElement.focus();
+	
 
 	// Inicializar el motor con sombras
 	renderer = new THREE.WebGLRenderer();
@@ -62,6 +60,10 @@ function init()
 	stats.domElement.style.left = '0px';
 	document.getElementById( 'container' ).appendChild( stats.domElement );
 
+	var keyboard = new THREEx.KeyboardState(renderer.domElement);
+	renderer.domElement.setAttribute("tabIndex", "0");
+	renderer.domElement.focus();
+	
 	// Callbacks
 	window.addEventListener('resize', updateAspectRatio );
 
