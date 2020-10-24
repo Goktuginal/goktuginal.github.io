@@ -91,16 +91,14 @@ function init() {
 
 function onDocumentKeyDown(event) {
     var keyCode = event.which;
-    if (keyCode == 87) {
+    if (keyCode == 'right') {
         robot.position.y += ySpeed;
-    } else if (keyCode == 83) {
+    } else if (keyCode == 'left') {
         robot.position.y -= ySpeed;
     } else if (keyCode == 65) {
         robot.position.x -= xSpeed;
     } else if (keyCode == 68) {
         robot.position.x += xSpeed;
-    } else if (keyCode == 32) {
-        robot.position.set(0, 0, 0);
     }
     render();
 }
