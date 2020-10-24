@@ -112,7 +112,7 @@ function init() {
 	scene.add(luzDireccional);
 
 	var luzFocal = new THREE.SpotLight(0xFFFFFF, 0.5);
-	luzFocal.position.set(10, 10, 0);
+	luzFocal.position.set(10, 10, 1);
 	luzFocal.target.position.set(0, 0, 0);
 	luzFocal.angel = Math.PI/10;
 	luzFocal.penumbra = 0.2;
@@ -171,6 +171,7 @@ function loadScene() {
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 	var materialBasico = new THREE.MeshBasicMaterial({color: 'yellow'});
 	var materialMate = new THREE.MeshLambertMaterial({color: 'red'});
+	var materialMate = new THREE.MeshLambertMaterial({color: 'blue'});
 	var materialBrillante = new THREE.MeshPhongMaterial({color: 'white', 
 														specular:'white',
 														shinniness: 50});
