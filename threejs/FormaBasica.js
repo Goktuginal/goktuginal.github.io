@@ -180,7 +180,7 @@ function loadScene() {
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 	var materialBasico = new THREE.MeshBasicMaterial({color: 'yellow'});
-	var matsuelo = new HREE.MeshLambertMaterial({color:'white', map:texturaSuelo});
+	var matsuelo = new TREE.MeshLambertMaterial({color:'white', map:texturaSuelo});
 	
 	var geosuelo = new THREE.PlaneGeometry(20, 20, 200, 200);
 
