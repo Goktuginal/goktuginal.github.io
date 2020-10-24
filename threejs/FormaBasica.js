@@ -20,8 +20,6 @@ var effectController;
 
 // Otras globales
 var base, brazo, antrebrazo, root1, root2, root3, pinzas, robot, cubo, cubo2, angulo = 0;
-/*var l = b = -4;
-var r = t = -l;*/
 
 var cameraControls;
 
@@ -30,29 +28,6 @@ init();
 loadScene();
 setupGui();
 render();
-
-function setCameras(ar) {
-
-	// Construye las camaras planta, alzado, perfil y perspectiva
-	var origen = new THREE.Vector3(0, 0, 0);
-
-	if (ar > 1) {
-		var camaraOrtografica = new THREE.OrthographicCamera(l*ar, r*ar, t, b, -20, 20);
-	}
-	else {
-		var camaraOrtografica = new THREE.OrthographicCamera(l, r, t/ar, b/ar, -20, 20);
-	}
-
-	// Camara perspectiva
-	var camaraPerspectiva = new THREE.PerspectiveCamera(70, ar, 0.1, 50);
-	camaraPerspectiva.position.set(1, 2, 10);
-	camaraPerspectiva.lookAt(origen);
-
-	camera = camaraPerspectiva.clone();
-	
-	scene.add(camera);
-
-}
 
 function init() {
 
