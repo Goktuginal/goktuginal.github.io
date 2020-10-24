@@ -165,7 +165,7 @@ function loadScene() {
 
 	// Construir el grafo de escena
 	var path = "images/";
-	var texturaSuelo = new THREE.TextureLoader().load(path+'pisometal_1024x1024.jpg');
+	var texturaSuelo = new THREE.TextureLoader().load(path+'snow.jpg');
 	texturaSuelo.magFilter = THREE.LinearFilter;
 	texturaSuelo.minFilter = THREE.LinearFilter;
 	texturaSuelo.repeat.set(1, 1);
