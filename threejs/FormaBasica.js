@@ -97,6 +97,11 @@ function init() {
 			updateFn(deltaMsec/1000, nowMsec/1000)
 		});
 	});
+
+	// Luces
+	var luzPuntual = new THREE.PointLight(0xFFFFFF, 0.5);
+	luzPuntual.position.set(10, 10, -10);
+	scene.add(luzPuntual);
 }
 
 /*function rotate(event) {
