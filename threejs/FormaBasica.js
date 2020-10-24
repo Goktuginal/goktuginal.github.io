@@ -420,19 +420,7 @@ function render() {
 	// Construir el frame y mostrarlo
 	requestAnimationFrame(render);
 	update();
-	var lastTimeMsec= null
-requestAnimationFrame(function animate(nowMsec){
-	// keep looping
-	requestAnimationFrame(animate);
-	// measure time
-	lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
-	var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
-	lastTimeMsec	= nowMsec
-	// call each update function
-	updateFcts.forEach(function(updateFn){
-		updateFn(deltaMsec/1000, nowMsec/1000)
-	})
-})
+	
 
 	// Thumnail
 	renderer.setViewport(0, window.innerHeight/16, 
@@ -449,7 +437,19 @@ updateFcts.push(function(){
 	renderer.render(scene, camera);		
 })
 
-
+var lastTimeMsec= null
+requestAnimationFrame(function animate(nowMsec){
+	// keep looping
+	requestAnimationFrame(animate);
+	// measure time
+	lastTimeMsec	= lastTimeMsec || nowMsec-1000/60;
+	var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec);
+	lastTimeMsec	= nowMsec;
+	// call each update function
+	updateFcts.forEach(function(updateFn){
+		updateFn(deltaMsec/1000, nowMsec/1000);
+	})
+})
 
 
 // https://goktuginal.github.io/usocanvas.html
