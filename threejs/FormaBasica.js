@@ -3,7 +3,7 @@
 *	Dibujar formas basicas y un modelo importado.
 *	Muestra el bucle tipico de inicializacion, escena y render.
 *
-*/
+*/ 
 
 "use strict";
 
@@ -59,7 +59,7 @@ function init() {
 	// Configurar el motor de render y el canvas
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
-	renderer.setClearColor(new THREE.Color(0x000000));
+	renderer.setClearColor(new THREE.Color(0xFFFFFF));
 	renderer.autoClear = false;
 	document.getElementById("container").appendChild(renderer.domElement);
 
@@ -170,18 +170,16 @@ function loadScene() {
 
 	// Construir el grafo de escena
 	
-	var path = "images/";
-	var texturaSuelo = new THREE.TextureLoader().load(path+'pisometal_1024x1024.jpg');
-	texturaSuelo.magFilter = THREE.LinearFilter;
-	texturaSuelo.minFilter = THREE.LinearFilter;
-	texturaSuelo.repeat.set(1, 1);
-	texturaSuelo.wrapS = texturaSuelo.wrapT = THREE.MirroredRepeatWrapping;
+	
 	
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 	var materialBasico = new THREE.MeshBasicMaterial({color: 'yellow'});
-	var matsuelo = new THREE.MeshLambertMaterial({color:'white', map:texturaSuelo});
-	
+	var materialMate = new THREE.MeshLambertMaterial({color: 'white'});
+	var materialBrillante = new THREE.MeshPhongMaterial({color: 'white', 
+														specular:'white',
+														shinniness: 50});
+
 	var geosuelo = new THREE.PlaneGeometry(20, 20, 200, 200);
 
 	var suelo = new THREE.Mesh(geosuelo, matsuelo);
@@ -189,10 +187,10 @@ function loadScene() {
 	suelo.position.y = -0.5;
 	suelo.receiveShadow = true;
 
-	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), material);
+	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialMate);
 
 	brazo = new THREE.Object3D();
-	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), material);
+	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), materialBrillante);
 	wheel.position.set(0, 0.25, 0);
 	wheel.rotation.z = Math.PI/2;
 	brazo.add(wheel);
@@ -293,7 +291,6 @@ function loadScene() {
 	root1.rotation.y = Math.PI/4;
 
 	scene.add(robot);
-	scene.add(suelo);
 }
 
 function setupGui()
