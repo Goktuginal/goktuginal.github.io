@@ -99,6 +99,9 @@ function init() {
 	});
 
 	// Luces
+	var luzAmbiente = new THREE.AmbientLight(0xFFFFFF, 0.2);
+	scene.add(luzAmbiente);
+
 	var luzPuntual = new THREE.PointLight(0xFFFFFF, 0.5);
 	luzPuntual.position.set(10, 10, -10);
 	scene.add(luzPuntual);
@@ -162,14 +165,14 @@ function loadScene() {
 	var base_del_robot = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.25, 10, 2), materialBasico);
 
 	brazo = new THREE.Object3D();
-	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), materialBrillante);
+	var wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.3, 10, 2), materialBasico);
 	wheel.position.set(0, 0.25, 0);
 	wheel.rotation.z = Math.PI/2;
 	brazo.add(wheel);
-	var legs = new THREE.Mesh(new THREE.BoxGeometry(0.3, 2.5, 0.3), material);
+	var legs = new THREE.Mesh(new THREE.BoxGeometry(0.3, 2.5, 0.3), materialBrillante);
 	legs.position.set(0, 1.5, 0);
 	brazo.add(legs);
-	var belly = new THREE.Mesh(new THREE.SphereGeometry(0.5, 10, 10), material);
+	var belly = new THREE.Mesh(new THREE.SphereGeometry(0.5, 10, 10), materialBrillante);
 	belly.position.set(0, 2.5, 0);
 	brazo.add(belly);
 
