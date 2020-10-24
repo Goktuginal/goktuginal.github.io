@@ -368,7 +368,7 @@ function update() {
 	// Actualiza los FPS
 	stats.update();
 	// Actualiza interpoladores
-	TWEEN.update();
+	//TWEEN.update();
 
 }
 
