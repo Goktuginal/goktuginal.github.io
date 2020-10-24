@@ -170,16 +170,29 @@ function loadScene() {
 	texturaSuelo.minFilter = THREE.LinearFilter;
 	texturaSuelo.repeat.set(1, 1);
 	texturaSuelo.wrapS = texturaSuelo.wrapT = THREE.RepeatWrapping;
+
+	var texturaBase = new THREE.TextureLoader().load(path+'wood512.jpg');
+	var texturaWheel = new THREE.TextureLoader().load(path+'wood512.jpg');
+	var texturaLegs = new THREE.TextureLoader().load(path+'wood512.jpg');
+	var texturaBelly = new THREE.TextureLoader().load(path+'Earth.jpg');
+	var texturaBelt = new THREE.TextureLoader().load(path+'Earth.jpg');
+	var texturaHead = new THREE.TextureLoader().load(path+'wood512.jpg');
+	var texturaRib = new THREE.TextureLoader().load(path+'burberry_256.jpg');
+	var texturaCubo = new THREE.TextureLoader().load(path+'metal_128.jpg');
+	var texturaCubo2 = new THREE.TextureLoader().load(path+'metal_128.jpg');
 	
 	// Materiales
 	var material = new THREE.MeshBasicMaterial({color: 'yellow', wireframe: true});
 	var materialBasico = new THREE.MeshBasicMaterial({color: 'yellow'});
-	var materialMate = new THREE.MeshLambertMaterial({color: 'red'});
-	var materialMate2 = new THREE.MeshLambertMaterial({color: 'blue'});
+	var materialMate = new THREE.MeshLambertMaterial({color: 'red', map:texturaBase});
+	var materialMate2 = new THREE.MeshLambertMaterial({color: 'white', map:texturaRib});
 	var matsuelo = new THREE.MeshLambertMaterial({color: 'white', map:texturaSuelo});
 	var materialBrillante = new THREE.MeshPhongMaterial({color: 'white', 
 														specular:'white',
-														shinniness: 50});
+														shinniness: 50,
+														map:texturaHead});
+
+	/// Object
 
 	var geosuelo = new THREE.PlaneGeometry(20, 20, 200, 200);
 
