@@ -381,14 +381,14 @@ function update() {
 
 	updateFcts.push(function(delta, now){
 		if (keyboard.pressed('left')) {
-			robot.position.x -= 1 * delta;
+			robot.position.x -= 1 * delta/100;
 		}else if(keyboard.pressed('right')){
-			robot.position.x += 1 * delta;
+			robot.position.x += 1 * delta/100;
 		}
 		if (keyboard.pressed('down')) {
-			robot.position.z += 1 * delta;
+			robot.position.z += 1 * delta/100;
 		}else if(keyboard.pressed('up')){
-			robot.position.z -= 1 * delta;
+			robot.position.z -= 1 * delta/100;
 		}
 	})
 	// Rotacion de la peonza ------------
