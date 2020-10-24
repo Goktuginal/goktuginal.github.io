@@ -67,7 +67,7 @@ function init() {
 
 	// Add listener for keyboard
     document.addEventListener("keydown", onDocumentKeyDown, false);
-    render();
+
 	// Luces
 	var luzAmbiente = new THREE.AmbientLight(0xFFFFFF, 0.2);
 	scene.add(luzAmbiente);
@@ -102,6 +102,7 @@ function onDocumentKeyDown(event) {
     } else if (keyCode == 32) {
         robot.position.set(0, 0, 0);
     }
+    render();
 }
 
 /*function rotate(event) {
