@@ -108,7 +108,7 @@ function loadScene()
 	eje.add( peonza );
 	scene.add(eje);
 
-	var f = new THREE.Mesh(new THREE.CylinderGeometry( 2, 2, 2, 10, 2 ), material);
+	f = new THREE.Mesh(new THREE.CylinderGeometry( 2, 2, 2, 10, 2 ), material);
 	f.position.y = 3.5;
 	scene.add(f);
 
