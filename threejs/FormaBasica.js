@@ -328,7 +328,7 @@ function loadScene() {
 		side: THREE.BackSide
 	});
 
-	var habitacion = new THREE.Mesh(new THREE.CubeGeometry(20, 20, 20, matparedes));
+	var habitacion = new THREE.Mesh(new THREE.CubeGeometry(20, 20, 20), matparedes);
 	scene.add(habitacion);
 
 	robot = new THREE.Object3D();
