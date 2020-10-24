@@ -179,7 +179,7 @@ function loadScene() {
 
 	var geosuelo = new THREE.PlaneGeometry(20, 20, 200, 200);
 
-	var suelo = new THREE.Mesh(geosuelo, materialMate);
+	var suelo = new THREE.Mesh(geosuelo, matsuelo);
 	suelo.rotation.x = -Math.PI/2;
 	suelo.position.y = -0.5;
 	suelo.receiveShadow = true;
