@@ -67,7 +67,7 @@ function init() {
 
 	// Add listener for keyboard
     document.addEventListener("keydown", onDocumentKeyDown, false);
-
+    render();
 	// Luces
 	var luzAmbiente = new THREE.AmbientLight(0xFFFFFF, 0.2);
 	scene.add(luzAmbiente);
