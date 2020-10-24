@@ -105,6 +105,10 @@ function init() {
 	var luzPuntual = new THREE.PointLight(0xFFFFFF, 0.5);
 	luzPuntual.position.set(10, 10, -10);
 	scene.add(luzPuntual);
+
+	var luzDireccional = new THREE.DirectionalLight(0xFFFFFF, 0.5);
+	luzDireccional.position.set(-10, 5, -10);
+	scene.add(luzDireccional);
 }
 
 /*function rotate(event) {
