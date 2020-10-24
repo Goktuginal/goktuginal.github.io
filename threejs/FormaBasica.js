@@ -94,16 +94,16 @@ function init() {
 function keyPressed(e){
   switch(e.key) {
   	case 'ArrowUp':
-    	robot.rotateX(-0.1);
+    	robot.position.x = 0.001;
     	break;
     case 'ArrowDown':
-    	robot.rotateX(0.1);
+    	robot.position.x -= 0.001;
     	break;
     case 'ArrowLeft':
-    	robot.rotateY(-0.1);
+    	robot.position.y = 0.001;
     	break;
     case 'ArrowRight':
-    	robot.rotateY(0.1);
+    	robot.position.y -= 0.001;
     	break;
   }
   e.preventDefault();
