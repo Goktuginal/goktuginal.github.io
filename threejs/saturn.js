@@ -55,26 +55,24 @@ let init = function () {
 	info.style.MozUserSelect = "none";
 	document.body.appendChild( info );
 
-	// create the scene
-	scene = new THREE.Scene();
-
-	// create an locate the camera
-	camera = new THREE.PerspectiveCamera(
-		75,
-		window.innerWidth / window.innerHeight,
-		1,
-		1000
-	);
-	camera.position.z = 20;
-
-	createSaturn();
-
 	// create the renderer
 	container = document.getElementById( 'canvas' );
 	document.body.appendChild( container );
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
 	container.appendChild( renderer.domElement );
+	// create the scene
+	scene = new THREE.Scene();
+
+	// create an locate the camera
+	camera = new THREE.PerspectiveCamera( 50, CANVAS_WIDTH / CANVAS_HEIGHT, 1, 1000 );
+	camera.position.y = 150;
+	camera.position.z = 500;
+	camera.lookAt( scene.position );
+
+	createSaturn();
+
+	
 };
 
 // main animation loop - calls every 50-60 ms.
