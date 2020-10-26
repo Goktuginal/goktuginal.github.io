@@ -47,7 +47,7 @@ var boxGroup = new THREE.Group();
 
 const addBoxes = () => {
   var geo = new THREE.BoxBufferGeometry(2,2,2);
-  var mat = new THREE.MeshLambertMaterial({color:0x2ccf6d})
+  var mat = new THREE.MeshLambertMaterial({color:0xc9e4fe})
   for (var i = 0; i < boxAmount; i++) {
     var mesh = new THREE.Mesh(geo,mat);
     boxPos.push(mesh.position);
