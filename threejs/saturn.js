@@ -36,6 +36,25 @@ let createSaturn = function () {
 
 // initiallize scene, camera, objects and renderer
 let init = function () {
+
+	var CANVAS_WIDTH = 200;
+    var CANVAS_HEIGHT = 200;
+
+	// info
+	info = document.createElement( 'div' );
+	info.style.position = 'absolute';
+	info.style.top = '30px';
+	info.style.width = '100%';
+	info.style.textAlign = 'center';
+	info.style.color = '#f00';
+	info.style.backgroundColor = 'transparent';
+	info.style.zIndex = '1';
+	info.style.fontFamily = 'Monospace';
+	info.style.userSelect = "none";
+	info.style.webkitUserSelect = "none";
+	info.style.MozUserSelect = "none";
+	document.body.appendChild( info );
+
 	// create the scene
 	scene = new THREE.Scene();
 
@@ -54,12 +73,11 @@ let init = function () {
 	createSaturn();
 
 	// create the renderer
-	renderer = new THREE.WebGLRenderer({antialias: true, alpha: true });
-	renderer.setClearColor( 0x000000, 0);
-	renderer.setSize(window.innerWidth/4, window.innerHeight/2);
-	document.getElementById( 'canvas' ).appendChild( renderer.domElement );
-
-	document.body.appendChild(renderer.domElement);
+	container = document.getElementById( 'canvas' );
+	document.body.appendChild( container );
+	renderer = new THREE.WebGLRenderer();
+	renderer.setSize( CANVAS_WIDTH, CANVAS_HEIGHT );
+	container.appendChild( renderer.domElement );
 };
 
 // main animation loop - calls every 50-60 ms.
