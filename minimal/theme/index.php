@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- https://goktuginal.github.io/minimal/theme -->
+<!-- https://goktuginal.github.io/minimal/theme/index.php -->
 
 <html lang="en">
   <head>
