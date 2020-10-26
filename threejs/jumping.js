@@ -1,22 +1,7 @@
-  var scene, camera, light, renderer;
-  
-  // info
-  info = document.createElement( 'div' );
-  info.style.position = 'absolute';
-  info.style.top = '30px';
-  info.style.width = '100%';
-  info.style.textAlign = 'center';
-  info.style.color = '#f00';
-  info.style.backgroundColor = 'transparent';
-  info.style.zIndex = '1';
-  info.style.fontFamily = 'Monospace';
-  info.style.userSelect = "none";
-  info.style.webkitUserSelect = "none";
-  info.style.MozUserSelect = "none";
-  document.body.appendChild( info );
+const canvas = document.querySelector("canvas");
+let scene, camera, light, renderer;
 
 const setup = () => {
-
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75,
@@ -31,7 +16,6 @@ const setup = () => {
     canvas: canvas
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
-  document.getElementById( 'canvas' ).appendChild( renderer.domElement );
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setClearColor(0xeeeeee);
   renderer.shadowMap.enabled = true;
