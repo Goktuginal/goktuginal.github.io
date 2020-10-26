@@ -11,6 +11,7 @@
 	    margin: 0px;
 	    background-image: url('minimal/theme/assets/img/space.jpg');
 	    overflow: hidden;
+	    position: relative;
 		}
 		#canvas {
 
@@ -22,10 +23,10 @@
 		    top: 100px;
 		    left: 100px;
 		}
-		#headerw {
-			min-height: 700px;
-			width: 100%;
-			overflow: hidden;
+		.bottom-left {
+			position: absolute;
+		  	top: 8px;
+			left: 16px;
 		}
     </style>
 
@@ -86,9 +87,7 @@
 	</nav>
 
 	
-	<h1>PERSONAL PAGE</h1>
-	<br>
-	<h3>Hello, I'm Göktuğ</h3>
+	<div class="bottom-left">Bottom Left</div>
 				
 
 
