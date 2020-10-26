@@ -1,11 +1,5 @@
-/*
- * Author: Carlos Alvarez
- * URL: http://alvarez.is
- *
- * Project Name: Minimal - Free Bootstrap 3 Theme
- * Version: 1.0
- * URL: http://blacktie.co
- */
+header-bg/*
+
 
 body {
   background-color: #f2f2f2;
@@ -79,7 +73,7 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-	background: url(../img/header-bg.jpg) no-repeat center top;
+	background: url(../img/header.jpg) no-repeat center top;
 	margin-top: -10px;
 	padding-top:20px;
 	text-align:center;
