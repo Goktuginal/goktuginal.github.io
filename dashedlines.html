@@ -4,7 +4,6 @@
 		<title>three.js webgl</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="main.css">
 	</head>
 
 	<body>
@@ -13,11 +12,11 @@
 
 		<script type="module">
 
-			import * as THREE from '../build/three.module.js';
+			import * as THREE from 'lib/three.module.js';
 
-			import Stats from './jsm/libs/stats.module.js';
+			import Stats from 'lib/stats.module.js';
 
-			import { GeometryUtils } from './jsm/utils/GeometryUtils.js';
+			import { GeometryUtils } from 'lib/GeometryUtils.js';
 
 			var renderer, scene, camera, stats;
 			var objects = [];
