@@ -67,9 +67,6 @@ let init = function () {
 	);
 	camera.position.z = 20;
 
-	//let axes = new THREE.AxesHelper(10);
-	//scene.add(axes);
-
 	createSaturn();
 
 	// create the renderer
