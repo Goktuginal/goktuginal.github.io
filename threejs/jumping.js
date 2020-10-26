@@ -38,16 +38,6 @@ const resize = () => {
 };
 
 
-const addPlane = () => {
-  let geo = new THREE.PlaneBufferGeometry(200,200,1);
-  let mat = new THREE.MeshLambertMaterial({color:0xFFFFFF});
-  let mesh = new THREE.Mesh(geo,mat);
-  mesh.receiveShadow = true;
-  mesh.rotateX(THREE.Math.degToRad(-90))
-  scene.add(mesh);
-}
-
-
 const boxAmount = 3
 const boxPos = [];
 const boxScale = [];
@@ -95,7 +85,6 @@ const animateBoxes = () => {
 
 window.addEventListener("load", () => {
   setup();
-  addPlane();
   addLights();
   addBoxes();
   animateBoxes();
