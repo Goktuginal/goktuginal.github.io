@@ -13,7 +13,7 @@ const setup = () => {
   
   renderer = new THREE.WebGLRenderer({
     antialias: true,
-    canvas: canvas
+    alpha: true
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
