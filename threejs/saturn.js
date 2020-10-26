@@ -57,7 +57,7 @@ let init = function () {
 	renderer = new THREE.WebGLRenderer({ alpha: true });
 	renderer.setClearColor( 0x000000, 0);
 	renderer.setSize(window.innerWidth/4, window.innerHeight/2);
-	document.getElementById( 'container' ).appendChild( renderer.domElement );
+	document.getElementById( 'container1' ).appendChild( renderer.domElement );
 
 	document.body.appendChild(renderer.domElement);
 };
