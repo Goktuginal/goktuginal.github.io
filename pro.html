@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Robot</title>
+    <style >
+        html,body {
+		  height:100%;
+		}
+		body {
+		  display:flex;
+		  align-items:center;
+		  justify-content:center;
+		}
+		svg {
+		  width:100%;
+		}
+		.container {
+		  height:100%;
+		  width:100%;
+		  & canvas {
+		    height:100%;
+		    width:100%;
+		    display:block;
+		  }
+		}
+    </style>
+</head>
+<body>
+	<div class="container">
+	  <canvas></canvas>
+	</div>    
+	
+    <script src="lib/three.min_r96.js"></script>
+    <script src="lib/OrbitControls.js"></script>
+    <script src="lib/dat.gui.min.js"></script>
+    <script src="lib/Coordinates.js"></script>
+    <script src="lib/stats.min.js"></script>
+
+    <script src="threejs/jumping.js"></script>
+
+</body>
+</html>
