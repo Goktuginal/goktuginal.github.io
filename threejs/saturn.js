@@ -1,29 +1,29 @@
-let scene, camera, renderer, torus;
-let ADD = 0.0003;
+var scene, camera, renderer, torus;
+var ADD = 0.0003;
 
-let createSaturn = function () {
+var createSaturn = function () {
 	//Planet Body
-	let body_geo = new THREE.SphereGeometry(3, 20, 20);
-	let body_mat = new THREE.MeshBasicMaterial({color: 0xc4765e});
+	var body_geo = new THREE.SphereGeometry(3, 20, 20);
+	var body_mat = new THREE.MeshBasicMaterial({color: 0xc4765e});
 	body = new THREE.Mesh(body_geo, body_mat);
 
 	//Ring 1
-	let ring_1_geo = new THREE.TorusGeometry(4.2, 0.5, 2, 60);
-	let ring_1_mat = new THREE.MeshBasicMaterial({color: 0xf3e3df});
+	var ring_1_geo = new THREE.TorusGeometry(4.2, 0.5, 2, 60);
+	var ring_1_mat = new THREE.MeshBasicMaterial({color: 0xf3e3df});
 	ring_1 = new THREE.Mesh(ring_1_geo, ring_1_mat);
 	ring_1.rotation.x = -1.4;
 	ring_1.rotation.y = -0.4;
 
 	//Ring 2
-	let ring_2_geo = new THREE.TorusGeometry(5.4, 0.5, 2, 60);
-	let ring_2_mat = new THREE.MeshBasicMaterial({color: 0xd9ada0});
+	var ring_2_geo = new THREE.TorusGeometry(5.4, 0.5, 2, 60);
+	var ring_2_mat = new THREE.MeshBasicMaterial({color: 0xd9ada0});
 	ring_2 = new THREE.Mesh(ring_2_geo, ring_2_mat);
 	ring_2.rotation.x = -1.4;
 	ring_2.rotation.y = -0.4;
 
 	//Ring 3
-	let ring_3_geo = new THREE.TorusGeometry(6.6, 0.5, 2, 60);
-	let ring_3_mat = new THREE.MeshBasicMaterial({color: 0x8d503e});
+	var ring_3_geo = new THREE.TorusGeometry(6.6, 0.5, 2, 60);
+	var ring_3_mat = new THREE.MeshBasicMaterial({color: 0x8d503e});
 	ring_3 = new THREE.Mesh(ring_3_geo, ring_3_mat);
 	ring_3.rotation.x = -1.4;
 	ring_3.rotation.y = -0.4;
@@ -35,7 +35,7 @@ let createSaturn = function () {
 };
 
 // initiallize scene, camera, objects and renderer
-let init = function () {
+var init = function () {
 
 	// info
 	info = document.createElement( 'div' );
@@ -80,7 +80,7 @@ let init = function () {
 };
 
 // main animation loop - calls every 50-60 ms.
-let mainLoop = function () {
+var mainLoop = function () {
 	body.position.y -= ADD * 5;
 	body.rotation.x += ADD;
 	ring_1.position.y -= ADD * 5;
