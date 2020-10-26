@@ -74,49 +74,7 @@ var gui = new dat.GUI();
   var moonMesh = new THREE.Mesh(sphereGeometry, moonMaterial);
   moonMesh.scale.set(.5, .5, .5);
   moonOrbit.add(moonMesh);
-  objects.push(moonMesh);
-
-  // Turns both axes and grid visible on/off
-  // dat.GUI requires a property that returns a bool
-  // to decide to make a checkbox so we make a setter
-  // and getter for `visible` which we can tell dat.GUI
-  // to look at.
-  class AxisGridHelper {
-    constructor(node, units = 10) {
-      var axes = new THREE.AxesHelper();
-      axes.material.depthTest = false;
-      axes.renderOrder = 2;  // after the grid
-      node.add(axes);
-   
-      var grid = new THREE.GridHelper(units, units);
-      grid.material.depthTest = false;
-      grid.renderOrder = 1;
-      node.add(grid);
-   
-      this.grid = grid;
-      this.axes = axes;
-      this.visible = false;
-    }
-    get visible() {
-      return this._visible;
-    }
-    set visible(v) {
-      this._visible = v;
-      this.grid.visible = v;
-      this.axes.visible = v;
-    }
-  }
-
-  function makeAxisGrid(node, label, units) {
-    var helper = new AxisGridHelper(node, units);
-    gui.add(helper, 'visible').name(label);
-  }
-   
-  makeAxisGrid(solarSystem, 'solarSystem', 25);
-  makeAxisGrid(sunMesh, 'sunMesh');
-  makeAxisGrid(earthOrbit, 'earthOrbit');
-  makeAxisGrid(earthMesh, 'earthMesh');
-  makeAxisGrid(moonMesh, 'moonMesh');
+  objects.push(moonMesh);  
 
 
   // create an locate the camera
@@ -141,7 +99,7 @@ var gui = new dat.GUI();
   }
 
   function render(time) {
-    time *= 0.001;  //時間を秒に変換します
+    time *= 0.001;
    
     if (resizeRendererToDisplaySize(renderer)) {
       var canvas = renderer.domElement;
