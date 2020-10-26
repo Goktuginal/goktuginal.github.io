@@ -30,8 +30,8 @@ const objects = [];
  
 // use just one sphere for everything
 const radius = 1;
-const widthSegments = 6;
-const heightSegments = 6;
+const widthSegments = 32;
+const heightSegments = 32;
 const sphereGeometry = new THREE.SphereBufferGeometry(
     radius, widthSegments, heightSegments);
 
