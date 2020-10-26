@@ -46,12 +46,13 @@ let init = function () {
 	info.style.color = '#f00';
 	info.style.backgroundColor = 'transparent';
 	info.style.zIndex = '1';
+	info.innerHTML = 'INTERSECT Count: ';
 	info.style.fontFamily = 'Monospace';
 	info.style.userSelect = "none";
 	info.style.webkitUserSelect = "none";
 	info.style.MozUserSelect = "none";
 	document.body.appendChild( info );
-	
+
 	// create the scene
 	scene = new THREE.Scene();
 
