@@ -7,7 +7,6 @@
   info.style.color = '#f00';
   info.style.backgroundColor = 'transparent';
   info.style.zIndex = '1';
-  //info.innerHTML = 'INTERSECT Count: ';
   info.style.fontFamily = 'Monospace';
   info.style.userSelect = "none";
   info.style.webkitUserSelect = "none";
