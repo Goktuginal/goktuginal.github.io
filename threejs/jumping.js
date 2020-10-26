@@ -16,7 +16,7 @@ const setup = () => {
     canvas: canvas,
     alpha: true 
   });
-  
+
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setClearColor( 0x000000, 0);
@@ -40,7 +40,7 @@ const resize = () => {
 };
 
 
-const boxAmount = 3
+const boxAmount = 5
 const boxPos = [];
 const boxScale = [];
 let boxGroup = new THREE.Group();
