@@ -149,7 +149,7 @@
 		</div><!-- container -->
 	</div>	<!-- f -->
 
-	 include 'header.php';
+	<?php include 'contact.php';  ?> 
 
 	
 
