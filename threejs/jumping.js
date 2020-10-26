@@ -40,7 +40,7 @@ const resize = () => {
 };
 
 
-const boxAmount = 5
+const boxAmount = 6
 const boxPos = [];
 const boxScale = [];
 let boxGroup = new THREE.Group();
