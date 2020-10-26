@@ -1,28 +1,50 @@
-const canvas = document.querySelector("canvas");
 let scene, camera, light, renderer;
 
-const setup = () => {
-  scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0xEEEEEE,0.015);
-  camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
-  camera.position.set(0, 9, 16);
+// info
+  info = document.createElement( 'div' );
+  info.style.position = 'absolute';
+  info.style.top = '30px';
+  info.style.width = '100%';
+  info.style.textAlign = 'center';
+  info.style.color = '#f00';
+  info.style.backgroundColor = 'transparent';
+  info.style.zIndex = '1';
+  info.style.fontFamily = 'Monospace';
+  info.style.userSelect = "none";
+  info.style.webkitUserSelect = "none";
+  info.style.MozUserSelect = "none";
+  document.body.appendChild( info );
+
+  const setup = () => {
+    scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0xEEEEEE,0.015);
+    camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.set(0, 9, 16);
   
-  renderer = new THREE.WebGLRenderer({
-    antialias: true,
-    canvas: canvas
-  });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setClearColor(0xeeeeee);
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap
-  ambient = new THREE.HemisphereLight(0xF8FCFE, 1);
-  scene.add(ambient);
+    // create the renderer
+    renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      canvas: canvas,
+      alpha: true
+    });
+
+    renderer.setClearColor( 0x000000, 0);
+    renderer.setSize(window.innerWidth/2, window.innerHeight);
+    document.getElementById( 'canvas' ).appendChild( renderer.domElement );
+
+    document.body.appendChild(renderer.domElement);
+
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setClearColor(0xeeeeee);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap
+    ambient = new THREE.HemisphereLight(0xF8FCFE, 1);
+    scene.add(ambient);
 
   controls = new THREE.OrbitControls(camera, renderer.domElement); 
 };
@@ -50,9 +72,9 @@ const addPlane = () => {
 }
 
 
-const boxAmount = 3
-const boxPos = [];
-const boxScale = [];
+var boxAmount = 3
+var boxPos = [];
+var boxScale = [];
 let boxGroup = new THREE.Group();
 
 const addBoxes = () => {
