@@ -1,6 +1,6 @@
 import {
 	Vector3
-} from "../../../build/three.module.js";
+} from "../lib/three.module.js";
 
 var GeometryUtils = {
 
