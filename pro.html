@@ -29,39 +29,22 @@
 
 		/*html, body {
 		   margin: 0;
-		   height: 10%;
+		   height: 100%;
 		}
 		#c {
-		   width: 10%;
-		   height: 10%;
+		   width: 100%;
+		   height: 100%;
+		   display: block;
 		}*/
 
     </style>
 </head>
 <body>
-
-	<p>Image to use:</p>
-	<img id="scream" width="220" height="277" src="minimal/theme/assets/img/space.jpg" alt="The Space">
-
-	<p>Canvas:</p>
-	<canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;">
-	Your browser does not support the HTML5 canvas tag.
-	</canvas>
-
-
+	<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+</canvas>
 	<!-- <div class="container">
 	  <canvas></canvas>
 	</div>  -->   
-
-
-	<script>
-		window.onload = function() {
-		var c = document.getElementById("myCanvas");
-		var ctx = c.getContext("2d");
-	  	var img = document.getElementById("scream");
-	  	ctx.drawImage(img, 10, 10);
-	}
-	</script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="lib/three.min_r96.js"></script>
