@@ -17,9 +17,8 @@ const setup = () => {
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setClearColor(0xeeeeee);
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap
+  renderer.setClearColor( 0x000000, 0);
+ 
   ambient = new THREE.HemisphereLight(0xF8FCFE, 1);
   scene.add(ambient);
 
