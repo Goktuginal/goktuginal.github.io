@@ -1,7 +1,29 @@
-const canvas = document.querySelector('#c');
-const renderer = new THREE.WebGLRenderer({canvas});
+// info
+  info = document.createElement( 'div' );
+  info.style.position = 'absolute';
+  info.style.top = '30px';
+  info.style.width = '100%';
+  info.style.textAlign = 'center';
+  info.style.color = '#f00';
+  info.style.backgroundColor = 'transparent';
+  info.style.zIndex = '1';
+  //info.innerHTML = 'INTERSECT Count: ';
+  info.style.fontFamily = 'Monospace';
+  info.style.userSelect = "none";
+  info.style.webkitUserSelect = "none";
+  info.style.MozUserSelect = "none";
+  document.body.appendChild( info );
+
+
 const gui = new dat.GUI();
   
+  renderer = new THREE.WebGLRenderer({antialias: true, alpha: true });
+  renderer.setClearColor( 0x000000, 0);
+  renderer.setSize(window.innerWidth/2, window.innerHeight);
+  document.getElementById( 'canvas' ).appendChild( renderer.domElement );
+
+  document.body.appendChild(renderer.domElement);
+
 const scene = new THREE.Scene();
 
 // an array of objects whose rotation to update
@@ -97,15 +119,15 @@ makeAxisGrid(earthOrbit, 'earthOrbit');
 makeAxisGrid(earthMesh, 'earthMesh');
 makeAxisGrid(moonMesh, 'moonMesh');
 
-// Camera
-const fov = 40;
-const aspect = 2;  // the canvas default
-const near = 10;
-const far = 200;
-const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.set(0, 50, 0);
-camera.up.set(0, 0, 1);
-camera.lookAt(0, 0, 0);
+
+// create an locate the camera
+  camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    1,
+    1000
+  );
+  camera.position.z = 20;
 
 function resizeRendererToDisplaySize(renderer) {
   const canvas = renderer.domElement;
