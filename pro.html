@@ -5,8 +5,8 @@
 <html>
 <head>
 	<title>Robot</title>
-    <!-- <style >
-        html,body {
+    <style >
+        /*html,body {
 		  height:100%;
 		}
 		body {
@@ -25,13 +25,25 @@
 		    width:100%;
 		    display:block;
 		  }
+		}*/
+
+		html, body {
+		   margin: 0;
+		   height: 100%;
 		}
-    </style> -->
+		#c {
+		   width: 100%;
+		   height: 100%;
+		   display: block;
+		}
+
+    </style>
 </head>
 <body>
-	<div class="container">
+	<canvas id="c"></canvas>
+	<!-- <div class="container">
 	  <canvas></canvas>
-	</div>    
+	</div>  -->   
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="lib/three.min_r96.js"></script>
@@ -41,7 +53,8 @@
     <script src="lib/stats.min.js"></script>
 
     <!-- <script src="threejs/jumping.js"></script> -->
-    <script src="threejs/saturn.js"></script>
+    <!-- <script src="threejs/saturn.js"></script> -->
+    <script src="threejs/sun.js"></script>
 
 </body>
 </html>
