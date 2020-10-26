@@ -26,11 +26,17 @@
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
+
+    <style>#canvas {
+    width: 200px;
+    height: 200px;
+    margin: 100px;
+    padding: 0px;
+    position: static; /* fixed or static */
+    top: 100px;
+    left: 100px;
+}</style>	
+ 
   </head>
 
   <body data-spy="scroll" data-offset="0" data-target="#theMenu">
@@ -39,7 +45,7 @@
 	  <canvas></canvas>
 	</div>   -->  
 	
-	<div id="container" width="400" height="400"></div>	
+	<div id="canvas" width="400" height="400"></div>	
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="../../lib/three.min_r96.js"></script>
