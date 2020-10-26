@@ -38,7 +38,6 @@ let createSaturn = function () {
 let init = function () {
 	// create the scene
 	scene = new THREE.Scene();
-	scene.background = new THREE.Color(0x000000);
 
 	// create an locate the camera
 	camera = new THREE.PerspectiveCamera(
@@ -55,8 +54,10 @@ let init = function () {
 	createSaturn();
 
 	// create the renderer
-	renderer = new THREE.WebGLRenderer();
-	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer = new THREE.WebGLRenderer({ alpha: true });
+	renderer.setClearColor( 0x000000, 0);
+	renderer.setSize(window.innerWidth/4, window.innerHeight/2);
+	document.getElementById( 'container' ).appendChild( renderer.domElement );
 
 	document.body.appendChild(renderer.domElement);
 };
