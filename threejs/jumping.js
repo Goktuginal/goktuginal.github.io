@@ -57,7 +57,7 @@ const addBoxes = () => {
     boxGroup.add(mesh);
   }
   scene.add(boxGroup);
-  boxGroup.position.set(-8,-1,0);
+  boxGroup.position.set(-15,-1,0);
 }
 
 const addLights = () => {
