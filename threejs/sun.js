@@ -13,8 +13,6 @@
   info.style.MozUserSelect = "none";
   document.body.appendChild( info );
 
-
-var gui = new dat.GUI();
   
   renderer = new THREE.WebGLRenderer({antialias: true, alpha: true });
   renderer.setClearColor( 0x000000, 0);
