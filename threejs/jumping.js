@@ -34,7 +34,6 @@ function setup() {
 function render() {
   requestAnimationFrame(render);
   renderer.render(scene, camera);
-  console.log(camera.position.x,camera.position.y,camera.position.z)
 }
 
 // size window
@@ -176,13 +175,13 @@ function Lights() {
 
 // box animation, jumping boxes
 function animateBoxes() {
-  var tl = gsap.timeline({defaults:{duration:0.15,ease:"sine.inOut"}})
-  tl.to(boxPos,{y:5.2,stagger:{amount:0.12,repeat:-1,repeatDelay:0.25}},'in+=0.1')
+  var ab = gsap.timeline({defaults:{duration:0.15,ease:"sine.inOut"}})
+  ab.to(boxPos,{y:5.2,stagger:{amount:0.12,repeat:-1,repeatDelay:0.25}},'in+=0.1')
     .to(boxPos,{y:2,stagger:{amount:0.1,repeat:-1,repeatDelay:0.25},ease:"sine.in"},'in+=0.25')
   .to(boxScale,{y:0.8,x:1.24,z:1.24,stagger:{amount:0.1,repeat:-1,repeatDelay:0.3},duration:0.1,ease:"circ.out"},'in')
     .to(boxScale,{y:1.2,x:1,z:1,stagger:{amount:0.1,repeat:-1,repeatDelay:0.3},duration:0.1,ease:"power1.in"},'in+=0.1')
   .to(boxScale,{y:1,x:1,z:1,stagger:{amount:0.1,repeat:-1,repeatDelay:0.3},duration:0.1},'in+=0.2');
-  return tl.timeScale(0.6);
+  return ab.timeScale(0.6);
 }
 
 window.addEventListener("load", () => {

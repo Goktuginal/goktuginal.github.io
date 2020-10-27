@@ -1,4 +1,4 @@
-var scene, camera, renderer, torus;
+var scene, camera, renderer;
 var flag = 0.0003;
 
 var planet = function () {
