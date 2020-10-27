@@ -1,37 +1,37 @@
 var scene, camera, renderer, torus;
-var ADD = 0.0003;
+var flag = 0.0003;
 
-var createSaturn = function () {
-	//Planet Body
+var planet = function () {
+	//Planet-Mars Body
 	var body_geo = new THREE.SphereGeometry(3, 20, 20);
-	var body_mat = new THREE.MeshBasicMaterial({color: 0xc4765e});
+	var body_mat = new THREE.MeshBasicMaterial({color: 0xe77d11});
 	body = new THREE.Mesh(body_geo, body_mat);
 
-	//Ring 1
-	var ring_1_geo = new THREE.TorusGeometry(4.2, 0.5, 2, 60);
-	var ring_1_mat = new THREE.MeshBasicMaterial({color: 0xf3e3df});
-	ring_1 = new THREE.Mesh(ring_1_geo, ring_1_mat);
-	ring_1.rotation.x = -1.4;
-	ring_1.rotation.y = -0.4;
+	//Orbit 1
+	var orbit1_geo = new THREE.TorusGeometry(4.2, 0.5, 2, 60);
+	var orbit1_mat = new THREE.MeshBasicMaterial({color: 0xfda600});
+	orbit1 = new THREE.Mesh(orbit1_geo, orbit1_mat);
+	orbit1.rotation.x = -1.4;
+	orbit1.rotation.y = -0.4;
 
-	//Ring 2
-	var ring_2_geo = new THREE.TorusGeometry(5.4, 0.5, 2, 60);
-	var ring_2_mat = new THREE.MeshBasicMaterial({color: 0xd9ada0});
-	ring_2 = new THREE.Mesh(ring_2_geo, ring_2_mat);
-	ring_2.rotation.x = -1.4;
-	ring_2.rotation.y = -0.4;
+	//Orbit 2
+	var orbit2_geo = new THREE.TorusGeometry(5.4, 0.5, 2, 60);
+	var orbit2_mat = new THREE.MeshBasicMaterial({color: 0x451804});
+	orbit2 = new THREE.Mesh(orbit2_geo, orbit2_mat);
+	orbit2.rotation.x = -1.4;
+	orbit2.rotation.y = -0.4;
 
-	//Ring 3
-	var ring_3_geo = new THREE.TorusGeometry(6.6, 0.5, 2, 60);
-	var ring_3_mat = new THREE.MeshBasicMaterial({color: 0x8d503e});
-	ring_3 = new THREE.Mesh(ring_3_geo, ring_3_mat);
-	ring_3.rotation.x = -1.4;
-	ring_3.rotation.y = -0.4;
+	//Orbit 3
+	var orbit3_geo = new THREE.TorusGeometry(6.6, 0.5, 2, 60);
+	var orbit3_mat = new THREE.MeshBasicMaterial({color: 0xc1440e});
+	orbit3 = new THREE.Mesh(orbit3_geo, orbit3_mat);
+	orbit3.rotation.x = -1.4;
+	orbit3.rotation.y = -0.4;
 
 	scene.add(body);
-	scene.add(ring_1);
-	scene.add(ring_2);
-	scene.add(ring_3);
+	scene.add(orbit1);
+	scene.add(orbit2);
+	scene.add(orbit3);
 };
 
 // initiallize scene, camera, objects and renderer
@@ -46,7 +46,6 @@ var init = function () {
 	info.style.color = '#f00';
 	info.style.backgroundColor = 'transparent';
 	info.style.zIndex = '1';
-	//info.innerHTML = 'INTERSECT Count: ';
 	info.style.fontFamily = 'Monospace';
 	info.style.userSelect = "none";
 	info.style.webkitUserSelect = "none";
@@ -65,10 +64,7 @@ var init = function () {
 	);
 	camera.position.z = 20;
 
-	//let axes = new THREE.AxesHelper(10);
-	//scene.add(axes);
-
-	createSaturn();
+	planet();
 
 	// create the renderer
 	renderer = new THREE.WebGLRenderer({antialias: true, alpha: true });
@@ -81,21 +77,20 @@ var init = function () {
 
 // main animation loop - calls every 50-60 ms.
 var mainLoop = function () {
-	body.position.y -= ADD * 5;
-	body.rotation.x += ADD;
-	ring_1.position.y -= ADD * 5;
-	ring_1.rotation.x += ADD;
-	ring_2.position.y -= ADD * 5;
-	ring_2.rotation.x += ADD;
-	ring_3.position.y -= ADD * 5;
-	ring_3.rotation.x += ADD;
+	body.position.y -= flag * 5;
+	body.rotation.x += flag;
+	orbit1.position.y -= flag * 5;
+	orbit1.rotation.x += flag;
+	orbit2.position.y -= flag * 5;
+	orbit2.rotation.x += flag;
+	orbit3.position.y -= flag * 5;
+	orbit3.rotation.x += flag;
 
-	if (body.rotation.x <= -0.4 || body.rotation.x >= 0.2) ADD *= -1;
+	if (body.rotation.x <= -0.4 || body.rotation.x >= 0.2) flag *= -1;
 
 	renderer.render(scene, camera);
 	requestAnimationFrame(mainLoop);
 };
 
-///////////////////////////////////////////////
 init();
 mainLoop();
