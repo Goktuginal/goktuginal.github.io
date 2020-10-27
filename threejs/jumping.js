@@ -55,50 +55,11 @@ const addBoxes = () => {
   'G.jpg', 'G.jpg',
   'G.jpg', 'G.jpg'
 ] );
-  var loader2 = new THREE.CubeTextureLoader();
-  loader2.setPath( 'minimal/theme/assets/img/' );
-  var textureCube2 = loader2.load( [
-  'O.jpg', 'O.jpg',
-  'O.jpg', 'O.jpg',
-  'O.jpg', 'O.jpg'
-] );
-  var loader3 = new THREE.CubeTextureLoader();
-  loader3.setPath( 'minimal/theme/assets/img/' );
-  var textureCube3 = loader3.load( [
-  'K.jpg', 'K.jpg',
-  'K.jpg', 'K.jpg',
-  'K.jpg', 'K.jpg'
-] );
-  var loader4 = new THREE.CubeTextureLoader();
-  loader4.setPath( 'minimal/theme/assets/img/' );
-  var textureCube4 = loader4.load( [
-  'T.jpg', 'T.jpg',
-  'T.jpg', 'T.jpg',
-  'T.jpg', 'T.jpg'
-] );
-  var loader5 = new THREE.CubeTextureLoader();
-  loader5.setPath( 'minimal/theme/assets/img/' );
-  var textureCube5 = loader5.load( [
-  'U.jpg', 'U.jpg',
-  'U.jpg', 'U.jpg',
-  'U.jpg', 'U.jpg'
-] );
 
   var geo = new THREE.BoxBufferGeometry(2,2,2);
-  var mat = new THREE.MeshLambertMaterial({color:0xc9e4fe, envMap: textureCube})
-  var mat = new THREE.MeshLambertMaterial({color:0xc9e4fe, envMap: textureCube2})
-  var mat = new THREE.MeshLambertMaterial({color:0xc9e4fe, envMap: textureCube3})
-  var mat = new THREE.MeshLambertMaterial({color:0xc9e4fe, envMap: textureCube4})
-  var mat = new THREE.MeshLambertMaterial({color:0xc9e4fe, envMap: textureCube5})
-
+  var mat = new THREE.MeshBasicMaterial({color:0xc9e4fe, envMap: textureCube})
   for (var i = 0; i < boxAmount; i++) {
-    if (i = 0) var mesh = new THREE.Mesh(geo,textureCube);
-    else if (i = 1) var mesh = new THREE.Mesh(geo,textureCube2);
-    else if (i = 2) var mesh = new THREE.Mesh(geo,textureCube3);
-    else if (i = 3) var mesh = new THREE.Mesh(geo,textureCube4);
-    else if (i = 4) var mesh = new THREE.Mesh(geo,textureCube5);
-    else if (i = 5) var mesh = new THREE.Mesh(geo,textureCube);
-
+    var mesh = new THREE.Mesh(geo,mat);
     boxPos.push(mesh.position);
     boxScale.push(mesh.scale);
     mesh.position.set(i*4,2,0);
