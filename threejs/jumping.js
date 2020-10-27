@@ -57,6 +57,34 @@ const addBoxes = () => {
   var texture4 = textureLoader.load(path +'G.png' );
   var texture5 = textureLoader.load(path +'G.png' );
 
+  var texture6 = textureLoader.load(path +'O.jpg' );
+  var texture7 = textureLoader.load(path +'O.jpg' );
+  var texture8 = textureLoader.load(path +'O.jpg' );
+  var texture9 = textureLoader.load(path +'O.jpg' );
+  var texture10 = textureLoader.load(path +'O.jpg' );
+  var texture11 = textureLoader.load(path +'O.jpg' );
+
+  var texture12 = textureLoader.load(path +'K.png' );
+  var texture13 = textureLoader.load(path +'K.png' );
+  var texture14 = textureLoader.load(path +'K.png' );
+  var texture15 = textureLoader.load(path +'K.png' );
+  var texture16 = textureLoader.load(path +'K.png' );
+  var texture17 = textureLoader.load(path +'K.png' );
+
+  var texture18 = textureLoader.load(path +'T.png' );
+  var texture19 = textureLoader.load(path +'T.png' );
+  var texture20 = textureLoader.load(path +'T.png' );
+  var texture21 = textureLoader.load(path +'T.png' );
+  var texture22 = textureLoader.load(path +'T.png' );
+  var texture23 = textureLoader.load(path +'T.png' );
+
+  var texture24 = textureLoader.load(path +'U.png' );
+  var texture25 = textureLoader.load(path +'U.png' );
+  var texture26 = textureLoader.load(path +'U.png' );
+  var texture27 = textureLoader.load(path +'U.png' );
+  var texture28 = textureLoader.load(path +'U.png' );
+  var texture29 = textureLoader.load(path +'U.png' );
+
   var materials = [
     new THREE.MeshBasicMaterial( { map: texture0 } ),
     new THREE.MeshBasicMaterial( { map: texture1 } ),
@@ -65,16 +93,53 @@ const addBoxes = () => {
     new THREE.MeshBasicMaterial( { map: texture4 } ),
     new THREE.MeshBasicMaterial( { map: texture5 } )
   ];
+  var materials2 = [
+    new THREE.MeshBasicMaterial( { map: texture6 } ),
+    new THREE.MeshBasicMaterial( { map: texture7 } ),
+    new THREE.MeshBasicMaterial( { map: texture8 } ),
+    new THREE.MeshBasicMaterial( { map: texture9 } ),
+    new THREE.MeshBasicMaterial( { map: texture10 } ),
+    new THREE.MeshBasicMaterial( { map: texture11 } )
+  ];
+  var materials3 = [
+    new THREE.MeshBasicMaterial( { map: texture12 } ),
+    new THREE.MeshBasicMaterial( { map: texture13 } ),
+    new THREE.MeshBasicMaterial( { map: texture14 } ),
+    new THREE.MeshBasicMaterial( { map: texture15 } ),
+    new THREE.MeshBasicMaterial( { map: texture16 } ),
+    new THREE.MeshBasicMaterial( { map: texture17 } )
+  ];
+  var materials4 = [
+    new THREE.MeshBasicMaterial( { map: texture18 } ),
+    new THREE.MeshBasicMaterial( { map: texture19 } ),
+    new THREE.MeshBasicMaterial( { map: texture20 } ),
+    new THREE.MeshBasicMaterial( { map: texture21 } ),
+    new THREE.MeshBasicMaterial( { map: texture22 } ),
+    new THREE.MeshBasicMaterial( { map: texture23 } )
+  ];
+  var materials5 = [
+    new THREE.MeshBasicMaterial( { map: texture24 } ),
+    new THREE.MeshBasicMaterial( { map: texture25 } ),
+    new THREE.MeshBasicMaterial( { map: texture26 } ),
+    new THREE.MeshBasicMaterial( { map: texture27 } ),
+    new THREE.MeshBasicMaterial( { map: texture28 } ),
+    new THREE.MeshBasicMaterial( { map: texture29 } )
+  ];
   
   var faceMaterial = new THREE.MeshFaceMaterial( materials );
+  var faceMaterial2 = new THREE.MeshFaceMaterial( materials2 );
+  var faceMaterial3 = new THREE.MeshFaceMaterial( materials3 );
+  var faceMaterial4 = new THREE.MeshFaceMaterial( materials4 );
+  var faceMaterial5 = new THREE.MeshFaceMaterial( materials5 );
+
 
   var geo = new THREE.BoxBufferGeometry(2,2,2);
   for (var i = 0; i < boxAmount; i++) {
     if (i == 0 || i == 5) var mesh = new THREE.Mesh(geo,faceMaterial);
-    /*else if (i == 1) var mesh = new THREE.Mesh(geo,materialBrillante2);
+    else if (i == 1) var mesh = new THREE.Mesh(geo,materialBrillante2);
     else if (i == 2) var mesh = new THREE.Mesh(geo,materialBrillante3);
     else if (i == 3) var mesh = new THREE.Mesh(geo,materialBrillante4);
-    else if (i == 4) var mesh = new THREE.Mesh(geo,materialBrillante5);*/
+    else if (i == 4) var mesh = new THREE.Mesh(geo,materialBrillante5);
 
     boxPos.push(mesh.position);
     boxScale.push(mesh.scale);
