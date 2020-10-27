@@ -430,18 +430,14 @@ function render() {
 	renderer.setViewport(0, window.innerHeight/4, 
 						window.innerWidth, window.innerHeight);
 	renderer.render(scene, camera);
+
+	updateFcts.push(function(){
+	renderer.render(scene, camera);		
+	
+})
 }
 
-updateFcts.push(function(){
-	// Robot
-	renderer.setViewport(0, window.innerHeight/4, 
-						window.innerWidth, window.innerHeight);
-	renderer.render(scene, camera);		
-	// Thumnail
-	renderer.setViewport(0, window.innerHeight/16, 
-						window.innerWidth/8, window.innerHeight/8);
-	renderer.render(scene, camera); 	
-})
+
 
 var lastTimeMsec= null
 requestAnimationFrame(function animate(nowMsec){
