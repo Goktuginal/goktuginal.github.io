@@ -1,7 +1,7 @@
 var scene, camera, renderer, torus;
 var flag = 0.0003;
 
-fucntion planet() {
+function planet() {
 	//Planet-Mars Body
 	var body_geo = new THREE.SphereGeometry(3, 20, 20);
 	var body_mat = new THREE.MeshBasicMaterial({color: 0xe77d11});
@@ -76,7 +76,7 @@ function init() {
 }
 
 // main animation loop - calls every 50-60 ms.
-fucntion mainLoop() {
+function mainLoop() {
 	body.position.y -= flag * 5;
 	body.rotation.x += flag;
 	orbit1.position.y -= flag * 5;
