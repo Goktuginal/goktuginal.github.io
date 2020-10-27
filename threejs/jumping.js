@@ -136,10 +136,10 @@ const addBoxes = () => {
   var geo = new THREE.BoxBufferGeometry(2,2,2);
   for (var i = 0; i < boxAmount; i++) {
     if (i == 0 || i == 5) var mesh = new THREE.Mesh(geo,faceMaterial);
-    else if (i == 1) var mesh = new THREE.Mesh(geo,materialBrillante2);
-    else if (i == 2) var mesh = new THREE.Mesh(geo,materialBrillante3);
-    else if (i == 3) var mesh = new THREE.Mesh(geo,materialBrillante4);
-    else if (i == 4) var mesh = new THREE.Mesh(geo,materialBrillante5);
+    else if (i == 1) var mesh = new THREE.Mesh(geo,faceMaterial2);
+    else if (i == 2) var mesh = new THREE.Mesh(geo,faceMaterial3);
+    else if (i == 3) var mesh = new THREE.Mesh(geo,faceMaterial4);
+    else if (i == 4) var mesh = new THREE.Mesh(geo,faceMaterial5);
 
     boxPos.push(mesh.position);
     boxScale.push(mesh.scale);
