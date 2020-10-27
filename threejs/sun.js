@@ -40,17 +40,18 @@
     // Sun
     var sunMaterial = new THREE.MeshPhongMaterial({emissive: 0xFFFF00});
     var sunMesh = new THREE.Mesh(sphereGeometry, sunMaterial);
-    sunMesh.scale.set(5, 5, 5);  // make the sun large
+
+    // Bigger sun
+    sunMesh.scale.set(5, 5, 5);  
     solarSystem.add(sunMesh);
     objects.push(sunMesh);
 
-    {
-      var color = 0xFFFFFF;
-      var intensity = 3;
-      var light = new THREE.PointLight(color, intensity);
-      scene.add(light);
-    }
-
+    // Light parameters
+    var color = 0xFFFFFF;
+    var intensity = 3;
+    var light = new THREE.PointLight(color, intensity);
+    scene.add(light);
+  
     // Earth
     var earthOrbit = new THREE.Object3D();
     earthOrbit.position.x = 10;
