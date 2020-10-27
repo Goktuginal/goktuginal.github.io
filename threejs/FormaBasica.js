@@ -433,6 +433,9 @@ function render() {
 }
 
 updateFcts.push(function(){
+	// Robot
+	renderer.setViewport(0, window.innerHeight/4, 
+						window.innerWidth, window.innerHeight);
 	renderer.render(scene, camera);		
 	// Thumnail
 	renderer.setViewport(0, window.innerHeight/16, 
