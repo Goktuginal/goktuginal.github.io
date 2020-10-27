@@ -1,7 +1,7 @@
 var canvas = document.querySelector("canvas");
 var scene, camera, light, renderer;
 
-const setup = () => {
+function setup() {
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75,
@@ -25,19 +25,19 @@ const setup = () => {
   scene.add(ambient);
 
   controls = new THREE.OrbitControls(camera, renderer.domElement); 
-};
+}
 
-const render = () => {
+function render() {
   requestAnimationFrame(render);
   renderer.render(scene, camera);
   console.log(camera.position.x,camera.position.y,camera.position.z)
-};
+}
 
-const resize = () => {
+function resize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
-};
+}
 
 
 var boxAmount = 6
@@ -45,7 +45,7 @@ var boxPos = [];
 var boxScale = [];
 var boxGroup = new THREE.Group();
 
-const addBoxes = () => {
+function addBoxes() {
   var path = "../minimal/theme/assets/img/";
 
   var textureLoader = new THREE.TextureLoader();
@@ -151,7 +151,7 @@ const addBoxes = () => {
   boxGroup.position.set(-11,-1,0);
 }
 
-const addLights = () => {
+function addLights() {
   var light = new THREE.SpotLight(0xF3F8FD,0.2);
   light.position.set(-10,40,50);
   light.castShadow = true
@@ -166,7 +166,7 @@ const addLights = () => {
   scene.add(light2);
 } 
 
-const animateBoxes = () => {
+function animateBoxes() {
   var tl = gsap.timeline({defaults:{duration:0.15,ease:"sine.inOut"}})
   tl.to(boxPos,{y:5.2,stagger:{amount:0.12,repeat:-1,repeatDelay:0.25}},'in+=0.1')
     .to(boxPos,{y:2,stagger:{amount:0.1,repeat:-1,repeatDelay:0.25},ease:"sine.in"},'in+=0.25')
