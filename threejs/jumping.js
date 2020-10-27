@@ -47,7 +47,7 @@ var boxGroup = new THREE.Group();
 
 const addBoxes = () => {
   var path = "../minimal/theme/assets/img/";
-  var paredes = [path+'G.jpg',path+'G.jpg',
+  var paredes = [path+'G.jpg',path+'G.png',
         path+'G.jpg',path+'G.jpg',
         path+'G.jpg',path+'G.jpg'
         ];
