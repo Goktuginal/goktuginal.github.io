@@ -46,20 +46,21 @@ var boxScale = [];
 var boxGroup = new THREE.Group();
 
 const addBoxes = () => {
+  var path = "minimal/theme/assets/img/";
+  var paredes = [path+'G.jpg',path+'G.jpg',
+        path+'G.jpg',path+'G.jpg',
+        path+'G.jpg',path+'G.jpg'
+        ];
+  var mapaEntorno = new THREE.CubeTextureLoader().load(paredes);
 
-  var loader = new THREE.CubeTextureLoader();
-  loader.setPath( 'minimal/theme/assets/img/' );
-
-  var textureCube = loader.load( [
-  'G.jpg', 'G.jpg',
-  'G.jpg', 'G.jpg',
-  'G.jpg', 'G.jpg'
-] );
+  var materialBrillante = new THREE.MeshPhongMaterial({color:'white', 
+                            specular:'white',
+                            shinniness:'50',
+                            envMap:mapaEntorno});
 
   var geo = new THREE.BoxBufferGeometry(2,2,2);
-  var mat = new THREE.MeshBasicMaterial({color:0xc9e4fe, envMap: textureCube})
   for (var i = 0; i < boxAmount; i++) {
-    var mesh = new THREE.Mesh(geo,mat);
+    var mesh = new THREE.Mesh(geo,materialBrillante);
     boxPos.push(mesh.position);
     boxScale.push(mesh.scale);
     mesh.position.set(i*4,2,0);
