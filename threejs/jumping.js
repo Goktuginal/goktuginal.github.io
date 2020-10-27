@@ -47,6 +47,8 @@ var boxGroup = new THREE.Group();
 
 const addBoxes = () => {
   var path = "../minimal/theme/assets/img/";
+
+  var textureLoader = new THREE.TextureLoader();
   
   var texture0 = textureLoader.load(path +'G.png' );
   var texture1 = textureLoader.load(path +'G.png' );
