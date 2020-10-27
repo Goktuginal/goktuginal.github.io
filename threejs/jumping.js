@@ -1,7 +1,10 @@
+// Jumping boxes
+
 var canvas = document.querySelector("canvas");
 var scene, camera, light, renderer;
 
 function setup() {
+  // camera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75,
@@ -27,25 +30,29 @@ function setup() {
   controls = new THREE.OrbitControls(camera, renderer.domElement); 
 }
 
+// render
 function render() {
   requestAnimationFrame(render);
   renderer.render(scene, camera);
   console.log(camera.position.x,camera.position.y,camera.position.z)
 }
 
+// size window
 function resize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-
+// number of boxes, G, O, K, T, U, G
 var boxAmount = 6
 var boxPos = [];
 var boxScale = [];
 var boxGroup = new THREE.Group();
 
-function addBoxes() {
+function Boxes() {
+
+  // texture of each boxes
   var path = "../minimal/theme/assets/img/";
 
   var textureLoader = new THREE.TextureLoader();
@@ -151,7 +158,8 @@ function addBoxes() {
   boxGroup.position.set(-11,-1,0);
 }
 
-function addLights() {
+//adding light
+function Lights() {
   var light = new THREE.SpotLight(0xF3F8FD,0.2);
   light.position.set(-10,40,50);
   light.castShadow = true
@@ -166,6 +174,7 @@ function addLights() {
   scene.add(light2);
 } 
 
+// box animation, jumping boxes
 function animateBoxes() {
   var tl = gsap.timeline({defaults:{duration:0.15,ease:"sine.inOut"}})
   tl.to(boxPos,{y:5.2,stagger:{amount:0.12,repeat:-1,repeatDelay:0.25}},'in+=0.1')
@@ -178,8 +187,8 @@ function animateBoxes() {
 
 window.addEventListener("load", () => {
   setup();
-  addLights();
-  addBoxes();
+  Lights();
+  Boxes();
   animateBoxes();
   render();
 });
