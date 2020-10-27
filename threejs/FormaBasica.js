@@ -434,6 +434,10 @@ function render() {
 
 updateFcts.push(function(){
 	renderer.render(scene, camera);		
+	// Thumnail
+	renderer.setViewport(0, window.innerHeight/16, 
+						window.innerWidth/8, window.innerHeight/8);
+	renderer.render(scene, camera); 	
 })
 
 var lastTimeMsec= null
