@@ -64,26 +64,26 @@ const addBoxes = () => {
   var texture10 = textureLoader.load(path +'O.jpg' );
   var texture11 = textureLoader.load(path +'O.jpg' );
 
-  var texture12 = textureLoader.load(path +'K.png' );
-  var texture13 = textureLoader.load(path +'K.png' );
-  var texture14 = textureLoader.load(path +'K.png' );
-  var texture15 = textureLoader.load(path +'K.png' );
-  var texture16 = textureLoader.load(path +'K.png' );
-  var texture17 = textureLoader.load(path +'K.png' );
+  var texture12 = textureLoader.load(path +'K.jpg' );
+  var texture13 = textureLoader.load(path +'K.jpg' );
+  var texture14 = textureLoader.load(path +'K.jpg' );
+  var texture15 = textureLoader.load(path +'K.jpg' );
+  var texture16 = textureLoader.load(path +'K.jpg' );
+  var texture17 = textureLoader.load(path +'K.jpg' );
 
-  var texture18 = textureLoader.load(path +'T.png' );
-  var texture19 = textureLoader.load(path +'T.png' );
-  var texture20 = textureLoader.load(path +'T.png' );
-  var texture21 = textureLoader.load(path +'T.png' );
-  var texture22 = textureLoader.load(path +'T.png' );
-  var texture23 = textureLoader.load(path +'T.png' );
+  var texture18 = textureLoader.load(path +'T.jpg' );
+  var texture19 = textureLoader.load(path +'T.jpg' );
+  var texture20 = textureLoader.load(path +'T.jpg' );
+  var texture21 = textureLoader.load(path +'T.jpg' );
+  var texture22 = textureLoader.load(path +'T.jpg' );
+  var texture23 = textureLoader.load(path +'T.jpg' );
 
-  var texture24 = textureLoader.load(path +'U.png' );
-  var texture25 = textureLoader.load(path +'U.png' );
-  var texture26 = textureLoader.load(path +'U.png' );
-  var texture27 = textureLoader.load(path +'U.png' );
-  var texture28 = textureLoader.load(path +'U.png' );
-  var texture29 = textureLoader.load(path +'U.png' );
+  var texture24 = textureLoader.load(path +'U.jpg' );
+  var texture25 = textureLoader.load(path +'U.jpg' );
+  var texture26 = textureLoader.load(path +'U.jpg' );
+  var texture27 = textureLoader.load(path +'U.jpg' );
+  var texture28 = textureLoader.load(path +'U.jpg' );
+  var texture29 = textureLoader.load(path +'U.jpg' );
 
   var materials = [
     new THREE.MeshBasicMaterial( { map: texture0 } ),
