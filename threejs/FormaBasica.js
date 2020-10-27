@@ -27,7 +27,6 @@ var cameraControls;
 init();
 loadScene();
 setupGui();
-render();
 
 function init() {
 
@@ -415,8 +414,8 @@ function update() {
 	//TWEEN.update();
 }
 
-function render() {
-	
+
+updateFcts.push(function(){
 	// Construir el frame y mostrarlo
 	requestAnimationFrame(render);
 	update();
@@ -429,15 +428,8 @@ function render() {
 	// Robot
 	renderer.setViewport(0, window.innerHeight/4, 
 						window.innerWidth, window.innerHeight);
-	renderer.render(scene, camera);
-
-	updateFcts.push(function(){
-	renderer.render(scene, camera);		
-	
+	renderer.render(scene, camera);	
 })
-}
-
-
 
 var lastTimeMsec= null
 requestAnimationFrame(function animate(nowMsec){
