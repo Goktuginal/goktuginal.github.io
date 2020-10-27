@@ -51,16 +51,63 @@ const addBoxes = () => {
         path+'G.png',path+'G.png',
         path+'G.png',path+'G.png'
         ];
+  var paredes2 = [path+'O.jpg',path+'O.jpg',
+        path+'O.jpg',path+'O.jpg',
+        path+'O.jpg',path+'O.jpg'
+        ];
+  var paredes3 = [path+'K.jpg',path+'K.jpg',
+        path+'K.jpg',path+'K.jpg',
+        path+'K.jpg',path+'K.jpg'
+        ];
+  var paredes4 = [path+'T.jpg',path+'T.jpg',
+        path+'T.jpg',path+'T.jpg',
+        path+'T.jpg',path+'T.jpg'
+        ];
+  var paredes5 = [path+'U.jpg',path+'U.jpg',
+        path+'U.jpg',path+'U.jpg',
+        path+'U.jpg',path+'U.jpg'
+        ];
+
   var mapaEntorno = new THREE.CubeTextureLoader().load(paredes);
 
   var materialBrillante = new THREE.MeshPhongMaterial({color:'white', 
                             specular:'white',
                             shinniness:'50',
                             envMap:mapaEntorno});
+  var mapaEntorno2 = new THREE.CubeTextureLoader().load(paredes2);
+
+  var materialBrillante2 = new THREE.MeshPhongMaterial({color:'white', 
+                            specular:'white',
+                            shinniness:'50',
+                            envMap:mapaEntorno2});
+  var mapaEntorno3 = new THREE.CubeTextureLoader().load(paredes3);
+
+  var materialBrillante3 = new THREE.MeshPhongMaterial({color:'white', 
+                            specular:'white',
+                            shinniness:'50',
+                            envMap:mapaEntorno3});
+  var mapaEntorno4 = new THREE.CubeTextureLoader().load(paredes4);
+
+  var materialBrillante4 = new THREE.MeshPhongMaterial({color:'white', 
+                            specular:'white',
+                            shinniness:'50',
+                            envMap:mapaEntorno4});
+  var mapaEntorno5 = new THREE.CubeTextureLoader().load(paredes5);
+
+  var materialBrillante5 = new THREE.MeshPhongMaterial({color:'white', 
+                            specular:'white',
+                            shinniness:'50',
+                            envMap:mapaEntorno5});
+
 
   var geo = new THREE.BoxBufferGeometry(2,2,2);
   for (var i = 0; i < boxAmount; i++) {
-    var mesh = new THREE.Mesh(geo,materialBrillante);
+    if (i == 0 || i == 5) var mesh = new THREE.Mesh(geo,materialBrillante);
+    else if (i == 1) var mesh = new THREE.Mesh(geo,materialBrillante2);
+    else if (i == 2) var mesh = new THREE.Mesh(geo,materialBrillante3);
+    else if (i == 3) var mesh = new THREE.Mesh(geo,materialBrillante4);
+    else if (i == 4) var mesh = new THREE.Mesh(geo,materialBrillante5);
+
     boxPos.push(mesh.position);
     boxScale.push(mesh.scale);
     mesh.position.set(i*4,2,0);
