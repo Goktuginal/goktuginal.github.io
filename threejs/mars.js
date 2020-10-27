@@ -1,7 +1,7 @@
 var scene, camera, renderer;
 var flag = 0.0003;
 
-var planet = function () {
+fucntion planet() {
 	//Planet-Mars Body
 	var body_geo = new THREE.SphereGeometry(3, 20, 20);
 	var body_mat = new THREE.MeshBasicMaterial({color: 0xe77d11});
@@ -32,10 +32,10 @@ var planet = function () {
 	scene.add(orbit1);
 	scene.add(orbit2);
 	scene.add(orbit3);
-};
+}
 
 // initiallize scene, camera, objects and renderer
-var init = function () {
+function init() {
 
 	// info
 	info = document.createElement( 'div' );
@@ -73,10 +73,10 @@ var init = function () {
 	document.getElementById( 'canvas' ).appendChild( renderer.domElement );
 
 	document.body.appendChild(renderer.domElement);
-};
+}
 
 // main animation loop - calls every 50-60 ms.
-var mainLoop = function () {
+fucntion mainLoop() {
 	body.position.y -= flag * 5;
 	body.rotation.x += flag;
 	orbit1.position.y -= flag * 5;
@@ -90,7 +90,7 @@ var mainLoop = function () {
 
 	renderer.render(scene, camera);
 	requestAnimationFrame(mainLoop);
-};
+}
 
 init();
 mainLoop();
